@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="id" class="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Culinary Journey: Menjelajahi Rasa Nusantara</title>
-  <meta name="description" content="Web story interaktif menjelajahi kuliner ikonik tiga daerah Indonesia: Yogyakarta, Sumatera Selatan, dan Nusa Tenggara Barat." />
+  <meta name="description"
+    content="Web story interaktif menjelajahi kuliner ikonik tiga daerah Indonesia: Yogyakarta, Sumatera Selatan, dan Nusa Tenggara Barat." />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -23,21 +28,29 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero__bg {
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       background: radial-gradient(ellipse at 60% 40%, #38261a 0%, #1f1006 70%);
       z-index: 0;
     }
+
     .hero__inner {
-      position: relative; z-index: 1;
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: 1fr;
       gap: 3rem;
       align-items: center;
       padding-top: 5rem;
     }
+
     @media (min-width: 768px) {
-      .hero__inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
+      .hero__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
     }
 
     /* Map Area */
@@ -46,96 +59,262 @@
       min-height: 360px;
       border: 1px solid var(--color-outline-variant);
       background-color: var(--color-surface-container-lowest);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
+
     .map-area__img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       opacity: 0.25;
       filter: grayscale(80%);
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
     }
+
     .map-pin-group {
       position: absolute;
-      display: flex; flex-direction: column; align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       cursor: pointer;
       z-index: 2;
       text-decoration: none;
     }
-    .map-pin-group:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 4px; }
+
+    .map-pin-group:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+    }
+
     .map-pin-group__dot {
-      width: 14px; height: 14px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      border: 1px solid rgba(252,220,202,0.7);
+      border: 1px solid rgba(252, 220, 202, 0.7);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .map-pin-group:hover .map-pin-group__dot {
       transform: scale(1.6);
       box-shadow: 0 0 16px currentColor;
     }
+
     .map-pin-group__label {
       margin-top: 8px;
-      font-size: 0.625rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--color-on-surface);
       opacity: 0;
       transition: opacity 0.3s ease;
       white-space: nowrap;
     }
-    .map-pin-group:hover .map-pin-group__label { opacity: 1; }
-    .map-pin-group--jogja  { top: 52%; left: 48%; }
-    .map-pin-group--sumsel { top: 38%; left: 30%; }
-    .map-pin-group--ntb    { top: 60%; left: 62%; }
+
+    .map-pin-group:hover .map-pin-group__label {
+      opacity: 1;
+    }
+
+    .map-pin-group--jogja {
+      top: 60%;
+      left: 30%;
+    }
+
+    .map-pin-group--sumsel {
+      top: 49%;
+      left: 15%;
+    }
+
+    .map-pin-group--ntb {
+      top: 62%;
+      left: 45%;
+    }
 
     /* Region Cards (Landing) */
-    .region-cards { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    @media (min-width: 640px) { .region-cards { grid-template-columns: repeat(3, 1fr); } }
+    .region-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .region-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     .region-card {
       border: 1px solid var(--color-outline-variant);
       background-color: var(--color-surface-container-lowest);
       padding: 2rem 1.5rem;
-      display: flex; flex-direction: column; gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       text-decoration: none;
       transition: border-color 0.3s ease, background-color 0.3s ease;
       cursor: pointer;
     }
-    .region-card:hover { border-color: var(--color-primary); background-color: var(--color-surface-container); }
-    .region-card__emoji { font-size: 2rem; }
-    .region-card__eyebrow { font-size: 0.625rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-outline); }
-    .region-card__name { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; color: var(--color-on-surface); }
-    .region-card__desc { font-size: 0.875rem; line-height: 1.55; color: var(--color-on-surface-variant); }
-    .region-card__cta { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 0.5rem; }
+
+    .region-card:hover {
+      border-color: var(--color-primary);
+      background-color: var(--color-surface-container);
+    }
+
+    .region-card__emoji {
+      font-size: 2rem;
+    }
+
+    .region-card__eyebrow {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-outline);
+    }
+
+    .region-card__name {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--color-on-surface);
+    }
+
+    .region-card__desc {
+      font-size: 0.875rem;
+      line-height: 1.55;
+      color: var(--color-on-surface-variant);
+    }
+
+    .region-card__cta {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
 
     /* Z-pattern landing feature articles */
     .landing-feature {
-      display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
     }
-    @media (min-width: 768px) { .landing-feature { grid-template-columns: 1fr 1fr; } }
+
+    @media (min-width: 768px) {
+      .landing-feature {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .landing-feature__img {
-      aspect-ratio: 4/3; object-fit: cover; width: 100%;
-      border: 1px solid var(--color-outline); filter: grayscale(40%);
-      transition: filter 0.5s ease;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      width: 100%;
+      border: 1px solid var(--color-outline);
+      filter: grayscale(40%);
+      transition: filter 0.5s ease, opacity 0.4s ease;
     }
-    .landing-feature__img:hover { filter: grayscale(0%); }
-    .landing-feature__content { display: flex; flex-direction: column; gap: 1rem; }
+
+    .landing-feature__img:hover {
+      filter: grayscale(0%);
+    }
+
+    .landing-feature__slider {
+      position: relative;
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #111;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .slider-btn:hover {
+      transform: translateY(-50%) scale(1.05);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .slider-btn--prev {
+      left: 0.75rem;
+    }
+
+    .slider-btn--next {
+      right: 0.75rem;
+    }
+
+    .slider-btn svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .landing-feature__content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
 
     /* Stats row */
     .stats-bar {
-      display: flex; flex-wrap: wrap;
+      display: flex;
+      flex-wrap: wrap;
       border: 1px solid var(--color-outline-variant);
       background-color: var(--color-surface-container-lowest);
     }
+
     .stats-bar__item {
-      flex: 1; min-width: 180px;
+      flex: 1;
+      min-width: 180px;
       padding: 2rem 1.5rem;
       border-right: 1px solid var(--color-outline-variant);
-      display: flex; flex-direction: column; gap: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
-    .stats-bar__item:last-child { border-right: none; }
-    .stats-bar__value { font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; color: var(--color-primary); }
-    .stats-bar__label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-on-surface-variant); }
+
+    .stats-bar__item:last-child {
+      border-right: none;
+    }
+
+    .stats-bar__value {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .stats-bar__label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-on-surface-variant);
+    }
   </style>
 </head>
+
 <body>
   <!-- Reading Progress -->
   <div id="reading-progress" role="progressbar" aria-label="Reading progress"></div>
@@ -180,10 +359,11 @@
         <div style="display:flex; flex-direction:column; gap:2rem;">
           <span class="text-label text-primary" style="letter-spacing:0.14em;">Web Story · Data-Driven</span>
           <h1 class="text-display" style="max-width:580px;">
-            Menjelajahi<br/>Rasa Nusantara
+            Menjelajahi<br />Rasa Nusantara
           </h1>
           <p class="text-body-lg text-muted" style="max-width:440px;">
-            Perjalanan imersif berbasis data menguak kekayaan kuliner tiga daerah ikonik Indonesia — dari manisnya Keraton Yogyakarta hingga pedas liarnya Lombok.
+            Perjalanan imersif berbasis data menguak kekayaan kuliner tiga daerah ikonik Indonesia — dari manisnya
+            Keraton Yogyakarta hingga pedas liarnya Lombok.
           </p>
           <div style="display:flex; flex-wrap:wrap; gap:1rem;">
             <a href="yogyakarta.html" class="btn btn--primary">Mulai Jelajah ↓</a>
@@ -194,26 +374,25 @@
         <!-- Interactive Map -->
         <div class="map-area" aria-label="Peta Indonesia dengan 3 titik fokus daerah">
           <img class="map-area__img"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9XpaEgUgG5OKpY99DK2z304D1T4rFINeT25j-UF9-XvN1EiZZWXMtvqjWA51meM5SSIF-GG8QuCcCjdmbdohjoicYUIprmWuCS02iFRTVa3iujbhWMr5aDR7fvQznnsu5L-aP9iV7PH5qPNh_TQu0-0zI5ii1WZLjR-ZWcoJzX4xSwgBZV7-Mk1YMh1_v1YfWEtb33piDA9ZJT3XUDUE6rQIlGr3CI-E2iFau1XYjgmQvk_rDEq7CIMQ-cQ7OiMl7ANv1X6HOcUg"
-               alt="Peta abstrak Indonesia" />
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9XpaEgUgG5OKpY99DK2z304D1T4rFINeT25j-UF9-XvN1EiZZWXMtvqjWA51meM5SSIF-GG8QuCcCjdmbdohjoicYUIprmWuCS02iFRTVa3iujbhWMr5aDR7fvQznnsu5L-aP9iV7PH5qPNh_TQu0-0zI5ii1WZLjR-ZWcoJzX4xSwgBZV7-Mk1YMh1_v1YfWEtb33piDA9ZJT3XUDUE6rQIlGr3CI-E2iFau1XYjgmQvk_rDEq7CIMQ-cQ7OiMl7ANv1X6HOcUg"
+            alt="Peta abstrak Indonesia" />
 
           <!-- Yogyakarta Pin -->
-          <a class="map-pin-group map-pin-group--jogja" href="yogyakarta.html"
-             aria-label="Explore Yogyakarta">
+          <a class="map-pin-group map-pin-group--jogja" href="yogyakarta.html" aria-label="Explore Yogyakarta">
             <div class="map-pin-group__dot" style="background-color:#c8902a; box-shadow:0 0 12px #c8902a88;"></div>
             <span class="map-pin-group__label" style="color:#c8902a;">Yogyakarta</span>
           </a>
 
           <!-- Sumatera Selatan Pin -->
           <a class="map-pin-group map-pin-group--sumsel" href="sumatera-selatan.html"
-             aria-label="Explore Sumatera Selatan">
+            aria-label="Explore Sumatera Selatan">
             <div class="map-pin-group__dot" style="background-color:#c84c22; box-shadow:0 0 12px #c84c2288;"></div>
             <span class="map-pin-group__label" style="color:#c84c22;">Sumatera Selatan</span>
           </a>
 
           <!-- NTB Pin -->
           <a class="map-pin-group map-pin-group--ntb" href="nusa-tenggara-barat.html"
-             aria-label="Explore Nusa Tenggara Barat">
+            aria-label="Explore Nusa Tenggara Barat">
             <div class="map-pin-group__dot" style="background-color:#1a5c4a; box-shadow:0 0 12px #1a5c4a88;"></div>
             <span class="map-pin-group__label" style="color:#1a5c4a;">NTB</span>
           </a>
@@ -252,10 +431,12 @@
           Dari 34 provinsi di Indonesia…
         </p>
         <p class="text-headline-lg reveal reveal--delay-1" style="margin-bottom:1.5rem;">
-          …kami pilih <em style="color:var(--color-primary); font-style:normal;">3 daerah</em> dengan cita rasa paling ikonik.
+          …kami pilih <em style="color:var(--color-primary); font-style:normal;">3 daerah</em> dengan cita rasa paling
+          ikonik.
         </p>
         <p class="text-body-lg text-muted reveal reveal--delay-2">
-          Bukan hanya soal enak atau tidak — melainkan tentang data, sejarah, dan identitas budaya yang tersimpan di balik setiap suapan.
+          Bukan hanya soal enak atau tidak — melainkan tentang data, sejarah, dan identitas budaya yang tersimpan di
+          balik setiap suapan.
         </p>
       </div>
     </section>
@@ -273,7 +454,8 @@
           <div class="region-card__emoji">🎋</div>
           <span class="region-card__eyebrow">The Heart of Java</span>
           <h3 class="region-card__name" style="color:#c8902a;">Yogyakarta</h3>
-          <p class="region-card__desc">Manis · Gurih · Warisan Keraton. Gudeg, Oseng Mercon, Bakpia — tiga hidangan yang mewakili satu kota.</p>
+          <p class="region-card__desc">Manis · Gurih · Warisan Keraton. Gudeg, Oseng Mercon, Bakpia — tiga hidangan yang
+            mewakili satu kota.</p>
           <span class="region-card__cta" style="color:#c8902a;">
             Jelajahi <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
           </span>
@@ -284,7 +466,8 @@
           <div class="region-card__emoji">🌶️</div>
           <span class="region-card__eyebrow">The Rich Waters</span>
           <h3 class="region-card__name" style="color:#c84c22;">Sumatera Selatan</h3>
-          <p class="region-card__desc">Asam · Gurih · Kompleks. Pempek, Tekwan, Pindang Patin — warisan tepi Sungai Musi.</p>
+          <p class="region-card__desc">Asam · Gurih · Kompleks. Pempek, Tekwan, Pindang Patin — warisan tepi Sungai
+            Musi.</p>
           <span class="region-card__cta" style="color:#c84c22;">
             Jelajahi <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
           </span>
@@ -295,7 +478,8 @@
           <div class="region-card__emoji">🌊</div>
           <span class="region-card__eyebrow">The Spice Frontier</span>
           <h3 class="region-card__name" style="color:#1a5c4a;">Nusa Tenggara Barat</h3>
-          <p class="region-card__desc">Pedas · Segar · Identitas Sasak. Ayam Taliwang, Plecing Kangkung, Beberuk — ekstrem dan autentik.</p>
+          <p class="region-card__desc">Pedas · Segar · Identitas Sasak. Ayam Taliwang, Plecing Kangkung, Beberuk —
+            ekstrem dan autentik.</p>
           <span class="region-card__cta" style="color:#1a5c4a;">
             Jelajahi <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
           </span>
@@ -315,15 +499,33 @@
 
       <article class="landing-feature" style="margin-top:4rem;">
         <div class="reveal">
-          <img class="landing-feature__img"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB88D3-UBGzrGDT3xyR_nndVPY7MZljN26JQMZjmJXvGvd_OElK-6tGhFADxOSzrysbYUIrVZNr-iMroyY5RuyqEdR1dG1W-ExHbBFPg3OzaiLTrzpaGkqVIgy3ABd1vIe3IR7zg7zajiG8_JzexxnsVZHzp27AbXt_2om0qnLxLvj3f8Hx0igHqIm60cU5NMkuWxC9zRdMCjkJp6kiUryPASxPJAlXFRmGonxoEHy3MRteeej1v6lLGGmqPt64rw7goR1rU6nONRM"
-               alt="Gudeg Yogyakarta" />
+          <div class="landing-feature__slider" data-slider="yogya">
+            <button class="slider-btn slider-btn--prev" type="button" aria-label="Gambar sebelumnya"
+              data-slider-button="prev" data-slider="yogya">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <img class="landing-feature__img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB88D3-UBGzrGDT3xyR_nndVPY7MZljN26JQMZjmJXvGvd_OElK-6tGhFADxOSzrysbYUIrVZNr-iMroyY5RuyqEdR1dG1W-ExHbBFPg3OzaiLTrzpaGkqVIgy3ABd1vIe3IR7zg7zajiG8_JzexxnsVZHzp27AbXt_2om0qnLxLvj3f8Hx0igHqIm60cU5NMkuWxC9zRdMCjkJp6kiUryPASxPJAlXFRmGonxoEHy3MRteeej1v6lLGGmqPt64rw7goR1rU6nONRM"
+              alt="Gudeg Yogyakarta" data-slider="yogya" />
+            <button class="slider-btn slider-btn--next" type="button" aria-label="Gambar berikutnya"
+              data-slider-button="next" data-slider="yogya">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="landing-feature__content reveal reveal--delay-1">
           <span class="text-label" style="color:#c8902a;">Yogyakarta · The Heart of Java</span>
           <h2 class="text-headline-lg">Di Balik Manisnya Kota Pelajar</h2>
           <p class="text-body-lg text-muted">
-            Gudeg Yogya memiliki skor manis <strong style="color:var(--color-primary);">90/100</strong> — tertinggi dari seluruh dataset. Kontras dengan Oseng Mercon yang skor pedasnya 100/100. Keduanya berasal dari kota yang sama.
+            Gudeg Yogya memiliki skor manis <strong style="color:var(--color-primary);">90/100</strong> — tertinggi dari
+            seluruh dataset. Kontras dengan Oseng Mercon yang skor pedasnya 100/100. Keduanya berasal dari kota yang
+            sama.
           </p>
           <a href="yogyakarta.html" class="btn btn--outline" style="align-self:flex-start;">Eksplorasi Yogyakarta</a>
         </div>
@@ -335,14 +537,64 @@
           <span class="text-label" style="color:#c84c22;">Sumatera Selatan · The Rich Waters</span>
           <h2 class="text-headline-lg">Warisan Sungai Musi dalam Setiap Gigitan</h2>
           <p class="text-body-lg text-muted">
-            Pempek memiliki skor asam <strong style="color:#c84c22;">90/100</strong> dari seluruh dataset. Kombinasi asam + gurih yang unik membedakannya dari semua masakan daerah lain.
+            Pempek memiliki skor asam <strong style="color:#c84c22;">90/100</strong> dari seluruh dataset. Kombinasi
+            asam + gurih yang unik membedakannya dari semua masakan daerah lain.
           </p>
           <a href="sumatera-selatan.html" class="btn btn--outline" style="align-self:flex-start;">Eksplorasi Sumsel</a>
         </div>
         <div class="reveal reveal--delay-1" style="order:1;">
-          <img class="landing-feature__img"
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX0Qw9JzbSRBgLfY8heZVqeK-7OOmEyizvKvjnhLHqKGRKQ_hCqwhMSW5BZAgiZzwRjXEuYZHfWNrRxQs3XbYTRPzgFFQOhyVEUMRraz8gRYePRMpy2XcwAHUElum3RrIB-t2iLjwuWud01csSUINMAalJQcZRDZCjOaHjUQfeSftVNLIcUwdWGeehHXtdZGKOIkG2oHY4-58M85UMAQINNU1lzKdhCoetYKsnRwXPZNkCsLltSugPkRabg-7Q1MLsx12nTBwfvzA"
-               alt="Pempek Palembang" />
+          <div class="landing-feature__slider" data-slider="sumsel">
+            <button class="slider-btn slider-btn--prev" type="button" aria-label="Gambar sebelumnya"
+              data-slider-button="prev" data-slider="sumsel">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <img class="landing-feature__img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX0Qw9JzbSRBgLfY8heZVqeK-7OOmEyizvKvjnhLHqKGRKQ_hCqwhMSW5BZAgiZzwRjXEuYZHfWNrRxQs3XbYTRPzgFFQOhyVEUMRraz8gRYePRMpy2XcwAHUElum3RrIB-t2iLjwuWud01csSUINMAalJQcZRDZCjOaHjUQfeSftVNLIcUwdWGeehHXtdZGKOIkG2oHY4-58M85UMAQINNU1lzKdhCoetYKsnRwXPZNkCsLltSugPkRabg-7Q1MLsx12nTBwfvzA"
+              alt="Pempek Palembang" data-slider="sumsel" />
+            <button class="slider-btn slider-btn--next" type="button" aria-label="Gambar berikutnya"
+              data-slider-button="next" data-slider="sumsel">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Reversed Z: Nusa Tenggara Barat -->
+      <article class="landing-feature" style="margin-top:5rem;">
+        <div class="reveal">
+          <div class="landing-feature__slider" data-slider="ntb">
+            <button class="slider-btn slider-btn--prev" type="button" aria-label="Gambar sebelumnya"
+              data-slider-button="prev" data-slider="ntb">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <img class="landing-feature__img" src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80"
+              alt="Ayam Taliwang" data-slider="ntb" />
+            <button class="slider-btn slider-btn--next" type="button" aria-label="Gambar berikutnya"
+              data-slider-button="next" data-slider="ntb">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="landing-feature__content reveal reveal--delay-1">
+          <span class="text-label" style="color:#1a5c4a;">Nusa Tenggara Barat · The Spice Frontier</span>
+          <h2 class="text-headline-lg">Panas Identitas di Ujung Sunda Kecil</h2>
+          <p class="text-body-lg text-muted">
+            Ayam Taliwang memiliki skor pedas <strong style="color:#1a5c4a;">90/100</strong> — tertinggi dari Lombok.
+            Pedas bukan sekadar bumbu, tapi pernyataan budaya masyarakat Sasak yang tangguh.
+          </p>
+          <a href="nusa-tenggara-barat.html" class="btn btn--outline" style="align-self:flex-start;">Eksplorasi NTB</a>
         </div>
       </article>
     </section>
@@ -356,7 +608,8 @@
         <span class="batik-divider__dot"></span>
         <span class="batik-divider__line"></span>
       </div>
-      <div class="reveal" style="margin-top:4rem; padding:3rem; border:1px solid var(--color-outline-variant); background-color:var(--color-surface-container-lowest);">
+      <div class="reveal"
+        style="margin-top:4rem; padding:3rem; border:1px solid var(--color-outline-variant); background-color:var(--color-surface-container-lowest);">
         <span class="text-label text-outline" style="display:block; margin-bottom:1rem;">Data &amp; Visualisasi</span>
         <h2 class="text-headline-lg" style="margin-bottom:1rem;">Lihat Perbandingan Antar Daerah</h2>
         <p class="text-body-lg text-muted" style="max-width:500px; margin:0 auto 2rem;">
@@ -383,5 +636,56 @@
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sliders = {
+        yogya: [
+          { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB88D3-UBGzrGDT3xyR_nndVPY7MZljN26JQMZjmJXvGvd_OElK-6tGhFADxOSzrysbYUIrVZNr-iMroyY5RuyqEdR1dG1W-ExHbBFPg3OzaiLTrzpaGkqVIgy3ABd1vIe3IR7zg7zajiG8_JzexxnsVZHzp27AbXt_2om0qnLxLvj3f8Hx0igHqIm60cU5NMkuWxC9zRdMCjkJp6kiUryPASxPJAlXFRmGonxoEHy3MRteeej1v6lLGGmqPt64rw7goR1rU6nONRM', alt: 'Gudeg Yogyakarta' },
+          { src: 'https://images.unsplash.com/photo-1555342008-47ad87396bbf?w=800&q=80', alt: 'Oseng Mercon' },
+          { src: 'https://images.unsplash.com/photo-1564936282956-5f3c1d1ce1ca?w=800&q=80', alt: 'Bakpia Pathok' }
+        ],
+        sumsel: [
+          { src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAX0Qw9JzbSRBgLfY8heZVqeK-7OOmEyizvKvjnhLHqKGRKQ_hCqwhMSW5BZAgiZzwRjXEuYZHfWNrRxQs3XbYTRPzgFFQOhyVEUMRraz8gRYePRMpy2XcwAHUElum3RrIB-t2iLjwuWud01csSUINMAalJQcZRDZCjOaHjUQfeSftVNLIcUwdWGeehHXtdZGKOIkG2oHY4-58M85UMAQINNU1lzKdhCoetYKsnRwXPZNkCsLltSugPkRabg-7Q1MLsx12nTBwfvzA', alt: 'Pempek Palembang' },
+          { src: 'https://images.unsplash.com/photo-1550401372-e2a553a5e6f0?w=800&q=80', alt: 'Tekwan Palembang' },
+          { src: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80', alt: 'Pindang Patin Sumsel' }
+        ],
+        ntb: [
+          { src: 'https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80', alt: 'Ayam Taliwang' },
+          { src: 'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=800&q=80', alt: 'Plecing Kangkung' },
+          { src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80', alt: 'Beberuk Terong' }
+        ]
+      };
+
+      const state = { yogya: 0, sumsel: 0, ntb: 0 };
+
+      const update = (id) => {
+        const image = document.querySelector(`img[data-slider="${id}"]`);
+        if (!image) return;
+        const item = sliders[id][state[id]];
+        image.style.opacity = '0';
+        setTimeout(() => {
+          image.src = item.src;
+          image.alt = item.alt;
+          image.style.opacity = '1';
+        }, 120);
+      };
+
+      document.querySelectorAll('[data-slider-button]').forEach(button => {
+        button.addEventListener('click', () => {
+          const id = button.dataset.slider;
+          const dir = button.dataset.sliderButton === 'next' ? 1 : -1;
+          const items = sliders[id];
+          if (!items) return;
+          state[id] = (state[id] + dir + items.length) % items.length;
+          update(id);
+        });
+      });
+
+      update('yogya');
+      update('sumsel');
+      update('ntb');
+    });
+  </script>
 </body>
+
 </html>
