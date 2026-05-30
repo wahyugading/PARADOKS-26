@@ -26,6 +26,7 @@ async function loadRegionData() {
   const res  = await fetch(url);
   regionData = await res.json();
   renderDishGrid(regionData.hidangan);
+  if (regionData.bahan_autentik) renderIngredients(regionData.bahan_autentik);
 }
 
 function flavorBarHTML(label, pct, isHot = false) {
@@ -93,6 +94,35 @@ function renderDishGrid(hidangan) {
     card.addEventListener('click', openCard);
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openCard(); });
   });
+}
+
+function renderIngredients(bahanArray) {
+  const container = document.getElementById('ingredients-grid');
+  if (!container) return;
+
+  container.innerHTML = bahanArray.map(b => `
+    <div class="flip-card" role="button" tabindex="0" aria-label="Fakta mengenai ${b.nama}">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="${b.img}" alt="${b.nama}" loading="lazy" />
+          <div class="flip-card-front__body">
+            <div style="display: flex; align-items: center; gap: 6px; color: #1a5c4a;">
+              <span class="material-symbols-outlined" style="font-size: 1.25rem;">${b.icon}</span>
+              <strong style="font-size: 1rem; font-family: 'Playfair Display', serif;">${b.nama}</strong>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-on-surface-variant); line-height: 1.4; margin: 0;">
+              ${b.deskripsi_singkat}
+            </p>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <span class="material-symbols-outlined" style="font-size: 2.5rem; margin-bottom: 1rem;">${b.icon}</span>
+          <h3 style="font-size: 1.15rem; font-family: 'Playfair Display', serif; margin: 0 0 0.75rem;">Anatomi & Karakter</h3>
+          <p style="font-size: 0.85rem; line-height: 1.5; margin: 0;">${b.fakta_botani}</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
 }
 
 /* ── Init ── */
