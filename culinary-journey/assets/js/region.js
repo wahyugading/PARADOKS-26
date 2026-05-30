@@ -27,6 +27,7 @@ async function loadRegionData() {
   regionData = await res.json();
   renderDishGrid(regionData.hidangan);
   if (regionData.bahan_autentik) renderIngredients(regionData.bahan_autentik);
+setTimeout(initDialektikaSlider, 500); // Jeda sejenak untuk memastikan kartu selesai di-render
 }
 
 function flavorBarHTML(label, pct, isHot = false) {
@@ -125,5 +126,35 @@ function renderIngredients(bahanArray) {
   `).join('');
 }
 
+function initDialektikaSlider() {
+  const slider = document.getElementById('dialektika-slider');
+  if (!slider) return;
+
+  const cards = document.querySelectorAll('.dish-card');
+  // ID hidangan dikelompokkan berdasarkan karakteristiknya
+  const embunIds = ['plecing-kangkung', 'beberuk-terong'];
+  const baraIds = ['ayam-taliwang', 'nasi-balap-puyung', 'sate-rembiga'];
+
+  slider.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value);
+    
+    cards.forEach(card => {
+      const id = card.dataset.id;
+      // Reset efek setiap kali slider bergeser
+      card.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+
+      if (val < 30) {
+        // Area Embun (Kiri)
+        if (embunIds.includes(id)) card.classList.add('glow-embun');
+        else card.classList.add('dimmed');
+      } else if (val > 70) {
+        // Area Bara (Kanan)
+        if (baraIds.includes(id)) card.classList.add('glow-bara');
+        else card.classList.add('dimmed');
+      }
+      // Jika nilai di antara 30-70 (Netral), biarkan semua kartu kembali normal
+    });
+  });
+}
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', loadRegionData);
