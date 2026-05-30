@@ -248,4 +248,39 @@
       "img": "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800&q=80"
     }
   ]
+  ,
+  "bahan_autentik": [
+    {
+      "id": "kangkung-lombok",
+      "nama": "Kangkung Lombok",
+      "deskripsi_singkat": "Tumbuh di air mengalir deras dari mata air Gunung Rinjani.",
+      "fakta_botani": "Memiliki batang yang besar, berongga tebal, dan sangat renyah (crunchy) bahkan setelah direbus. Menyerap bumbu dengan sempurna.",
+      "icon": "eco",
+      "img": "https://images.unsplash.com/photo-1599339459521-125f18c64585?w=600&q=80"
+    },
+    {
+      "id": "terasi-lekok",
+      "nama": "Terasi Lombok (Lekok)",
+      "deskripsi_singkat": "Dibuat dari udang rebon pilihan perairan pesisir Lombok.",
+      "fakta_botani": "Memiliki aroma laut yang khas dan rasa gurih umami yang sangat pekat tanpa meninggalkan sisa rasa pahit. Kunci utama sambal plecing.",
+      "icon": "set_meal",
+      "img": "https://images.unsplash.com/photo-1623910270638-349f28d8cb53?w=600&q=80"
+    },
+    {
+      "id": "terong-gelatik",
+      "nama": "Terong Gelatik",
+      "deskripsi_singkat": "Terong bulat kecil berwarna hijau-putih yang renyah.",
+      "fakta_botani": "Teksturnya padat dan sedikit manis. Dikonsumsi mentah dalam hidangan Beberuk, memberikan sensasi segar yang menetralkan pedas cabai.",
+      "icon": "nutrition",
+      "img": "https://images.unsplash.com/photo-1601646870020-00826922cc59?w=600&q=80"
+    },
+    {
+      "id": "jeruk-limau",
+      "nama": "Jeruk Purut & Limau",
+      "deskripsi_singkat": "Memberikan keasaman sitrun yang tajam namun sangat segar.",
+      "fakta_botani": "Kadar asam sitratnya berfungsi memotong lemak dan meredakan rasa pedas cabai rawit yang membakar di lidah secara instan.",
+      "icon": "spa",
+      "img": "https://images.unsplash.com/photo-1590453880407-33d3cfa3e9e1?w=600&q=80"
+    }
+  ]
 }

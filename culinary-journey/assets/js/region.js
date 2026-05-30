@@ -26,6 +26,8 @@ async function loadRegionData() {
   const res  = await fetch(url);
   regionData = await res.json();
   renderDishGrid(regionData.hidangan);
+  if (regionData.bahan_autentik) renderIngredients(regionData.bahan_autentik);
+setTimeout(initDialektikaSlider, 500); // Jeda sejenak untuk memastikan kartu selesai di-render
 }
 
 function flavorBarHTML(label, pct, isHot = false) {
@@ -95,5 +97,64 @@ function renderDishGrid(hidangan) {
   });
 }
 
+function renderIngredients(bahanArray) {
+  const container = document.getElementById('ingredients-grid');
+  if (!container) return;
+
+  container.innerHTML = bahanArray.map(b => `
+    <div class="flip-card" role="button" tabindex="0" aria-label="Fakta mengenai ${b.nama}">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="${b.img}" alt="${b.nama}" loading="lazy" />
+          <div class="flip-card-front__body">
+            <div style="display: flex; align-items: center; gap: 6px; color: #1a5c4a;">
+              <span class="material-symbols-outlined" style="font-size: 1.25rem;">${b.icon}</span>
+              <strong style="font-size: 1rem; font-family: 'Playfair Display', serif;">${b.nama}</strong>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-on-surface-variant); line-height: 1.4; margin: 0;">
+              ${b.deskripsi_singkat}
+            </p>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <span class="material-symbols-outlined" style="font-size: 2.5rem; margin-bottom: 1rem;">${b.icon}</span>
+          <h3 style="font-size: 1.15rem; font-family: 'Playfair Display', serif; margin: 0 0 0.75rem;">Anatomi & Karakter</h3>
+          <p style="font-size: 0.85rem; line-height: 1.5; margin: 0;">${b.fakta_botani}</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function initDialektikaSlider() {
+  const slider = document.getElementById('dialektika-slider');
+  if (!slider) return;
+
+  const cards = document.querySelectorAll('.dish-card');
+  // ID hidangan dikelompokkan berdasarkan karakteristiknya
+  const embunIds = ['plecing-kangkung', 'beberuk-terong'];
+  const baraIds = ['ayam-taliwang', 'nasi-balap-puyung', 'sate-rembiga'];
+
+  slider.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value);
+    
+    cards.forEach(card => {
+      const id = card.dataset.id;
+      // Reset efek setiap kali slider bergeser
+      card.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+
+      if (val < 30) {
+        // Area Embun (Kiri)
+        if (embunIds.includes(id)) card.classList.add('glow-embun');
+        else card.classList.add('dimmed');
+      } else if (val > 70) {
+        // Area Bara (Kanan)
+        if (baraIds.includes(id)) card.classList.add('glow-bara');
+        else card.classList.add('dimmed');
+      }
+      // Jika nilai di antara 30-70 (Netral), biarkan semua kartu kembali normal
+    });
+  });
+}
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', loadRegionData);
