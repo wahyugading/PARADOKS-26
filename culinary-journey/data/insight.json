@@ -33,4 +33,17 @@
     { "icon": "eco",                   "text": "Plecing Kangkung NTB hanya 45 kcal/100g — hidangan paling ringan di seluruh eksplorasi." },
     { "icon": "bolt",                  "text": "NTB memiliki rata-rata skor pedas tertinggi (82/100) — jauh melampaui dua daerah lainnya." }
   ]
+  ,
+  "kuadran_data": [
+    { "nama": "Oseng Mercon", "region": "Yogyakarta", "x_pedas": 85, "y_kalori": 310, "warna": "#c8902a" },
+    { "nama": "Gudeg Nangka", "region": "Yogyakarta", "x_pedas": 30, "y_kalori": 220, "warna": "#c8902a" },
+    { "nama": "Bakpia Pathok", "region": "Yogyakarta", "x_pedas": 0, "y_kalori": 180, "warna": "#c8902a" },
+    { "nama": "Pempek", "region": "Sumatera Selatan", "x_pedas": 47, "y_kalori": 185, "warna": "#c84c22" },
+    { "nama": "Tekwan", "region": "Sumatera Selatan", "x_pedas": 40, "y_kalori": 140, "warna": "#c84c22" },
+    { "nama": "Pindang Patin", "region": "Sumatera Selatan", "x_pedas": 50, "y_kalori": 120, "warna": "#c84c22" },
+    { "nama": "Ayam Taliwang", "region": "NTB", "x_pedas": 90, "y_kalori": 280, "warna": "#1a5c4a" },
+    { "nama": "Nasi Balap Puyung", "region": "NTB", "x_pedas": 95, "y_kalori": 320, "warna": "#1a5c4a" },
+    { "nama": "Plecing Kangkung", "region": "NTB", "x_pedas": 85, "y_kalori": 45, "warna": "#1a5c4a" },
+    { "nama": "Beberuk Terong", "region": "NTB", "x_pedas": 70, "y_kalori": 60, "warna": "#1a5c4a" }
+  ]
 }
