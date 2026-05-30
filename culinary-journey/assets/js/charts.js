@@ -8,7 +8,6 @@
 
 /* ── Calorie Bar Chart ── */
 async function renderCalorieChart() {
-  // PERBAIKAN: Path JSON disesuaikan
   const res  = await fetch('data/insight.json');
   const data = await res.json();
   const items = data.kalori_comparison.sort((a, b) => b.kalori - a.kalori);
@@ -29,7 +28,7 @@ async function renderCalorieChart() {
       </div>
     </div>
   `).join('') + `
-    <div style="display:flex;align-items:center;gap:12px;margin-margin-top:12px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
       <div style="width:160px;"></div>
       <div style="flex:1;border-top:1px solid var(--color-outline-variant);padding-top:8px;display:flex;justify-content:space-between;">
         <span class="text-chart text-outline">0 kcal</span>
@@ -42,6 +41,11 @@ async function renderCalorieChart() {
   requestAnimationFrame(() => {
     container.querySelectorAll('.bar-chart-row__fill').forEach(bar => {
       setTimeout(() => { bar.style.width = bar.dataset.target + '%'; }, 200);
+    });
+    
+    // --- PERBAIKAN: Paksa baris grafik untuk memudar masuk (fade-in) secara berurutan ---
+    container.querySelectorAll('.bar-chart-row').forEach((row, i) => {
+      setTimeout(() => row.classList.add('visible'), i * 80);
     });
   });
 }
@@ -89,7 +93,6 @@ async function renderHeatmap() {
 
 /* ── Fun Facts ── */
 async function renderFunFacts() {
-  // PERBAIKAN: Path JSON disesuaikan
   const res  = await fetch('data/insight.json');
   const data = await res.json();
   const container = document.getElementById('fun-facts');
@@ -101,6 +104,13 @@ async function renderFunFacts() {
       <p style="font-size:1rem; line-height:1.6; color:var(--color-on-surface-variant);">${f.text}</p>
     </div>
   `).join('');
+
+  // --- PERBAIKAN: Paksa kotak fun facts muncul ke layar ---
+  requestAnimationFrame(() => {
+    container.querySelectorAll('.reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 150);
+    });
+  });
 }
 
 /* ── Radar Overlay Chart (3 daerah) ── */
