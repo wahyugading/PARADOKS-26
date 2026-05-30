@@ -161,10 +161,67 @@ async function renderRadarOverlay() {
   });
 }
 
+/* ── Scatter Plot Kuadran ── */
+async function renderScatterKuadran() {
+  const canvas = document.getElementById('scatter-kuadran');
+  if (!canvas || !window.Chart) return;
+
+  const res  = await fetch('data/insight.json');
+  const data = await res.json();
+  const rawData = data.kuadran_data;
+
+  // Mengelompokkan titik koordinat berdasarkan daerah (Region)
+  const regions = [...new Set(rawData.map(d => d.region))];
+  const datasets = regions.map(region => {
+    const regionItems = rawData.filter(d => d.region === region);
+    return {
+      label: region,
+      data: regionItems.map(d => ({ x: d.x_pedas, y: d.y_kalori, nama: d.nama })),
+      backgroundColor: regionItems[0].warna,
+      pointRadius: 8,
+      pointHoverRadius: 11,
+    };
+  });
+
+  new Chart(canvas, {
+    type: 'scatter',
+    data: { datasets },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#d4c4b0', font: { family: 'Inter', size: 12 }, padding: 20 } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              const pt = ctx.raw;
+              return `${pt.nama} (${pt.x} Pedas, ${pt.y} kcal)`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: '← Tidak Pedas | Tingkat Kepedasan | Sangat Pedas →', color: '#9d8f7c', font: {family: 'Inter'} },
+          min: -5, max: 105,
+          grid: { color: 'rgba(157,143,124,0.15)' },
+          ticks: { color: '#d4c4b0' }
+        },
+        y: {
+          title: { display: true, text: 'Kepadatan Kalori (kcal / 100g)', color: '#9d8f7c', font: {family: 'Inter'} },
+          min: 0, max: 350,
+          grid: { color: 'rgba(157,143,124,0.15)' },
+          ticks: { color: '#d4c4b0' }
+        }
+      }
+    }
+  });
+}
+
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
   renderCalorieChart();
   renderHeatmap();
   renderFunFacts();
   renderRadarOverlay();
+  renderScatterKuadran();
 });
