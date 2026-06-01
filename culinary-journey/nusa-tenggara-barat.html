@@ -11,6 +11,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* ── Fire & Freshness Slider ── */
+    .slider-container { margin: 2rem auto 3.5rem; max-width: 600px; text-align: center; }
+    .slider-labels { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .label-embun { color: #1a5c4a; }
+    .label-bara { color: #c84c22; }
+    
+    input[type=range].dialektika-slider {
+      -webkit-appearance: none; width: 100%; background: transparent;
+    }
+    input[type=range].dialektika-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%;
+      background: var(--color-surface-container-lowest); border: 2px solid var(--color-outline);
+      cursor: pointer; margin-top: -9px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    input[type=range].dialektika-slider::-webkit-slider-runnable-track {
+      width: 100%; height: 6px; cursor: pointer; border-radius: 4px;
+      background: linear-gradient(to right, #1a5c4a, #8f8576, #c84c22);
+    }
+    
+    /* Glow effects for cards */
+    .dish-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .dish-card.glow-embun { box-shadow: 0 0 24px rgba(26, 92, 74, 0.5); border-color: #1a5c4a; transform: translateY(-8px); }
+    .dish-card.glow-bara { box-shadow: 0 0 24px rgba(200, 76, 34, 0.5); border-color: #c84c22; transform: translateY(-8px); }
+    .dish-card.dimmed { opacity: 0.3; transform: scale(0.96); filter: grayscale(50%); pointer-events: none; }
+    /* ── 3D Flip Card Design System ── */
+    .flip-card {
+      background-color: transparent;
+      height: 320px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner,
+    .flip-card:focus-within .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--color-outline-variant);
+      overflow: hidden;
+    }
+    .flip-card-front {
+      background-color: var(--color-surface-container-lowest);
+      display: flex;
+      flex-direction: column;
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .flip-card-front__body {
+      padding: 1.25rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .flip-card-back {
+      background-color: #1a5c4a;
+      color: #fcdcca;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+  </style>
 </head>
 <body data-region="nusa-tenggara-barat">
   <div id="reading-progress" role="progressbar"></div>
@@ -68,6 +150,17 @@
     </section>
 
     <section class="container" style="margin-top:2.5rem;">
+      <div class="slider-container reveal">
+        <div class="slider-labels">
+          <span class="label-embun">🌿 Normal</span>
+          <span style="color: var(--color-on-surface-variant);">Sedang</span>
+          <span class="label-bara">🔥 Pedas</span>
+        </div>
+        <input type="range" min="0" max="100" value="50" class="dialektika-slider" id="dialektika-slider" aria-label="Slider kontras rasa">
+        <p style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 1rem;">
+          Geser slider untuk melihat spektrum ekstrem rasa kuliner Sasak.
+        </p>
+      </div>
       <div class="filter-tabs" role="tablist">
         <button class="filter-tab active" data-filter="semua">Semua</button>
         <button class="filter-tab" data-filter="makanan-berat">Makanan Berat</button>
@@ -78,6 +171,24 @@
           <span class="material-symbols-outlined" style="font-size:2rem; display:block; margin-bottom:1rem;">hourglass_empty</span>
           Memuat hidangan…
         </div>
+      </div>
+    </section>
+
+    <!-- SECTION INTERAKTIF: ANATOMI BAHAN AUTENTIK SASAK -->
+    <section class="section container" aria-label="Rahasia Palate Sasak">
+      <div class="batik-divider" aria-hidden="true">
+        <span class="batik-divider__line"></span>
+        <span class="batik-divider__dot"></span><span class="batik-divider__dot"></span><span class="batik-divider__dot"></span>
+        <span class="batik-divider__line"></span>
+      </div>
+      
+      <h2 class="text-headline-lg" style="margin: 4rem 0 0.5rem; text-align: center; font-family: 'Playfair Display', serif; color: #1a5c4a;">Rahasia Palate Sasak</h2>
+      <p class="text-body-md text-muted" style="text-align: center; max-width: 580px; margin: 0 auto 3.5rem;">
+        Kekuatan rasa kuliner NTB terletak pada bahan-bahan lokal autentik yang tumbuh unik di ekosistem Sunda Kecil. Sentuh atau arahkan kursor pada kartu untuk membedah fakta botaninya.
+      </p>
+      
+      <div id="ingredients-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+        <!-- Diisi secara dinamis oleh region.js -->
       </div>
     </section>
 
