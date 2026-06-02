@@ -909,6 +909,11 @@
       filter: contrast(1.15) brightness(0.85);
       pointer-events: none;
     }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
   </style>
 </head>
 <body data-region="nusa-tenggara-barat">
@@ -937,32 +942,57 @@
 
   <div class="navbar__mobile-menu" id="mobile-menu">
     <a href="index.html">Beranda</a>
-    <a href="yogyakarta.html">🎋 Yogyakarta</a>
-    <a href="sumatera-selatan.html">🌶️ Sumatera Selatan</a>
-    <a href="nusa-tenggara-barat.html">🌊 Nusa Tenggara Barat</a>
-    <a href="insight.html">📊 Data & Insight</a>
+    <a href="yogyakarta.html">Yogyakarta</a>
+    <a href="sumatera-selatan.html">Sumatera Selatan</a>
+    <a href="nusa-tenggara-barat.html">Nusa Tenggara Barat</a>
+    <a href="insight.html">Data & Insight</a>
   </div>
 
   <main>
-    <section class="region-header container">
-      <span class="region-header__eyebrow text-label reveal" style="color:#1a5c4a;">🌊 The Spice Frontier</span>
-      <h1 class="text-display region-header__title reveal reveal--delay-1">Nusa Tenggara Barat</h1>
-      <p class="region-header__desc reveal reveal--delay-2">
-        Di Lombok, pedas bukan sekadar bumbu — ia adalah identitas. Ayam Taliwang dan Plecing Kangkung bukan hanya makanan, tapi pernyataan budaya masyarakat Sasak yang tangguh dan berani menghadapi rasa terpedas.
-      </p>
-      <div class="reveal reveal--delay-2"
-           style="display:inline-flex; gap:1rem; padding:1rem 1.5rem; border:1px solid #1a5c4a44; background-color:var(--color-surface-container-lowest); margin-bottom:2.5rem;">
-        <span class="material-symbols-outlined" style="color:#1a5c4a;">local_fire_department</span>
-        <p style="font-size:0.875rem; color:var(--color-on-surface-variant); line-height:1.5;">
-          NTB memiliki rata-rata skor pedas <strong style="color:#1a5c4a;">82/100</strong> — tertinggi dari tiga daerah. Namun Plecing Kangkung hanya <strong style="color:#1a5c4a;">45 kcal</strong>/100g — paling ringan di dataset.
-        </p>
+    <!-- STORY PROGRESS INDICATOR -->
+    <div id="story-progress" style="position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(to right, #ff6e40, var(--color-primary)); z-index: 1000; transition: width 0.1s ease;"></div>
+
+    <!-- IMMERSIVE HERO COVER STORY -->
+    <section id="hero" style="position: relative; width: 100%; height: 100dvh; overflow: hidden; background: #0a0604; display: flex; align-items: center; justify-content: center; z-index: 10;">
+      <div class="hero-bg" style="position: absolute; inset: 0; z-index: 0;">
+        <img src="assets/media/ntb/ntb_hero.png" alt="Gunung Rinjani dan Desa Sasak" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: brightness(0.6) contrast(1.05); transition: transform 0.1s ease-out; transform-origin: center;" />
+        <div class="hero-bg-dim" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 6, 4, 0.45) 0%, rgba(10, 6, 4, 0.8) 100%);"></div>
       </div>
-      <div class="region-header__divider reveal">
-        <div class="region-header__divider-line"></div>
-        <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
-        <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
-        <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
-        <div class="region-header__divider-line"></div>
+      <div class="hero-pattern" style="position: absolute; inset: 0; z-index: 1; background-image: url('assets/media/ntb/tenun_lombok.png'); background-size: cover; opacity: 0.04; pointer-events: none;"></div>
+      
+      <div class="hero-content" style="position: relative; z-index: 5; text-align: center; max-width: 720px; padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+        <span class="hero-eyebrow" style="color: #ffb59f; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; border: 1px solid rgba(255, 181, 159, 0.25); padding: 0.35rem 1rem; border-radius: 4px; background: rgba(130, 40, 8, 0.15); font-family: 'Inter', sans-serif;">
+          The Spice Frontier
+        </span>
+        <h1 class="hero-title" style="font-family: 'Playfair Display', serif; font-size: calc(2.2rem + 2.5vw); font-weight: 700; color: #fcdcca; line-height: 1.2; margin: 0; text-shadow: 0 4px 24px rgba(0,0,0,0.7);">
+          Nusa Tenggara Barat
+        </h1>
+        <p class="hero-desc" style="font-size: calc(0.9rem + 0.15vw); color: #d4c4b0; line-height: 1.6; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.6); max-width: 600px; font-family: 'Inter', sans-serif; font-weight: 300;">
+          Di Lombok, pedas bukan sekadar bumbu — ia adalah identitas. Ayam Taliwang dan Plecing Kangkung bukan hanya makanan, tapi pernyataan budaya masyarakat Sasak yang tangguh dan berani menghadapi rasa terpedas.
+        </p>
+        
+        <div class="hero-scroll-indicator" style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: #ffb59f; opacity: 0.8; animation: bounce 2s infinite; cursor: pointer;">
+          <span style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-family: 'Inter', sans-serif;">Mulai Cerita</span>
+          <span class="material-symbols-outlined" style="font-size: 1.5rem;">keyboard_double_arrow_down</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY PREFACE -->
+    <section class="story-preface container" style="margin: 5rem auto 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2rem; position: relative; z-index: 2;">
+      <div class="batik-divider" aria-hidden="true" style="opacity: 0.4;">
+        <span class="batik-divider__line" style="background: linear-gradient(to right, transparent, var(--color-outline), transparent);"></span>
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.25rem; margin: 0 6px;">tsunami</span>
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.25rem; margin: 0 6px;">tsunami</span>
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.25rem; margin: 0 6px;">tsunami</span>
+        <span class="batik-divider__line" style="background: linear-gradient(to right, transparent, var(--color-outline), transparent);"></span>
+      </div>
+      
+      <div class="preface-card" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.75rem 2.25rem; border: 1px solid rgba(26, 92, 74, 0.25); background-color: var(--color-surface-container); border-radius: 16px; max-width: 720px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border-left: 4px solid var(--color-ntb);">
+        <span class="material-symbols-outlined" style="color: #ff6e40; font-size: 2.5rem; flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(255, 110, 64, 0.4));">local_fire_department</span>
+        <p style="font-size: 0.95rem; color: var(--color-on-surface-variant); line-height: 1.65; text-align: left; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">
+          Nusa Tenggara Barat mencatat rata-rata tingkat kepedasan hidangan tertinggi di Nusantara dengan skor mencapai <strong style="color: #ff6e40;">82/100</strong>. Menariknya, wilayah ini juga menyajikan Plecing Kangkung yang memiliki kalori terendah dalam dataset nasional — hanya <strong style="color: #38b293;">45 kcal</strong> per 100 gram.
+        </p>
       </div>
     </section>
 
@@ -1132,8 +1162,16 @@
             <div class="mortar-contents" id="mortar-contents"></div>
           </div>
           
+          <div class="spice-level-gauge" id="spice-level-gauge" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0.75rem; opacity: 0; transition: opacity 0.5s ease;">
+            <span class="material-symbols-outlined" style="color: #ff6e40; font-size: 1.15rem;">local_fire_department</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; color: #ff6e40;">Proses Ulekan:</span>
+            <div class="spice-track" style="width: 120px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+              <div class="spice-fill" id="spice-fill" style="width: 0%; height: 100%; background: linear-gradient(to right, #ffb59f, #ff3d00); transition: width 1.8s linear;"></div>
+            </div>
+          </div>
+          
           <div class="cobek-controls">
-            <button class="btn btn--outline-primary" id="btn-grind" disabled>Ulek Sambal! 🌶️</button>
+            <button class="btn btn--outline-primary" id="btn-grind" disabled>Ulek Sambal!</button>
             <button class="btn" id="btn-reset-cobek" style="color: var(--color-on-surface-variant); display: none;">Reset Cobek</button>
           </div>
         </div>
@@ -1213,7 +1251,7 @@
       <div class="lontar-leaf leaf-recipe">
         <div class="lontar-leaf-binder"></div>
         <div class="lontar-leaf-content">
-          <h3 class="lontar-section-title">✍️ Resep &amp; Bahan</h3>
+          <h3 class="lontar-section-title">Resep &amp; Bahan</h3>
           <div class="lontar-scroll-area">
             <p class="lontar-sub-title">Bahan Utama</p>
             <div class="lontar-chips" id="lontar-chips"></div>
@@ -1228,7 +1266,7 @@
       <div class="lontar-leaf leaf-elements">
         <div class="lontar-leaf-binder"></div>
         <div class="lontar-leaf-content">
-          <h3 class="lontar-section-title">📊 Karakter &amp; Nutrisi</h3>
+          <h3 class="lontar-section-title">Karakter &amp; Nutrisi</h3>
           <div class="lontar-scroll-area">
             <p class="lontar-sub-title">Elemen Rasa Alami</p>
             <div class="lontar-element-meters">
@@ -1652,6 +1690,8 @@
       const resultTitle = document.getElementById('result-title');
       const resultDesc = document.getElementById('result-desc');
       const resultPanel = document.getElementById('recipe-result-panel');
+      const spiceGauge = document.getElementById('spice-level-gauge');
+      const spiceFill = document.getElementById('spice-fill');
 
       let addedIngredients = [];
       let isGrinded = false;
@@ -1696,6 +1736,13 @@
         btnReset.style.display = 'none';
         
         mortarBody.classList.add('grinding');
+
+        // Show and animate spice ulekan progress bar
+        if (spiceGauge && spiceFill) {
+          spiceGauge.style.opacity = '1';
+          spiceFill.style.transition = 'width 1.8s linear';
+          spiceFill.style.width = '100%';
+        }
 
         // Spawn splatter particles
         function spawnSplatter() {
@@ -1772,47 +1819,47 @@
           const hasBawang = (counts['bawang'] || 0) > 0;
 
           if (counts['cabai'] >= 4) {
-            name = 'Sambal Rinjani Membakar! 🌋';
+            name = 'Sambal Rinjani Membakar';
             desc = 'Sambal dengan takaran cabai luar biasa banyak. Hanya untuk pemberani! Rasa pedasnya meledak seperti letusan Gunung Rinjani.';
             color = '#ff3d00';
           } else if (hasCabai && hasTerasi && hasTomat && hasLimau) {
-            name = 'Sambal Plecing Lombok 🌶️';
+            name = 'Sambal Plecing Lombok';
             desc = 'Bumbu otentik hidangan Plecing! Kombinasi sempurna cabai rawit pedas, terasi Lekok yang gurih-laut, tomat merah berair, dan perasan jeruk limau segar.';
             color = '#d84315';
           } else if (hasCabai && hasTomat && hasBawang && hasLimau) {
-            name = 'Sambal Beberuk Autentik 🍆';
+            name = 'Sambal Beberuk Autentik';
             desc = 'Sambal mentah segar pendamping lalap Beberuk Terong. Didominasi irisan bawang merah harum, tomat segar, cabai rawit, dan keasaman limau.';
             color = '#8e24aa';
           } else if (hasCabai && hasBawang && hasTerasi) {
-            name = 'Sambal Embe Sasak 🧄';
+            name = 'Sambal Embe Sasak';
             desc = 'Sambal khas Sasak dengan irisan bawang merah harum yang ditumis layaknya bawang goreng, dipadukan dengan cabai rawit dan terasi bakar.';
             color = '#ff8f00';
           } else if (hasCabai && hasTerasi && hasTomat) {
-            name = 'Sambal Cobek Terasi Tomat 🍅';
+            name = 'Sambal Cobek Terasi Tomat';
             desc = 'Sambal terasi dengan tambahan tomat segar melimpah. Rasa gurih-manis alami tomat menyeimbangkan kepekatan aroma terasi.';
             color = '#e65100';
           } else if (hasCabai && hasTerasi && hasLimau) {
-            name = 'Sambal Terasi Jeruk Limau 🍋';
+            name = 'Sambal Terasi Jeruk Limau';
             desc = 'Kombinasi klasik terasi Lekok bakar dan cabai rawit, diberi perasan jeruk limau untuk memberikan aroma segar sitrus yang tajam.';
             color = '#bf360c';
           } else if (hasCabai && hasTerasi) {
-            name = 'Sambal Terasi Lekok Kasar 🦐';
+            name = 'Sambal Terasi Lekok Kasar';
             desc = 'Sambal klasik paling populer. Terasi Lekok bakar yang diulek kasar bersama cabai rawit merah. Sangat gurih, asin, dan beraroma laut pekat.';
             color = '#a13d2d';
           } else if (hasCabai && hasBawang) {
-            name = 'Sambal Bawang Lombok 🧅';
+            name = 'Sambal Bawang Lombok';
             desc = 'Kombinasi sederhana namun sangat wangi antara bawang merah mentah diulek kasar dan cabai rawit. Pedas menggigit dan aromatik.';
             color = '#fb8c00';
           } else if (hasCabai && hasLimau) {
-            name = 'Sambal Cocol Limau Asam 🍋';
+            name = 'Sambal Cocol Limau Asam';
             desc = 'Cabai rawit ulek segar yang diguyur perasan air jeruk limau. Rasanya sangat bersih, asam tajam, dan pedas menggigit.';
             color = '#afb42b';
           } else if (hasCabai && hasTomat) {
-            name = 'Sambal Tomat Mentah 🍅';
+            name = 'Sambal Tomat Mentah';
             desc = 'Sambal tomat segar mentah yang ringan dan berair. Cocok bagi yang menyukai rasa asam-pedas yang segar tanpa aroma laut terasi.';
             color = '#ff5722';
           } else if (hasCabai) {
-            name = 'Sambal Ulek Colet 🧂';
+            name = 'Sambal Ulek Colet';
             desc = 'Sambal paling dasar masyarakat Sasak: hanya cabai rawit merah dan garam. Sederhana, murni pedas, dan membakar lidah seketika.';
             color = '#795548';
           }
@@ -1840,6 +1887,13 @@
         
         btnGrind.setAttribute('disabled', 'true');
         btnReset.style.display = 'none';
+
+        // Reset spice ulekan progress bar
+        if (spiceGauge && spiceFill) {
+          spiceGauge.style.opacity = '0';
+          spiceFill.style.transition = 'none';
+          spiceFill.style.width = '0%';
+        }
       });
     })();
   </script>
@@ -2002,6 +2056,40 @@
           card.style.transform = '';
         }
       });
+    })();
+
+    /* ── WEBSTORY NAVIGATION & PROGRESS SYSTEM ── */
+    (function () {
+      const progress = document.getElementById('story-progress');
+      const heroBg = document.querySelector('.hero-bg img');
+      const scrollIndicator = document.querySelector('.hero-scroll-indicator');
+
+      // Scroll event listeners for progress bar and parallax background
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        
+        // Update reading progress bar width
+        if (progress && totalHeight > 0) {
+          const pct = (scrolled / totalHeight) * 100;
+          progress.style.width = `${pct}%`;
+        }
+
+        // Parallax depth zoom on the Mount Rinjani hero background
+        if (heroBg) {
+          heroBg.style.transform = `scale(${1 + scrolled * 0.0004}) translateY(${scrolled * 0.12}px)`;
+        }
+      });
+
+      // Scroll to preface section when clicking scroll indicator
+      if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+          const preface = document.querySelector('.story-preface');
+          if (preface) {
+            preface.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
     })();
   </script>
 </body>
