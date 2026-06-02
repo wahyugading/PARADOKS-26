@@ -1629,26 +1629,56 @@
           let desc = 'Sambal racikan sederhana dengan rasa pedas segar alami.';
           let color = '#c84c22';
 
+          const hasCabai = (counts['cabai'] || 0) > 0;
+          const hasTerasi = (counts['terasi'] || 0) > 0;
+          const hasTomat = (counts['tomat'] || 0) > 0;
+          const hasLimau = (counts['limau'] || 0) > 0;
+          const hasBawang = (counts['bawang'] || 0) > 0;
+
           if (counts['cabai'] >= 4) {
             name = 'Sambal Rinjani Membakar! 🌋';
-            desc = 'Sambal dengan takaran cabai luar biasa banyak. Hanya untuk pemberani! Rasa pedasnya meledak seperti letusan Rinjani.';
+            desc = 'Sambal dengan takaran cabai luar biasa banyak. Hanya untuk pemberani! Rasa pedasnya meledak seperti letusan Gunung Rinjani.';
             color = '#ff3d00';
-          } else if (counts['cabai'] >= 1 && counts['terasi'] >= 1 && counts['tomat'] >= 1 && counts['limau'] >= 1) {
+          } else if (hasCabai && hasTerasi && hasTomat && hasLimau) {
             name = 'Sambal Plecing Lombok 🌶️';
-            desc = 'Bumbu otentik Plecing Kangkung! Kombinasi cabai rawit pedas, terasi Lekok yang gurih-laut, dan asam segar perasan jeruk limau segar.';
-            color = '#e65100';
-          } else if (counts['cabai'] >= 1 && counts['tomat'] >= 1 && counts['bawang'] >= 1 && counts['limau'] >= 1) {
-            name = 'Sambal Beberuk Terong 🍆';
-            desc = 'Sambal segar mentah pendamping Beberuk Terong. Paduan rasa pedas cabai, bawang merah harum, asam segar tomat, dan jeruk limau.';
-            color = '#c84c22';
-          } else if (counts['cabai'] >= 1 && counts['bawang'] >= 1 && counts['terasi'] >= 1) {
-            name = 'Sambal Embe Lombok 🧄';
-            desc = 'Sambal khas Sasak yang menonjolkan irisan bawang goreng wangi yang dipadukan dengan cabai tumis dan terasi bakar.';
+            desc = 'Bumbu otentik hidangan Plecing! Kombinasi sempurna cabai rawit pedas, terasi Lekok yang gurih-laut, tomat merah berair, dan perasan jeruk limau segar.';
+            color = '#d84315';
+          } else if (hasCabai && hasTomat && hasBawang && hasLimau) {
+            name = 'Sambal Beberuk Autentik 🍆';
+            desc = 'Sambal mentah segar pendamping lalap Beberuk Terong. Didominasi irisan bawang merah harum, tomat segar, cabai rawit, dan keasaman limau.';
+            color = '#8e24aa';
+          } else if (hasCabai && hasBawang && hasTerasi) {
+            name = 'Sambal Embe Sasak 🧄';
+            desc = 'Sambal khas Sasak dengan irisan bawang merah harum yang ditumis layaknya bawang goreng, dipadukan dengan cabai rawit dan terasi bakar.';
             color = '#ff8f00';
-          } else if (counts['cabai'] >= 1 && counts['terasi'] >= 2) {
-            name = 'Sambal Lekok Terasi Pedas';
-            desc = 'Sambal dengan rasa gurih terasi Lekok yang sangat tebal. Sangat cocok disandingkan dengan hidangan bakar.';
-            color = '#8d6e63';
+          } else if (hasCabai && hasTerasi && hasTomat) {
+            name = 'Sambal Cobek Terasi Tomat 🍅';
+            desc = 'Sambal terasi dengan tambahan tomat segar melimpah. Rasa gurih-manis alami tomat menyeimbangkan kepekatan aroma terasi.';
+            color = '#e65100';
+          } else if (hasCabai && hasTerasi && hasLimau) {
+            name = 'Sambal Terasi Jeruk Limau 🍋';
+            desc = 'Kombinasi klasik terasi Lekok bakar dan cabai rawit, diberi perasan jeruk limau untuk memberikan aroma segar sitrus yang tajam.';
+            color = '#bf360c';
+          } else if (hasCabai && hasTerasi) {
+            name = 'Sambal Terasi Lekok Kasar 🦐';
+            desc = 'Sambal klasik paling populer. Terasi Lekok bakar yang diulek kasar bersama cabai rawit merah. Sangat gurih, asin, dan beraroma laut pekat.';
+            color = '#a13d2d';
+          } else if (hasCabai && hasBawang) {
+            name = 'Sambal Bawang Lombok 🧅';
+            desc = 'Kombinasi sederhana namun sangat wangi antara bawang merah mentah diulek kasar dan cabai rawit. Pedas menggigit dan aromatik.';
+            color = '#fb8c00';
+          } else if (hasCabai && hasLimau) {
+            name = 'Sambal Cocol Limau Asam 🍋';
+            desc = 'Cabai rawit ulek segar yang diguyur perasan air jeruk limau. Rasanya sangat bersih, asam tajam, dan pedas menggigit.';
+            color = '#afb42b';
+          } else if (hasCabai && hasTomat) {
+            name = 'Sambal Tomat Mentah 🍅';
+            desc = 'Sambal tomat segar mentah yang ringan dan berair. Cocok bagi yang menyukai rasa asam-pedas yang segar tanpa aroma laut terasi.';
+            color = '#ff5722';
+          } else if (hasCabai) {
+            name = 'Sambal Ulek Colet 🧂';
+            desc = 'Sambal paling dasar masyarakat Sasak: hanya cabai rawit merah dan garam. Sederhana, murni pedas, dan membakar lidah seketika.';
+            color = '#795548';
           }
 
           resultTitle.textContent = name;
