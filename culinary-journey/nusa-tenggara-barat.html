@@ -105,11 +105,11 @@
       width: 100%;
       max-width: 800px;
       margin: 2rem auto;
-      background: rgba(26, 92, 74, 0.04);
-      border: 1px solid rgba(26, 92, 74, 0.25);
+      background: var(--color-surface-container);
+      border: 1px solid var(--color-outline-variant);
       border-radius: 16px;
       padding: 1.5rem;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 0 20px rgba(0,0,0,0.2);
       overflow: hidden;
     }
     .map-title {
@@ -139,15 +139,15 @@
       display: block;
     }
     .island-path {
-      fill: rgba(26, 92, 74, 0.15);
-      stroke: rgba(26, 92, 74, 0.4);
+      fill: rgba(252, 220, 202, 0.08);
+      stroke: rgba(26, 92, 74, 0.5);
       stroke-width: 1.5px;
       transition: fill 0.3s, stroke 0.3s, filter 0.3s;
     }
     .island-path:hover, .island-path.highlighted {
-      fill: rgba(26, 92, 74, 0.3);
-      stroke: rgba(26, 92, 74, 0.8);
-      filter: drop-shadow(0 0 6px rgba(26, 92, 74, 0.4));
+      fill: rgba(26, 92, 74, 0.25);
+      stroke: var(--color-primary);
+      filter: drop-shadow(0 0 8px rgba(26, 92, 74, 0.5));
     }
     .map-pin {
       cursor: pointer;
@@ -183,16 +183,16 @@
     /* Tooltip */
     .map-tooltip {
       position: absolute;
-      background: var(--color-surface-container);
-      border: 1px solid rgba(26, 92, 74, 0.5);
+      background: var(--color-surface-container-high);
+      border: 1px solid var(--color-outline-variant);
       border-radius: 8px;
       padding: 0.75rem 1rem;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
-      transform: translate(-50%, -110%);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: translate(-50%, -105%);
       z-index: 50;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       width: 230px;
     }
     .map-tooltip.visible {
@@ -310,28 +310,28 @@
 
             <!-- PIN: Taliwang (Sumbawa Barat) -->
             <g class="map-pin" data-id="taliwang" data-island="sumbawa-island">
-              <circle cx="280" cy="220" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
+              <circle cx="280" cy="220" r="22" class="hit-target" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="280" cy="220" r="10" class="outer" />
               <circle cx="280" cy="220" r="5" class="inner" />
             </g>
 
             <!-- PIN: Mataram / Rembiga (Lombok Barat/Kota) -->
             <g class="map-pin" data-id="rembiga" data-island="lombok-island">
-              <circle cx="60" cy="155" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
+              <circle cx="60" cy="155" r="22" class="hit-target" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="60" cy="155" r="10" class="outer" />
               <circle cx="60" cy="155" r="5" class="inner" />
             </g>
 
             <!-- PIN: Puyung (Lombok Tengah) -->
             <g class="map-pin" data-id="puyung" data-island="lombok-island">
-              <circle cx="120" cy="185" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
+              <circle cx="120" cy="185" r="22" class="hit-target" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="120" cy="185" r="10" class="outer" />
               <circle cx="120" cy="185" r="5" class="inner" />
             </g>
 
             <!-- PIN: Lingsar / Rinjani (Lombok Barat/Utara) -->
             <g class="map-pin" data-id="lingsar" data-island="lombok-island">
-              <circle cx="130" cy="110" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
+              <circle cx="130" cy="110" r="22" class="hit-target" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="130" cy="110" r="10" class="outer" />
               <circle cx="130" cy="110" r="5" class="inner" />
             </g>
@@ -497,10 +497,13 @@
       const container = document.getElementById('map-container');
 
       pins.forEach(pin => {
+        const hitTarget = pin.querySelector('.hit-target');
         const islandId = pin.dataset.island;
         const islandPath = document.getElementById(islandId);
 
-        pin.addEventListener('mousemove', (e) => {
+        if (!hitTarget) return;
+
+        hitTarget.addEventListener('mouseenter', () => {
           const id = pin.dataset.id;
           const data = mapData[id];
           if (!data) return;
@@ -518,22 +521,22 @@
           // Position tooltip relative to map-svg-wrapper
           const wrapper = container.querySelector('.map-svg-wrapper') || container;
           const rect = wrapper.getBoundingClientRect();
-          const pinRect = pin.getBoundingClientRect();
+          const targetRect = hitTarget.getBoundingClientRect();
           
-          const x = pinRect.left - rect.left + pinRect.width / 2;
-          const y = pinRect.top - rect.top;
+          const x = targetRect.left - rect.left + targetRect.width / 2;
+          const y = targetRect.top - rect.top;
 
           tooltip.style.left = x + 'px';
           tooltip.style.top = y + 'px';
           tooltip.classList.add('visible');
         });
 
-        pin.addEventListener('mouseleave', () => {
+        hitTarget.addEventListener('mouseleave', () => {
           if (islandPath) islandPath.classList.remove('highlighted');
           tooltip.classList.remove('visible');
         });
 
-        pin.addEventListener('click', () => {
+        hitTarget.addEventListener('click', () => {
           const id = pin.dataset.id;
           const categoryMap = {
             'taliwang': 'makanan-berat',
