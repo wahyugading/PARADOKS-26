@@ -246,6 +246,125 @@
         "Tradisional"
       ],
       "img": "assets/media/ntb/sayur_ares.png"
+    },
+    {
+      "id": "sate-bulayak",
+      "nama": "Sate Bulayak",
+      "kategori": "makanan-berat",
+      "deskripsi": "Sate daging sapi khas Lombok Barat yang disajikan dengan bumbu kelapa pedas gurih kental. Keunikannya terletak pada Bulayak, lontong beras ketan wangi yang dibungkus spiral melingkar menggunakan daun aren atau enau.",
+      "bahan": [
+        "Daging sapi",
+        "Santan kelapa",
+        "Cabai merah",
+        "Bawang merah",
+        "Ketumbar",
+        "Kemiri",
+        "Bulayak"
+      ],
+      "resep": [
+        "Potong daging sapi ukuran dadu kecil, tusuk dengan tusukan sate",
+        "Masak bumbu halus bersama santan hingga mengental dan berminyak",
+        "Bakar sate di atas bara api sambil diolesi bumbu kelapa",
+        "Sajikan hangat bersama bulayak ketan yang dikupas lilitannya"
+      ],
+      "flavor": {
+        "pedas": 60,
+        "manis": 35,
+        "gurih": 80,
+        "asam": 15,
+        "pahit": 10
+      },
+      "nutrisi": {
+        "kalori": 240,
+        "protein": 18,
+        "lemak": 14,
+        "karbohidrat": 10
+      },
+      "tags": [
+        "Saus Kelapa",
+        "Khas Lombok Barat",
+        "Unik"
+      ],
+      "img": "assets/media/ntb/sate_bulayak.png"
+    },
+    {
+      "id": "sepat-sumbawa",
+      "nama": "Sepat Sumbawa",
+      "kategori": "makanan-berat",
+      "deskripsi": "Hidangan kuah asam segar yang sangat populer di Sumbawa. Menggunakan ikan bakar (biasanya kakap atau bandeng) yang disiram kuah asam dingin dengan potongan terong bakar, mangga muda atau belimbing wuluh, kencur, dan kemangi segar.",
+      "bahan": [
+        "Ikan kakap/bandeng",
+        "Belimbing wuluh",
+        "Terong bulat",
+        "Kencur",
+        "Bawang merah",
+        "Jeruk nipis",
+        "Kemangi"
+      ],
+      "resep": [
+        "Bakar ikan dan terong bulat hingga matang beraroma smoky",
+        "Haluskan kencur, bawang merah, cabai rawit, lalu campur air matang dan perasan jeruk nipis",
+        "Masukkan potongan belimbing wuluh, kemangi, dan terong bakar penyet ke dalam kuah",
+        "Suwir ikan bakar ke dalam mangkuk kuah sepat segar dingin dan sajikan"
+      ],
+      "flavor": {
+        "pedas": 45,
+        "manis": 10,
+        "gurih": 70,
+        "asam": 85,
+        "pahit": 15
+      },
+      "nutrisi": {
+        "kalori": 110,
+        "protein": 15,
+        "lemak": 4,
+        "karbohidrat": 5
+      },
+      "tags": [
+        "Kuah Asam Segar",
+        "Sumbawa Autentik",
+        "Ikan Bakar"
+      ],
+      "img": "assets/media/ntb/sepat_sumbawa.png"
+    },
+    {
+      "id": "kelepon-kecit",
+      "nama": "Kelepon Kecit",
+      "kategori": "snack",
+      "deskripsi": "Jajanan manis legendaris khas Lombok. Klepon berukuran sangat mini (kecit) yang terbuat dari tepung ketan putih atau hitam, berisi gula aren cair pekat, dan dibalut dengan parutan kelapa gurih yang dikukus.",
+      "bahan": [
+        "Tepung ketan",
+        "Gula aren cair",
+        "Kelapa parut",
+        "Daun pandan",
+        "Air kapur sirih",
+        "Garam"
+      ],
+      "resep": [
+        "Campur tepung ketan dengan air pandan dan sedikit air kapur sirih, uleni hingga kalis",
+        "Bentuk adonan menjadi bulatan kecil seukuran kelereng, isi bagian tengahnya dengan gula aren cair",
+        "Rebus bulatan klepon kecit dalam air mendidih hingga mengapung matang",
+        "Gulingkan klepon ke parutan kelapa kukus yang dicampur sedikit garam"
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 90,
+        "gurih": 65,
+        "asam": 0,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 180,
+        "protein": 2,
+        "lemak": 5,
+        "karbohidrat": 32
+      },
+      "tags": [
+        "Manis",
+        "Kenyal Melumpuh",
+        "Tradisional Sasak"
+      ],
+      "img": "assets/media/ntb/kelepon_kecit.png"
     }
   ]
   ,

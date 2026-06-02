@@ -1017,6 +1017,13 @@
               <circle cx="130" cy="110" r="10" class="outer" />
               <circle cx="130" cy="110" r="5" class="inner" />
             </g>
+
+            <!-- PIN: Sumbawa Besar (Sepat) -->
+            <g class="map-pin" data-id="sepat" data-island="sumbawa-island">
+              <circle cx="450" cy="170" r="22" class="hit-target" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
+              <circle cx="450" cy="170" r="10" class="outer" />
+              <circle cx="450" cy="170" r="5" class="inner" />
+            </g>
           </svg>
           
           <!-- Tooltip element inside wrapper for absolute positioning -->
@@ -1317,6 +1324,13 @@
           desc: 'Sayur segar dingin berkuah sambal terasi lekok khas Lombok dengan kangkung berongga besar yang renyah.',
           pedas: '85/100',
           kalori: '45-60 kcal'
+        },
+        'sepat': {
+          region: 'Sumbawa Besar',
+          nama: 'Sepat Sumbawa',
+          desc: 'Kuliner ikan bakar khas Sumbawa yang disajikan dalam kuah asam segar beraroma kencur, belimbing wuluh, dan terong bakar.',
+          pedas: '45/100',
+          kalori: '110 kcal'
         }
       };
 
@@ -1370,7 +1384,8 @@
             'taliwang': 'makanan-berat',
             'rembiga': 'makanan-berat',
             'puyung': 'makanan-berat',
-            'lingsar': 'semua'
+            'lingsar': 'semua',
+            'sepat': 'makanan-berat'
           };
           
           const filter = categoryMap[id];
@@ -1388,7 +1403,8 @@
             'taliwang': 'ayam-taliwang',
             'rembiga': 'sate-rembiga',
             'puyung': 'nasi-balap-puyung',
-            'lingsar': 'plecing-kangkung'
+            'lingsar': 'plecing-kangkung',
+            'sepat': 'sepat-sumbawa'
           };
           const cardId = cardIdMap[id];
           setTimeout(() => {
@@ -1492,6 +1508,30 @@
         updateCompassState(value, snappedAngle);
       });
 
+      // Handle custom local filtering for the new dishes since region.js is read-only
+      slider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value);
+        const sepatCard = document.querySelector('.dish-card[data-id="sepat-sumbawa"]');
+        const bulayakCard = document.querySelector('.dish-card[data-id="sate-bulayak"]');
+        const kleponCard = document.querySelector('.dish-card[data-id="kelepon-kecit"]');
+
+        if (sepatCard) sepatCard.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+        if (bulayakCard) bulayakCard.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+        if (kleponCard) kleponCard.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+
+        if (val < 30) {
+          // Embun (Kiri): Sepat is fresh/embun, others are dimmed
+          if (sepatCard) sepatCard.classList.add('glow-embun');
+          if (bulayakCard) bulayakCard.classList.add('dimmed');
+          if (kleponCard) kleponCard.classList.add('dimmed');
+        } else if (val > 70) {
+          // Bara (Kanan): All new ones are dimmed (not extra spicy like Taliwang/Puyung)
+          if (sepatCard) sepatCard.classList.add('dimmed');
+          if (bulayakCard) bulayakCard.classList.add('dimmed');
+          if (kleponCard) kleponCard.classList.add('dimmed');
+        }
+      });
+
       // Set initial direction to East (Neutral)
       updateCompassState(50, 90);
     })();
@@ -1509,7 +1549,10 @@
         'sayur-ares': 60,
         'ayam-taliwang': 15,
         'sate-rembiga': 10,
-        'nasi-balap-puyung': 15
+        'nasi-balap-puyung': 15,
+        'sate-bulayak': 20,
+        'sepat-sumbawa': 45,
+        'kelepon-kecit': 10
       };
       
       const elementAirMap = {
@@ -1518,7 +1561,10 @@
         'sayur-ares': 85,
         'ayam-taliwang': 90,
         'sate-rembiga': 85,
-        'nasi-balap-puyung': 80
+        'nasi-balap-puyung': 80,
+        'sate-bulayak': 70,
+        'sepat-sumbawa': 75,
+        'kelepon-kecit': 25
       };
 
       // Override global openModal function
@@ -1932,25 +1978,29 @@
       animate();
     })();
 
-    /* ── 3D CARD HOVER TILT SYSTEM ── */
+    /* ── 3D CARD HOVER TILT SYSTEM (EVENT DELEGATION) ── */
     (function () {
-      const cards = document.querySelectorAll('.flip-card');
-      
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const rotateX = ((y / rect.height) - 0.5) * -12;
-          const rotateY = ((x / rect.width) - 0.5) * 12;
-          
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
+      document.addEventListener('mousemove', (e) => {
+        const card = e.target.closest('.flip-card, .dish-card');
+        if (!card) return;
         
-        card.addEventListener('mouseleave', () => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const rotateX = ((y / rect.height) - 0.5) * -12;
+        const rotateY = ((x / rect.width) - 0.5) * 12;
+        
+        const isDishCard = card.classList.contains('dish-card');
+        const translateStr = isDishCard ? 'translateY(-8px) ' : '';
+        card.style.transform = `perspective(1000px) ${translateStr}rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      document.addEventListener('mouseout', (e) => {
+        const card = e.target.closest('.flip-card, .dish-card');
+        if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
           card.style.transform = '';
-        });
+        }
       });
     })();
   </script>
