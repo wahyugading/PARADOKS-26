@@ -1,175 +1,3683 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yogyakarta: The Soul of Java — Culinary Journey</title>
-  <meta name="description" content="Jelajahi kuliner ikonik Yogyakarta: Gudeg Nangka, Oseng Mercon, dan Bakpia Pathok beserta profil rasa dan data nutrisinya." />
-
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Yogyakarta: Rasa dalam Sumbu Suci — Culinary Journey</title>
+  <meta name="description"
+    content="Jelajahi kuliner ikonik Yogyakarta: Gudeg, Sate Klatak, Kue Kipo, dan warisan rasa Keraton." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
-</head>
-<body data-region="yogyakarta">
-  <!-- Reading Progress -->
-  <div id="reading-progress" role="progressbar" aria-label="Reading progress"></div>
-  <div class="batik-texture" aria-hidden="true"></div>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-  <!-- ── NAVBAR ── -->
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="navbar__inner">
-      <a href="index.html" class="navbar__logo">Culinary Journey</a>
-      <ul class="navbar__links" role="list">
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background: #0a0604;
+    }
+
+    /* BG fullscreen */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      will-change: opacity;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-bg-dim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10, 6, 4, .45) 0%, rgba(10, 6, 4, .75) 100%);
+    }
+
+    /* Batik kawung subtle pattern overlay */
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image: radial-gradient(ellipse 6px 4px at 12px 12px, rgba(200, 144, 42, .1) 60%, transparent 60%),
+        radial-gradient(ellipse 6px 4px at 0 0, rgba(200, 144, 42, .1) 60%, transparent 40%);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* Sumbu filosofis line */
+    .hero-sumbu {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-sumbu svg {
+      width: 2px;
+      height: 100%
+    }
+
+    .sumbu-line {
+      stroke: rgba(250, 188, 83, .5);
+      stroke-width: 1.5;
+      stroke-dasharray: 6 6;
+      animation: dashMove 3s linear infinite
+    }
+
+    @keyframes dashMove {
+      to {
+        stroke-dashoffset: -24
+      }
+    }
+
+    .sumbu-dot {
+      fill: #fabc53
+    }
+
+    /* Expanding frame */
+    .hero-frame-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      will-change: width, height, border-radius;
+    }
+
+    .hero-frame {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(0, 0, 0, .6);
+      will-change: border-radius;
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-frame-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .35);
+      will-change: opacity;
+    }
+
+    /* Title words */
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+      pointer-events: none;
+      will-change: opacity;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #fabc53;
+      display: block;
+      margin-bottom: 1.5rem;
+      will-change: opacity, transform;
+    }
+
+    .hero-word {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 700;
+      color: #fcdcca;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      will-change: transform, opacity;
+    }
+
+    .hero-word--sub {
+      font-size: clamp(1.25rem, 3vw, 2.25rem);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(250, 188, 83, .9);
+      margin-top: .5rem;
+    }
+
+    /* Scroll hint */
+    .hero-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      pointer-events: none;
+      will-change: opacity;
+    }
+
+    .hero-hint span {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(252, 220, 202, .7);
+    }
+
+    .hint-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, #fabc53, transparent);
+      animation: hintPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes hintPulse {
+
+      0%,
+      100% {
+        opacity: .3;
+        transform: scaleY(.8)
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1)
+      }
+    }
+
+    /* Post-hero content */
+    #post-hero {
+      position: relative;
+      z-index: 10;
+      background: #1c0f06;
+    }
+
+    /* Narasi pembuka */
+    .narasi {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(160deg, #1c0f06 0%, #251408 60%, #1c0f06 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .narasi::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(200, 144, 42, .05) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+
+    .narasi-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .sumbu-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid rgba(200, 144, 42, .4);
+      padding: .5rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #fabc53;
+    }
+
+    .narasi-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #fcdcca;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .narasi-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: #c9b8a4;
+      margin-bottom: 3rem;
+    }
+
+    .tiga-poros {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      text-align: left;
+      margin-top: 2.5rem;
+    }
+
+    @media(min-width:600px) {
+      .tiga-poros {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .poros-item {
+      border: 1px solid rgba(200, 144, 42, .2);
+      padding: 1.25rem;
+      background: rgba(30, 18, 8, .6);
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .poros-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(200, 144, 42, .35);
+      line-height: 1;
+    }
+
+    .poros-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #c9b8a4;
+    }
+
+    .poros-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #fcdcca;
+    }
+
+    .poros-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: .8125rem;
+      color: #9d8f7c;
+      line-height: 1.5
+    }
+
+    /* Section divider */
+    .sdiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 2rem 0;
+      opacity: .4;
+    }
+
+    .sdiv-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #504536, transparent)
+    }
+
+    .sdiv-diamond {
+      width: 8px;
+      height: 8px;
+      background: #c8902a;
+      transform: rotate(45deg)
+    }
+
+    /* Placeholder sections */
+    .section-placeholder {
+      min-height: 60vh;
+      background: #1a0e07;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #3a2410;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: rgba(200, 144, 42, .3);
+      font-style: italic;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal--delay-1 {
+      transition-delay: .15s
+    }
+
+    .reveal--delay-2 {
+      transition-delay: .3s
+    }
+
+    .reveal--delay-3 {
+      transition-delay: .45s
+    }
+
+    /* ══ SECTION 2: KUE KIPO ══ */
+    #sec-kipo {
+      position: relative;
+      background: #0e0a04;
+      overflow: hidden;
+      padding: 7rem 0 6rem;
+    }
+
+    .kipo-kawung-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('assets/media/yogya/batik kawung 1.png') center/cover;
+      pointer-events: none;
+    }
+
+    .kipo-kawung-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(14, 10, 4, 0.85);
+      /* Main background color with opacity */
+    }
+
+    .kipo-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media(min-width: 900px) {
+      .kipo-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+    }
+
+    /* Left: Text */
+    .kipo-text {
+      position: relative;
+    }
+
+    .kipo-chapter-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #7cba6e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .kipo-chapter-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #7cba6e;
+    }
+
+    .kipo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: #fcdcca;
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+
+    .kipo-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.875rem, 1.5vw, 1.125rem);
+      font-style: italic;
+      color: rgba(200, 144, 42, .8);
+      margin-bottom: 2rem;
+    }
+
+    .kipo-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #b8a894;
+      margin-bottom: 2rem;
+    }
+
+    .kipo-fact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .kipo-fact {
+      flex: 1;
+      min-width: 120px;
+      border: 1px solid rgba(124, 186, 110, .25);
+      padding: 1rem;
+      background: rgba(18, 28, 12, .5);
+    }
+
+    .kipo-fact__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #7cba6e;
+      line-height: 1;
+    }
+
+    .kipo-fact__label {
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      color: #7a8f70;
+      margin-top: .25rem;
+      line-height: 1.4;
+    }
+
+    .kipo-batik-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(200, 144, 42, .7);
+      border: 1px solid rgba(200, 144, 42, .2);
+      padding: .375rem .875rem;
+    }
+
+    /* Right: Visual stage */
+    .kipo-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+    }
+
+    /* Daun pisang peel layers */
+    .kipo-daun-wrap {
+      position: relative;
+      width: 420px;
+      height: 540px;
+      flex-shrink: 0;
+      border-radius: 50% 50% / 40% 40%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .6);
+    }
+
+    @media(max-width:899px) {
+      .kipo-daun-wrap {
+        width: 300px;
+        height: 400px;
+      }
+    }
+
+    .kipo-daun-layer {
+      position: absolute;
+      inset: 0;
+      transition: transform 1.2s cubic-bezier(.22, 1, .36, 1), opacity .8s ease;
+      border-radius: 50% 50% / 40% 40%;
+      overflow: hidden;
+    }
+
+    .kipo-daun-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .kipo-daun-layer--left {
+      transform-origin: bottom left;
+      z-index: 3;
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    }
+
+    .kipo-daun-layer--right {
+      transform-origin: bottom right;
+      z-index: 2;
+      clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    }
+
+    .kipo-food-img {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: 50% 50% / 40% 40%;
+      overflow: hidden;
+    }
+
+    .kipo-food-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Peel state when .peeled */
+    .kipo-daun-wrap.peeled .kipo-daun-layer--left {
+      transform: rotate(-100deg) translateY(20%);
+      opacity: 0;
+    }
+
+    .kipo-daun-wrap.peeled .kipo-daun-layer--right {
+      transform: rotate(100deg) translateY(20%);
+      opacity: 0;
+    }
+
+    /* Floating kipo badges */
+    .kipo-badge-float {
+      position: absolute;
+      background: rgba(14, 10, 4, .92);
+      border: 1px solid rgba(124, 186, 110, .3);
+      padding: .625rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      color: #7cba6e;
+      backdrop-filter: blur(8px);
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+
+    .kipo-badge-float:nth-child(1) {
+      top: 10%;
+      right: -20px;
+      animation-delay: 0s;
+    }
+
+    .kipo-badge-float:nth-child(2) {
+      bottom: 20%;
+      left: -20px;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes floatBadge {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* Carousel strip */
+    .kipo-carousel {
+      margin-top: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .kipo-carousel-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(200, 144, 42, .5);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .kipo-strip {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: #3a2410 transparent;
+    }
+
+    .kipo-strip::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    .kipo-strip::-webkit-scrollbar-thumb {
+      background: #3a2410;
+    }
+
+    .kipo-card {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      width: 260px;
+      background: rgba(20, 14, 6, .8);
+      border: 1px solid rgba(200, 144, 42, .15);
+      overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .kipo-card:hover {
+      border-color: rgba(124, 186, 110, .4);
+      transform: translateY(-4px);
+    }
+
+    .kipo-card__img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .kipo-card__body {
+      padding: 1rem;
+    }
+
+    .kipo-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #fcdcca;
+      margin-bottom: .375rem;
+    }
+
+    .kipo-card__desc {
+      font-family: 'Inter', sans-serif;
+      font-size: .8125rem;
+      color: #9d8f7c;
+      line-height: 1.5;
+    }
+
+    .kipo-peel-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #0e0a04;
+      background: #7cba6e;
+      border: none;
+      padding: .75rem 1.5rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: background .3s, transform .2s;
+    }
+
+    .kipo-peel-btn:hover {
+      background: #9dd490;
+      transform: translateY(-2px);
+    }
+
+    /* ══ SECTION 3: GUDEG ALAS MENTAOK ══ */
+    #sec-gudeg {
+      position: relative;
+      background: #120a03;
+      overflow: hidden;
+    }
+
+    .gudeg-section-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('assets/media/yogya/batik parang 2.png') center/cover;
+      pointer-events: none;
+    }
+
+    .gudeg-section-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 10, 3, 0.90);
+    }
+
+    /* Cinematic parallax header */
+    .gudeg-parallax {
+      position: relative;
+      z-index: 1;
+      height: 70vh;
+      min-height: 420px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .gudeg-parallax__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/media/yogya/batik parang 1.webp');
+      background-size: 320px auto;
+      background-repeat: repeat;
+      opacity: .06;
+      transform: translateY(0);
+      will-change: transform;
+    }
+
+    .gudeg-parallax__img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .gudeg-parallax__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .gudeg-parallax__gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(18, 10, 3, .1) 0%,
+          rgba(18, 10, 3, .5) 55%,
+          rgba(18, 10, 3, .97) 100%);
+    }
+
+    .gudeg-parallax__text {
+      position: relative;
+      z-index: 2;
+      padding: 3rem 2rem 3.5rem;
+      max-width: 700px;
+    }
+
+    .gudeg-chapter-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #d4903a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .gudeg-chapter-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #d4903a;
+    }
+
+    .gudeg-htitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: #fcdcca;
+      line-height: 1.05;
+      margin-bottom: .5rem;
+    }
+
+    .gudeg-hsubtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.875rem, 1.8vw, 1.25rem);
+      font-style: italic;
+      color: rgba(212, 144, 58, .85);
+    }
+
+    /* Narasi body */
+    .gudeg-body-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media(min-width:900px) {
+      .gudeg-body-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .gudeg-narasi {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #b8a894;
+    }
+
+    .gudeg-narasi strong {
+      color: #d4903a;
+    }
+
+    .gudeg-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .gudeg-tl-item {
+      display: flex;
+      gap: 1rem;
+      border-left: 2px solid rgba(212, 144, 58, .2);
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .gudeg-tl-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: #d4903a;
+      border-radius: 50%;
+    }
+
+    .gudeg-tl-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #d4903a;
+      min-width: 60px;
+      line-height: 1.2;
+    }
+
+    .gudeg-tl-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: .875rem;
+      color: #9d8f7c;
+      line-height: 1.55;
+    }
+
+    /* Comparison slider */
+    .gudeg-compare-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 3.5rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .gudeg-compare-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(212, 144, 58, .5);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .gudeg-slider-container {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      cursor: ew-resize;
+      user-select: none;
+    }
+
+    @media(max-width:599px) {
+      .gudeg-slider-container {
+        height: 280px;
+      }
+    }
+
+    .gudeg-slider-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gudeg-slider-img--right {
+      clip-path: inset(0 0 0 50%);
+      transition: clip-path 0s;
+    }
+
+    .gudeg-slider-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: #d4903a;
+      transform: translateX(-50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .gudeg-slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #d4903a;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      box-shadow: 0 0 0 4px rgba(212, 144, 58, .3);
+    }
+
+    .gudeg-label-l,
+    .gudeg-label-r {
+      position: absolute;
+      bottom: 1rem;
+      z-index: 5;
+      pointer-events: none;
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .375rem .875rem;
+      background: rgba(18, 10, 3, .8);
+      backdrop-filter: blur(6px);
+    }
+
+    .gudeg-label-l {
+      left: 1rem;
+      color: #d4903a;
+      border: 1px solid rgba(212, 144, 58, .4);
+    }
+
+    .gudeg-label-r {
+      right: 1rem;
+      color: #fcdcca;
+      border: 1px solid rgba(252, 220, 202, .2);
+    }
+
+    /* Stat cards */
+    .gudeg-stats {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media(min-width:700px) {
+      .gudeg-stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .gudeg-stat {
+      border: 1px solid rgba(212, 144, 58, .2);
+      padding: 1.25rem 1rem;
+      background: rgba(22, 14, 4, .7);
+      text-align: center;
+    }
+
+    .gudeg-stat__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #d4903a;
+      line-height: 1;
+    }
+
+    .gudeg-stat__label {
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      color: #7a6a56;
+      margin-top: .375rem;
+      line-height: 1.4;
+    }
+
+    .gudeg-batik-strip {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .gudeg-batik-strip__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212, 144, 58, .3), transparent);
+    }
+
+    .gudeg-batik-strip__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: .5625rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(212, 144, 58, .5);
+      border: 1px solid rgba(212, 144, 58, .2);
+      padding: .375rem .875rem;
+    }
+
+    /* ══ SECTION 4: SATE KLATAK ══ */
+    #sec-klatak {
+      position: relative;
+      background: #08060a;
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+    }
+
+    /* Truntum bg */
+    .klatak-truntum-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('assets/media/yogya/batik truntum.jpg') center/cover;
+      pointer-events: none;
+    }
+
+    .klatak-truntum-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 6, 10, 0.88);
+    }
+
+    /* Ember glow pulse */
+    .klatak-ember {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 80% 100% at 50% 100%,
+          rgba(255, 80, 0, .18) 0%, transparent 70%);
+      animation: emberPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes emberPulse {
+
+      0%,
+      100% {
+        opacity: .5;
+        transform: scaleX(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleX(1.05);
+      }
+    }
+
+    /* Inner layout */
+    .klatak-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    @media(min-width:900px) {
+      .klatak-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    /* Chapter label */
+    .klatak-chapter-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #ff8c00;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .klatak-chapter-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #ff8c00;
+    }
+
+    .klatak-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5.5vw, 4rem);
+      font-weight: 700;
+      color: #fcdcca;
+      line-height: 1.05;
+      margin-bottom: .5rem;
+    }
+
+    .klatak-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.875rem, 1.6vw, 1.125rem);
+      font-style: italic;
+      color: rgba(255, 140, 0, .8);
+      margin-bottom: 2rem;
+    }
+
+    .klatak-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #b8a894;
+      margin-bottom: 2rem;
+    }
+
+    .klatak-body em {
+      color: #ff8c00;
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* Fact row */
+    .klatak-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 2rem;
+    }
+
+    .klatak-fact {
+      flex: 1;
+      min-width: 100px;
+      border: 1px solid rgba(255, 140, 0, .2);
+      padding: .875rem;
+      background: rgba(20, 10, 4, .6);
+      text-align: center;
+    }
+
+    .klatak-fact__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.625rem;
+      font-weight: 700;
+      color: #ff8c00;
+      line-height: 1;
+    }
+
+    .klatak-fact__label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      color: #7a6a56;
+      margin-top: .25rem;
+      line-height: 1.4;
+    }
+
+    /* Accordion ingredient */
+    .klatak-accord {
+      margin-bottom: 2rem;
+    }
+
+    .klatak-accord-title {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255, 140, 0, .5);
+      margin-bottom: .75rem;
+    }
+
+    .klatak-accord-item {
+      border-bottom: 1px solid rgba(255, 140, 0, .12);
+    }
+
+    .klatak-accord-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      padding: .875rem 0;
+      font-family: 'Inter', sans-serif;
+      font-size: .9375rem;
+      color: #fcdcca;
+      cursor: pointer;
+      text-align: left;
+      transition: color .2s;
+    }
+
+    .klatak-accord-btn:hover {
+      color: #ff8c00;
+    }
+
+    .klatak-accord-btn span.ico {
+      font-size: .75rem;
+      color: #ff8c00;
+      transition: transform .3s;
+      display: inline-block;
+    }
+
+    .klatak-accord-btn.open span.ico {
+      transform: rotate(45deg);
+    }
+
+    .klatak-accord-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .klatak-accord-body p {
+      font-family: 'Inter', sans-serif;
+      font-size: .875rem;
+      color: #9d8f7c;
+      line-height: 1.6;
+      padding-bottom: .875rem;
+    }
+
+    /* Right: Image mosaic */
+    .klatak-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 260px 180px;
+      gap: .75rem;
+    }
+
+    /* Hover effect for mosaic */
+    .klatak-mosaic:hover .klatak-mosaic__img img {
+      filter: blur(4px) grayscale(50%);
+      opacity: 0.6;
+    }
+
+    @media(max-width:499px) {
+      .klatak-mosaic {
+        grid-template-rows: 180px 140px;
+      }
+    }
+
+    .klatak-mosaic__img {
+      overflow: hidden;
+      position: relative;
+      border-radius: 4px;
+    }
+
+    .klatak-mosaic__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s cubic-bezier(.22, 1, .36, 1), filter .6s ease, opacity .6s ease;
+    }
+
+    .klatak-mosaic .klatak-mosaic__img:hover img {
+      transform: scale(1.12);
+      filter: blur(0) grayscale(0%);
+      opacity: 1;
+    }
+
+    .klatak-mosaic__img--tall {
+      grid-row: span 2;
+    }
+
+    /* Jeruji badge */
+    .klatak-jeruji-badge {
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid rgba(255, 140, 0, .2);
+      padding: 1rem 1.25rem;
+      background: rgba(20, 10, 4, .8);
+    }
+
+    .klatak-jeruji-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .klatak-jeruji-text {
+      font-family: 'Inter', sans-serif;
+      font-size: .8125rem;
+      color: #9d8f7c;
+      line-height: 1.5;
+    }
+
+    .klatak-jeruji-text strong {
+      color: #ff8c00;
+    }
+
+    /* Batik truntum signature */
+    .klatak-batik-row {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .klatak-batik-row__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 140, 0, .25), transparent);
+    }
+
+    .klatak-batik-row__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: .5625rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 140, 0, .45);
+      border: 1px solid rgba(255, 140, 0, .15);
+      padding: .375rem .875rem;
+    }
+
+    /* ══ SECTION 5: SEGO ABANG GUNUNGKIDUL ══ */
+    #sec-segoabang {
+      position: relative;
+      background: #100c05;
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+    }
+
+    /* Karst bg */
+    .sego-gringsing-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: url('assets/media/yogya/karst gunung kidul 1.jpg') center/cover fixed;
+    }
+
+    .sego-gringsing-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(16, 12, 5, 0.88);
+    }
+
+    /* Panorama banner */
+    .sego-banner {
+      position: relative;
+      height: 55vh;
+      min-height: 340px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .sego-banner__img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .sego-banner__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+
+    .sego-banner__img img.loaded {
+      transform: scale(1);
+    }
+
+    .sego-banner__grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(16, 12, 5, .05) 0%,
+          rgba(16, 12, 5, .55) 60%,
+          rgba(16, 12, 5, .98) 100%);
+    }
+
+    .sego-banner__text {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 2rem 3rem;
+      max-width: 800px;
+    }
+
+    .sego-chapter-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #c8602a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .sego-chapter-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #c8602a;
+    }
+
+    .sego-htitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5.5vw, 4rem);
+      font-weight: 700;
+      color: #fcdcca;
+      line-height: 1.05;
+      margin-bottom: .4rem;
+    }
+
+    .sego-hsubtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.875rem, 1.6vw, 1.125rem);
+      font-style: italic;
+      color: rgba(200, 96, 42, .8);
+    }
+
+    /* Main body grid */
+    .sego-body-grid {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 3.5rem auto 0;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media(min-width:900px) {
+      .sego-body-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .sego-narasi {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #b8a894;
+      margin-bottom: 1.75rem;
+    }
+
+    .sego-narasi strong {
+      color: #c8602a;
+    }
+
+    /* Pull-quote */
+    .sego-pullquote {
+      border-left: 3px solid #c8602a;
+      padding: .875rem 1.25rem;
+      background: rgba(200, 96, 42, .07);
+      margin: 1.5rem 0;
+    }
+
+    .sego-pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-style: italic;
+      color: #fcdcca;
+      line-height: 1.55;
+    }
+
+    /* Nutrisi radar visual */
+    .sego-radar-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .sego-radar-title {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(200, 96, 42, .5);
+      margin-bottom: .25rem;
+    }
+
+    .sego-radar-bar-row {
+      display: flex;
+      align-items: center;
+      gap: .875rem;
+    }
+
+    .sego-radar-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      color: #9d8f7c;
+      min-width: 110px;
+    }
+
+    .sego-radar-track {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, .06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sego-radar-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: linear-gradient(to right, #c8602a, #e87c3e);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .sego-radar-val {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #c8602a;
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* Compare table: Sego Abang vs Beras Putih */
+    .sego-compare {
+      margin-top: 2rem;
+    }
+
+    .sego-compare-title {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(200, 96, 42, .5);
+      margin-bottom: 1rem;
+    }
+
+    .sego-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .sego-compare-table th {
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      font-weight: 700;
+      color: #c8602a;
+      text-align: left;
+      border-bottom: 1px solid rgba(200, 96, 42, .2);
+      padding: .5rem .75rem;
+    }
+
+    .sego-compare-table td {
+      font-family: 'Inter', sans-serif;
+      font-size: .8125rem;
+      color: #9d8f7c;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+      padding: .5rem .75rem;
+      vertical-align: top;
+    }
+
+    .sego-compare-table td:first-child {
+      color: #fcdcca;
+      font-weight: 500;
+    }
+
+    .sego-compare-table td.better {
+      color: #c8602a;
+      font-weight: 600;
+    }
+
+    /* Image grid */
+    .sego-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 200px;
+      gap: .75rem;
+    }
+
+    @media(max-width:768px) {
+      .sego-img-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 160px);
+      }
+    }
+
+    .sego-img-cell {
+      overflow: hidden;
+    }
+
+    .sego-img-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .sego-img-cell:hover img {
+      transform: scale(1.06);
+    }
+
+    .sego-img-cell:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Batik Gringsing strip */
+    .sego-batik-strip {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sego-batik-strip__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200, 96, 42, .3), transparent);
+    }
+
+    .sego-batik-strip__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: .5625rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(200, 96, 42, .5);
+      border: 1px solid rgba(200, 96, 42, .2);
+      padding: .375rem .875rem;
+    }
+
+    /* ══ SECTION 6: GEPLAK BANTUL ══ */
+    #sec-geplak {
+      position: relative;
+      background: #150d12;
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+    }
+
+    /* Batik Nitik bg */
+    .geplak-nitik-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: url('assets/media/yogya/batik nitik.avif') center/cover fixed;
+    }
+
+    .geplak-nitik-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(45, 12, 28, 0.86);
+    }
+
+    .geplak-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    @media(min-width: 900px) {
+      .geplak-container {
+        grid-template-columns: 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+
+    /* Left Sticky Side */
+    .geplak-sticky {
+      position: sticky;
+      top: 100px;
+    }
+
+    .geplak-chapter-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #eb7a9d;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .geplak-chapter-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #eb7a9d;
+    }
+
+    .geplak-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: #fdf2f5;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .geplak-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.875rem, 1.6vw, 1.125rem);
+      font-style: italic;
+      color: #eba6bc;
+      margin-bottom: 2rem;
+    }
+
+    .geplak-narasi {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #bfaab1;
+      margin-bottom: 1.5rem;
+    }
+
+    .geplak-narasi strong {
+      color: #eb7a9d;
+    }
+
+    /* Sugary Palette visualization */
+    .geplak-palette {
+      display: flex;
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+
+    .geplak-color {
+      flex: 1;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--c);
+      opacity: .6;
+      transition: opacity .3s, transform .3s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .geplak-color:hover {
+      opacity: 1;
+      transform: scaleY(1.5);
+    }
+
+    .geplak-color::after {
+      content: attr(data-flavor);
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(0, 0, 0, .8);
+      padding: 2px 6px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .geplak-color:hover::after {
+      opacity: 1;
+    }
+
+    /* Right Scrolling Side */
+    .geplak-scroll-area {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .geplak-card {
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid rgba(235, 122, 157, .15);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .4s ease, border-color .4s ease, box-shadow .4s ease;
+    }
+
+    .geplak-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(235, 122, 157, .4);
+      box-shadow: 0 10px 30px -10px rgba(235, 122, 157, .1);
+    }
+
+    .geplak-card__img {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .geplak-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+
+    .geplak-card:hover .geplak-card__img img {
+      transform: scale(1.05);
+    }
+
+    .geplak-card__body {
+      padding: 1.5rem;
+    }
+
+    .geplak-card__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #fdf2f5;
+      margin-bottom: .5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .geplak-card__title span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--c);
+    }
+
+    .geplak-card__desc {
+      font-family: 'Inter', sans-serif;
+      font-size: .875rem;
+      line-height: 1.6;
+      color: #bfaab1;
+    }
+
+    .geplak-batik-strip {
+      max-width: 1200px;
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .geplak-batik-strip__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(235, 122, 157, .3), transparent);
+    }
+
+    .geplak-batik-strip__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: .5625rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(235, 122, 157, .8);
+      border: 1px solid rgba(235, 122, 157, .2);
+      padding: .375rem .875rem;
+      border-radius: 20px;
+    }
+
+    /* ══ SECTION 7: BIR JAWA ══ */
+    #sec-birjawa {
+      position: relative;
+      background: #0f0a05;
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+      text-align: center;
+    }
+
+    .bir-ciptoning-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('assets/media/yogya/batik ciptaning jogja.jpg') center/cover;
+      opacity: 0.05;
+      mix-blend-mode: luminosity;
+      pointer-events: none;
+    }
+
+    .bir-container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .bir-chapter-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #e5b35c;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+    }
+
+    .bir-chapter-label::before,
+    .bir-chapter-label::after {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: #e5b35c;
+    }
+
+    .bir-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      color: #fce8c0;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .bir-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.875rem, 1.6vw, 1.125rem);
+      font-style: italic;
+      color: #dcb36d;
+      margin-bottom: 2rem;
+    }
+
+    .bir-narasi {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #b5a489;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .bir-interactive {
+      margin: 3.5rem auto 2rem;
+      max-width: 600px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid rgba(229, 179, 92, .15);
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+    }
+
+    .bir-interactive-title {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #e5b35c;
+      margin-bottom: 2.5rem;
+    }
+
+    .bir-glass-wrapper {
+      position: relative;
+      width: 140px;
+      height: 180px;
+      margin: 0 auto 3rem;
+    }
+
+    .bir-glass {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      border: 4px solid rgba(255, 255, 255, .15);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .05),
+        0 10px 30px rgba(0, 0, 0, .5);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .bir-glass::before,
+    .bir-glass::after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, .1);
+      width: 2px;
+      height: 100%;
+      top: 0;
+    }
+
+    .bir-glass::before {
+      left: 20px;
+    }
+
+    .bir-glass::after {
+      right: 20px;
+    }
+
+    .bir-liquid {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg, rgba(235, 170, 40, .85) 0%, rgba(200, 80, 10, .95) 100%);
+      transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+    }
+
+    .bir-foam {
+      position: absolute;
+      bottom: 0%;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, .9);
+      border-radius: 50% 50% 0 0;
+      opacity: 0;
+      transition: bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s, height 0.4s;
+      z-index: 2;
+      filter: blur(1px);
+    }
+
+    .bir-spices {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem;
+    }
+
+    .bir-spice-btn {
+      background: rgba(20, 15, 10, .6);
+      border: 1px solid rgba(229, 179, 92, .3);
+      color: #dcb36d;
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      padding: .6rem 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .bir-spice-btn:hover {
+      background: rgba(229, 179, 92, .15);
+      color: #fce8c0;
+    }
+
+    .bir-spice-btn.added {
+      background: rgba(229, 179, 92, .4);
+      color: #fff;
+      border-color: rgba(229, 179, 92, .8);
+      pointer-events: none;
+      transform: scale(0.95);
+    }
+
+    .bir-success {
+      margin-top: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #e5b35c;
+      font-size: 1.125rem;
+      opacity: 0;
+      height: 0;
+      transition: opacity .5s;
+    }
+
+    .bir-success.show {
+      opacity: 1;
+      height: auto;
+      margin-top: 2rem;
+    }
+
+    .bir-photo-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    @media(max-width: 600px) {
+      .bir-photo-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .bir-photo {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(229, 179, 92, .2);
+    }
+
+    .bir-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s;
+    }
+
+    .bir-photo:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ══ SECTION 8: PENUTUP ══ */
+    #sec-penutup {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .penutup-panels {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    .penutup-panel {
+      flex: 1;
+      position: relative;
+      padding: 6rem 3rem 8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @media(max-width: 768px) {
+      .penutup-panels {
+        flex-direction: column;
+      }
+    }
+
+    .penutup-uwuh {
+      background: #361710;
+    }
+
+    .penutup-uwuh-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/media/yogya/batik sekar jagad 1.webp') center/cover;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .penutup-kopi {
+      background: #101010;
+    }
+
+    .penutup-kopi-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/media/yogya/batik sekar jagad 2.jpg') center/cover;
+      opacity: 0.15;
+      mix-blend-mode: luminosity;
+      pointer-events: none;
+    }
+
+    .penutup-content {
+      position: relative;
+      z-index: 10;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .penutup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .penutup-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #e5b35c;
+    }
+
+    .penutup-narasi {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .penutup-photo {
+      width: 100%;
+      border-radius: 50% 50% 12px 12px;
+      overflow: hidden;
+      border: 4px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+    }
+
+    .penutup-photo img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+
+
+    /* Parallax Elements */
+    .parallax-group {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .parallax-leaf {
+      position: absolute;
+      background: rgba(180, 80, 40, .8);
+      border-radius: 0 50% 0 50%;
+      box-shadow: inset -5px -5px 10px rgba(0, 0, 0, .3);
+      filter: blur(1px);
+    }
+
+    .parallax-charcoal {
+      position: absolute;
+      background: #ff4500;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #ff4500, inset 0 0 10px #000;
+      clip-path: polygon(10% 0, 90% 10%, 100% 90%, 15% 100%, 0 50%);
+      filter: blur(1px);
+    }
+
+    .penutup-final {
+      position: relative;
+      background: rgba(0, 0, 0, .95);
+      backdrop-filter: blur(10px);
+      padding: 4rem 2rem;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .penutup-final p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      line-height: 1.8;
+      color: #e5b35c;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Navbar override for this page */
+    .navbar-yog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(15, 8, 3, .88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(80, 69, 54, .6);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-yog__inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fabc53;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 2rem;
+      list-style: none;
+      align-items: center
+    }
+
+    @media(min-width:768px) {
+      .nav-links {
+        display: flex
+      }
+    }
+
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: .875rem;
+      color: #c9b8a4;
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fabc53
+    }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: .6875rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #9d8f7c;
+      border: 1px solid #504536;
+      padding: 8px 14px;
+      text-decoration: none;
+      transition: color .3s, border-color .3s;
+    }
+
+    .nav-back:hover {
+      color: #fabc53;
+      border-color: #fabc53
+    }
+
+    .nav-ham {
+      color: #9d8f7c;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media(min-width:768px) {
+      .nav-ham {
+        display: none
+      }
+    }
+
+    /* Reading progress */
+    #rp {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, #c8902a, #fabc53);
+      z-index: 200;
+      width: 0%;
+      transition: width .1s linear;
+    }
+
+    /* Footer */
+    .footer-yog {
+      background: #110802;
+      border-top: 1px solid #3a2410;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .footer-yog__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      color: #fcdcca;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem
+    }
+
+    .footer-nav a {
+      font-family: 'Inter', sans-serif;
+      font-size: .875rem;
+      color: #9d8f7c;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #504536;
+    }
+  </style>
+</head>
+
+<body style="background:#0a0604;overflow-x:hidden;">
+
+  <!-- Reading progress -->
+  <div id="rp"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-yog" aria-label="Navigasi utama">
+    <div class="navbar-yog__inner">
+      <a href="index.html" class="nav-logo">Culinary Journey</a>
+      <ul class="nav-links">
         <li><a href="index.html">Beranda</a></li>
         <li><a href="yogyakarta.html" class="active">Yogyakarta</a></li>
         <li><a href="sumatera-selatan.html">Sumsel</a></li>
         <li><a href="nusa-tenggara-barat.html">NTB</a></li>
         <li><a href="insight.html">Insight</a></li>
       </ul>
-      <a href="index.html" class="navbar__back" aria-label="Kembali ke halaman beranda">
-        <span class="material-symbols-outlined" style="font-size:1rem;">arrow_back</span>
+      <a href="index.html" class="nav-back">
+        <span class="material-symbols-outlined" style="font-size:1rem">arrow_back</span>
         Kembali
       </a>
-      <button class="navbar__hamburger" id="hamburger" aria-label="Buka menu" aria-expanded="false">
+      <button class="nav-ham" id="hamburger" aria-label="Menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="navbar__mobile-menu" id="mobile-menu">
-    <a href="index.html">Beranda</a>
-    <a href="yogyakarta.html">🎋 Yogyakarta</a>
-    <a href="sumatera-selatan.html">🌶️ Sumatera Selatan</a>
-    <a href="nusa-tenggara-barat.html">🌊 Nusa Tenggara Barat</a>
-    <a href="insight.html">📊 Data & Insight</a>
+  <!-- ══ SECTION 1: SCROLL-EXPAND HERO ══ -->
+  <div id="hero" aria-label="Hero Yogyakarta — Gerbang Sumbu Filosofis">
+
+    <!-- Background: Gamelan Keraton -->
+    <div class="hero-bg" id="heroBg">
+      <img src="assets/media/yogya/gamelan 1.jpg" alt="Gamelan Keraton Yogyakarta" loading="eager" />
+      <div class="hero-bg-dim"></div>
+    </div>
+
+    <!-- Batik pattern -->
+    <div class="hero-pattern" aria-hidden="true"></div>
+
+    <!-- Sumbu Filosofis vertical line -->
+    <div class="hero-sumbu" aria-hidden="true">
+      <svg viewBox="0 0 2 800" preserveAspectRatio="none">
+        <line class="sumbu-line" x1="1" y1="0" x2="1" y2="800" />
+        <circle class="sumbu-dot" cx="1" cy="60" r="4" />
+        <circle class="sumbu-dot" cx="1" cy="400" r="4" />
+        <circle class="sumbu-dot" cx="1" cy="740" r="4" />
+      </svg>
+    </div>
+
+    <!-- Expanding frame: Tugu Yogyakarta -->
+    <div class="hero-frame-wrap" id="heroFrame" style="width:300px;height:400px;">
+      <div class="hero-frame" id="heroFrameInner" style="border-radius:14px;">
+        <img src="assets/media/yogya/tugu yogya.jpg" alt="Tugu Yogyakarta" loading="eager" />
+        <div class="hero-frame-overlay" id="heroFrameOverlay"></div>
+      </div>
+    </div>
+
+    <!-- Title words -->
+    <div class="hero-title" id="heroTitle">
+      <span class="hero-eyebrow" id="heroEyebrow">🎋 The Heart of Java &middot; Sangkan Paraning Dumadi</span>
+      <span class="hero-word" id="heroWordL">Yogyakarta</span>
+      <span class="hero-word hero-word--sub" id="heroWordR">Rasa dalam Sumbu Suci</span>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-hint" id="heroHint" aria-hidden="true">
+      <span>Gulir untuk Menjelajah</span>
+      <div class="hint-line"></div>
+    </div>
   </div>
 
-  <main>
-    <!-- ── REGION HEADER ── -->
-    <section class="region-header container">
-      <span class="region-header__eyebrow text-label reveal" style="color:#c8902a;">🎋 The Heart of Java</span>
-      <h1 class="text-display region-header__title reveal reveal--delay-1">Yogyakarta</h1>
-      <p class="region-header__desc reveal reveal--delay-2">
-        Sebuah kota di mana waktu melambat dan setiap hidangan menceritakan kisah tentang keraton, rakyat yang tangguh, dan kecintaan mendalam terhadap rasa manis. Filosofi Jawa yang selaras merasuk ke setiap bumbu.
-      </p>
+  <!-- POST-HERO CONTENT -->
+  <div id="post-hero" style="display:none;">
 
-      <!-- Fun fact data callout -->
-      <div class="reveal reveal--delay-2"
-           style="display:inline-flex; gap:1rem; padding:1rem 1.5rem; border:1px solid #c8902a44; background-color:var(--color-surface-container-lowest); margin-bottom:2.5rem;">
-        <span class="material-symbols-outlined" style="color:#c8902a;">insights</span>
-        <p style="font-size:0.875rem; color:var(--color-on-surface-variant); line-height:1.5;">
-          Gudeg Jogja memiliki skor manis <strong style="color:#c8902a;">90/100</strong> — tertinggi dari seluruh dataset. Kontras dengan Oseng Mercon: pedas <strong style="color:#c84c22;">100/100</strong>.
+    <!-- Narasi Pembuka: Gerbang Sumbu Filosofis -->
+    <section class="narasi" id="sec-filosofis" aria-labelledby="filosof-title">
+      <div class="narasi-inner">
+        <div class="sumbu-badge reveal">
+          <span class="material-symbols-outlined" style="font-size:.875rem">auto_stories</span>
+          Sumbu Filosofis Yogyakarta
+        </div>
+        <blockquote class="narasi-quote reveal reveal--delay-1" id="filosof-title">
+          "Yogyakarta tidak pernah dirancang sebagai sebuah kebetulan di atas peta fana."
+        </blockquote>
+        <p class="narasi-body reveal reveal--delay-1">
+          Di atas tanah ini, Sri Sultan Hamengku Buwono I melukis garis imajiner lurus yang menghubungkan puncak abu
+          vulkanik Merapi dengan misteri laut selatan. Ini adalah kompas spiritual — poros <strong
+            style="color:#fabc53">Sangkan Paraning Dumadi</strong> yang mengingatkan dari mana manusia lahir, bagaimana
+          mereka berjuang di dunia, dan ke mana mereka akan kembali pulang.
         </p>
-      </div>
+        <p class="narasi-body reveal reveal--delay-2" style="margin-bottom:0">
+          Di sepanjang garis suci ini, rasa tidak hanya dikecap oleh lidah, melainkan dirawat oleh sejarah. Selamat
+          datang di penjelajahan rasa yang melampaui waktu.
+        </p>
 
-      <div class="region-header__divider reveal">
-        <div class="region-header__divider-line"></div>
-        <span class="material-symbols-outlined region-header__divider-icon">local_florist</span>
-        <span class="material-symbols-outlined region-header__divider-icon">local_florist</span>
-        <span class="material-symbols-outlined region-header__divider-icon">local_florist</span>
-        <div class="region-header__divider-line"></div>
-      </div>
-    </section>
-
-    <!-- ── FILTER TABS ── -->
-    <section class="container" style="margin-top:2.5rem;">
-      <div class="filter-tabs" role="tablist" aria-label="Filter hidangan">
-        <button class="filter-tab active" data-filter="semua" role="tab" aria-selected="true">Semua</button>
-        <button class="filter-tab" data-filter="makanan-berat" role="tab" aria-selected="false">Makanan Berat</button>
-        <button class="filter-tab" data-filter="snack" role="tab" aria-selected="false">Snack / Oleh-oleh</button>
-      </div>
-
-      <!-- Dish Grid (populated by region.js) -->
-      <div class="dish-grid" id="dish-grid" data-stagger aria-label="Daftar hidangan Yogyakarta">
-        <!-- Cards injected by JS -->
-        <div style="grid-column:1/-1; text-align:center; padding:4rem 0; color:var(--color-on-surface-variant);">
-          <span class="material-symbols-outlined" style="font-size:2rem; display:block; margin-bottom:1rem;">hourglass_empty</span>
-          Memuat hidangan…
+        <div class="tiga-poros reveal reveal--delay-2">
+          <div class="poros-item">
+            <span class="poros-num">I</span>
+            <span class="poros-label">Asal Kehidupan</span>
+            <span class="poros-name">Gunung Merapi</span>
+            <span class="poros-sub">Api dan abu yang menghidupi tanah Mataram</span>
+          </div>
+          <div class="poros-item">
+            <span class="poros-num">II</span>
+            <span class="poros-label">Perjuangan Dunia</span>
+            <span class="poros-name">Keraton Yogyakarta</span>
+            <span class="poros-sub">Pusat peradaban, seni, dan kuliner adiluhung</span>
+          </div>
+          <div class="poros-item">
+            <span class="poros-num">III</span>
+            <span class="poros-label">Kembali Pulang</span>
+            <span class="poros-name">Pantai Selatan</span>
+            <span class="poros-sub">Muara semesta, kediaman Nyai Roro Kidul</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ── NAVIGATE TO OTHER REGIONS ── -->
-    <section class="section container" aria-label="Navigasi ke daerah lain">
-      <div class="batik-divider" aria-hidden="true">
-        <span class="batik-divider__line"></span>
-        <span class="batik-divider__dot"></span><span class="batik-divider__dot"></span><span class="batik-divider__dot"></span>
-        <span class="batik-divider__line"></span>
-      </div>
-      <h2 class="text-headline-md reveal" style="margin: 3rem 0 1.5rem;">Jelajahi Daerah Lain</h2>
-      <div style="display:flex; flex-wrap:wrap; gap:1rem;" class="reveal reveal--delay-1">
-        <a href="sumatera-selatan.html" class="btn btn--outline-primary">🌶️ Sumatera Selatan</a>
-        <a href="nusa-tenggara-barat.html" class="btn btn--outline-primary">🌊 NTB</a>
-        <a href="insight.html" class="btn btn--outline-primary">📊 Data &amp; Insight</a>
-      </div>
-    </section>
-  </main>
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
+    </div>
 
-  <!-- ── DISH DETAIL MODAL ── -->
-  <div class="modal-overlay" id="dish-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal" style="position:relative;">
-      <button class="modal__close" id="modal-close" aria-label="Tutup detail hidangan">
-        <span class="material-symbols-outlined" style="font-size:1.125rem;">close</span>
-      </button>
+    <!-- ══ SECTION 2: KUE KIPO ══ -->
+    <section id="sec-kipo" aria-labelledby="kipo-title">
+      <div class="kipo-kawung-bg" aria-hidden="true"></div>
 
-      <img class="modal__img" id="modal-img" src="" alt="" />
-
-      <div class="modal__body">
-        <div>
-          <span class="modal__region-tag text-label" id="modal-region-tag"></span>
-          <h2 class="modal__title" id="modal-title" style="margin-top:0.5rem;"></h2>
-          <p class="modal__desc" id="modal-desc" style="margin-top:1rem;"></p>
-        </div>
-
-        <!-- Radar Chart -->
-        <div>
-          <p class="modal__section-title">Profil Rasa (DNA Rasa)</p>
-          <div class="radar-wrap">
-            <canvas id="modal-radar" width="280" height="280" aria-label="Radar chart profil rasa hidangan"></canvas>
+      <div class="kipo-inner">
+        <!-- TEXT SIDE -->
+        <div class="kipo-text">
+          <p class="kipo-chapter-label reveal">Chapter II &middot; Kotagede</p>
+          <h2 class="kipo-title reveal reveal--delay-1" id="kipo-title">Kue Kipo</h2>
+          <p class="kipo-subtitle reveal reveal--delay-1">Iki opo? — Keingintahuan di Ujung Sumbu</p>
+          <p class="kipo-body reveal reveal--delay-2">
+            Sejak abad ke-16, di gang-gang sempit Kotagede yang menyimpan memori Mataram, sebutir hijau mungil favorit
+            Sultan Agung mengajarkan kita untuk menghargai detail proses kehidupan. Ukurannya sengaja dibuat sekecil ibu
+            jari — agar penikmatnya menikmati manisnya <em>enten-enten</em> kelapa secara perlahan.
+          </p>
+          <div class="kipo-fact-row reveal reveal--delay-2">
+            <div class="kipo-fact">
+              <span class="kipo-fact__num">1946</span>
+              <br>
+              <span class="kipo-fact__label">Tahun Mbah Mangun Irono mempopulerkan kembali Kue Kipo</span>
+            </div>
+            <div class="kipo-fact">
+              <span class="kipo-fact__num">2019</span>
+              <br>
+              <span class="kipo-fact__label">Dikukuhkan sebagai Warisan Budaya Takbenda Indonesia</span>
+            </div>
+            <div class="kipo-fact">
+              <span class="kipo-fact__num">3cm</span>
+              <br>
+              <span class="kipo-fact__label">Ukuran per biji — sekecil ibu jari, sebesar filosofi</span>
+            </div>
+          </div>
+          <div class="reveal reveal--delay-3">
+            <span class="kipo-batik-tag">
+              <span class="material-symbols-outlined" style="font-size:.875rem">texture</span>
+              Batik Kawung &mdash; Kesucian Asal-Usul Kehidupan
+            </span>
+          </div>
+          <div class="reveal reveal--delay-3">
+            <button class="kipo-peel-btn" id="kipoPeelBtn"
+              onclick="this.closest('#sec-kipo').querySelector('.kipo-daun-wrap').classList.toggle('peeled'); this.textContent = this.closest('#sec-kipo').querySelector('.kipo-daun-wrap').classList.contains('peeled') ? '🍃 Tutup Kembali Daun Pisang' : '🍃 Kupas Daun Pisang'">
+              🍃 Kupas Daun Pisang
+            </button>
           </div>
         </div>
 
-        <!-- Nutrisi -->
-        <div>
-          <p class="modal__section-title">Nutrisi (per 100g)</p>
-          <div id="modal-nutrisi" style="display:flex; flex-direction:column; gap:10px;"></div>
-        </div>
-
-        <!-- Bahan Utama -->
-        <div>
-          <p class="modal__section-title">Bahan Utama</p>
-          <div class="chip-list" id="modal-chips"></div>
-        </div>
-
-        <!-- Resep Singkat -->
-        <div>
-          <p class="modal__section-title">Resep Singkat</p>
-          <ol id="modal-recipe" style="padding:0; list-style:none;"></ol>
+        <!-- VISUAL SIDE -->
+        <div class="kipo-visual reveal reveal--delay-1">
+          <div class="kipo-daun-wrap" id="kipoDaunWrap">
+            <!-- Food image behind -->
+            <div class="kipo-food-img">
+              <img src="assets/media/yogya/kue kipo 1.jpg" alt="Kue Kipo di atas cobek tanah liat" loading="lazy" />
+            </div>
+            <!-- Daun pisang layers on top -->
+            <div class="kipo-daun-layer kipo-daun-layer--left">
+              <img src="assets/media/yogya/daun pisang 1.avif" alt="Daun pisang kiri" loading="lazy" />
+            </div>
+            <div class="kipo-daun-layer kipo-daun-layer--right">
+              <img src="assets/media/yogya/daun pisang 2.avif" alt="Daun pisang kanan" loading="lazy" />
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Carousel: Proses Pembuatan -->
+      <div class="kipo-carousel" style="max-width:1200px;margin:4rem auto 0;padding:0 2rem;">
+        <p class="kipo-carousel-label reveal">Telatenan Tangan — Proses Pembuatan Kue Kipo</p>
+        <div class="kipo-strip reveal reveal--delay-1">
+          <div class="kipo-card">
+            <img class="kipo-card__img" src="assets/media/yogya/daun pisang 3.jpg" alt="Daun pisang alas"
+              loading="lazy" />
+            <div class="kipo-card__body">
+              <h3 class="kipo-card__title">01 — Siapkan Alas</h3>
+              <p class="kipo-card__desc">Daun pisang dilayukan di atas api, lalu dipotong dan digelar sebagai alas
+                panggang di cobek tanah liat.</p>
+            </div>
+          </div>
+          <div class="kipo-card">
+            <img class="kipo-card__img" src="assets/media/yogya/kue kipo 2.jpg" alt="Adonan ketan hijau"
+              loading="lazy" />
+            <div class="kipo-card__body">
+              <h3 class="kipo-card__title">02 — Racik Adonan</h3>
+              <p class="kipo-card__desc">Tepung ketan dicampur perasan daun suji dan pandan hingga hijau merata. Diisi
+                enten-enten kelapa muda &amp; gula jawa.</p>
+            </div>
+          </div>
+          <div class="kipo-card">
+            <img class="kipo-card__img" src="assets/media/yogya/kue kipo 3.jpg" alt="Kue Kipo dipanggang"
+              loading="lazy" />
+            <div class="kipo-card__body">
+              <h3 class="kipo-card__title">03 — Panggang Perlahan</h3>
+              <p class="kipo-card__desc">Dipanggang di atas cobek tanah liat hingga kulit luar kecokelatan harum, namun
+                tetap kenyal dan lembut di dalam.</p>
+            </div>
+          </div>
+          <div class="kipo-card">
+            <img class="kipo-card__img" src="assets/media/yogya/kue kipo 4.jpg" alt="Kue Kipo siap disajikan"
+              loading="lazy" />
+            <div class="kipo-card__body">
+              <h3 class="kipo-card__title">04 — Kue yang Sudah Jadi</h3>
+              <p class="kipo-card__desc">Bentuknya yang kecil mungil dan aroma harum daun pisang yang dipanggang
+                menjadikan kue ini sajian otentik peninggalan Mataram.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
     </div>
+
+    <!-- ══ SECTION 3: GUDEG ALAS MENTAOK ══ -->
+    <section id="sec-gudeg" aria-labelledby="gudeg-title">
+      <div class="gudeg-section-bg" aria-hidden="true"></div>
+
+      <!-- Cinematic Parallax Header -->
+      <div class="gudeg-parallax" id="gudegParallax">
+        <div class="gudeg-parallax__bg" id="gudegPatternBg"></div>
+        <div class="gudeg-parallax__img">
+          <img src="assets/media/yogya/gudeg gori.jpg" alt="Gudeg Gori Yogyakarta" loading="lazy" />
+        </div>
+        <div class="gudeg-parallax__gradient"></div>
+        <div class="gudeg-parallax__text">
+          <p class="gudeg-chapter-label">Chapter III &middot; Alas Mentaok</p>
+          <h2 class="gudeg-htitle" id="gudeg-title">Gudeg Alas Mentaok</h2>
+          <p class="gudeg-hsubtitle">Monumen Kesabaran — Hangudeg yang Tak Kenal Tergesa</p>
+        </div>
+      </div>
+
+      <!-- Narasi + Timeline -->
+      <div class="gudeg-body-wrap">
+        <p class="gudeg-narasi reveal">
+          Sekitar tahun 1500, Alas Mentaok dibabat untuk mendirikan pusat Kerajaan Mataram Islam.
+          Kongsi dagang Belanda (VOC) mengabaikan tanaman pangan lokal — namun <strong>tangan-tangan pekerja</strong>
+          tak menyerah pada keterbatasan. Mereka merebus gori selama <strong>12–15 jam</strong> di dalam kuali raksasa,
+          mengaduknya perlahan dalam harmoni ketumbar, lengkuas, dan pekatnya gula jawa.
+          Itulah asal mula <em>hangudeg</em> — sebuah nyanyian kesabaran Jawa yang menghindari sikap tergesa-gesa.
+        </p>
+        <div class="gudeg-timeline reveal reveal--delay-1">
+          <div class="gudeg-tl-item">
+            <span class="gudeg-tl-year">~1500</span>
+            <span class="gudeg-tl-desc">Babat Alas Mentaok. Para pekerja rebus nangka muda (gori) sebagai pangan massal
+              pertama kali.</span>
+          </div>
+          <div class="gudeg-tl-item">
+            <span class="gudeg-tl-year">1755</span>
+            <span class="gudeg-tl-desc">Gudeg masuk dapur Keraton Yogyakarta. Resep disempurnakan: santan kental &amp;
+              daun jati untuk warna cokelat pekat.</span>
+          </div>
+          <div class="gudeg-tl-item">
+            <span class="gudeg-tl-year">1970s</span>
+            <span class="gudeg-tl-desc">Kawasan Wijilan dekat keraton bertransformasi menjadi sentra gudeg legendaris
+              pertama Yogyakarta.</span>
+          </div>
+          <div class="gudeg-tl-item">
+            <span class="gudeg-tl-year">Kini</span>
+            <span class="gudeg-tl-desc">Gudeg kaleng steril modern melintasi batas geografis global — rasa Mataram hadir
+              di meja makan dunia.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="gudeg-stats">
+        <div class="gudeg-stat reveal">
+          <span class="gudeg-stat__num">12-15 Jam</span><br>
+          <span class="gudeg-stat__label">Memasak Gudeg Gori per kuali</span>
+        </div>
+        <div class="gudeg-stat reveal reveal--delay-1">
+          <span class="gudeg-stat__num">3 Hari</span><br>
+          <span class="gudeg-stat__label">Durasi masak Gudeg Manggar dengan tungku kayu</span>
+        </div>
+        <div class="gudeg-stat reveal reveal--delay-2">
+          <span class="gudeg-stat__num">90/100</span><br>
+          <span class="gudeg-stat__label">Skor manis tertinggi seluruh dataset kuliner</span>
+        </div>
+        <div class="gudeg-stat reveal reveal--delay-3">
+          <span class="gudeg-stat__num">500+ Tahun</span><br>
+          <span class="gudeg-stat__label">Warisan rasa Mataram hidup di Yogyakarta</span>
+        </div>
+      </div>
+
+      <!-- Gori vs Manggar Comparison Slider -->
+      <div class="gudeg-compare-wrap">
+        <p class="gudeg-compare-label reveal">Geser untuk Membandingkan — Gudeg Gori vs Gudeg Manggar</p>
+        <div class="gudeg-slider-container reveal reveal--delay-1" id="gudegSlider">
+          <img class="gudeg-slider-img" src="assets/media/yogya/gudeg gori.jpg" alt="Gudeg Gori" loading="lazy" />
+          <img class="gudeg-slider-img gudeg-slider-img--right" id="gudegImgRight"
+            src="assets/media/yogya/gudeg manggar.jpg" alt="Gudeg Manggar" loading="lazy" />
+          <div class="gudeg-slider-divider" id="gudegDivider"></div>
+          <div class="gudeg-slider-handle" id="gudegHandle">
+            <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
+              <path d="M6 10h8M10 6l-4 4 4 4M14 6l-4 4 4 4" stroke="#120a03" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="gudeg-label-l">Gudeg Gori — Nangka Muda</span>
+          <span class="gudeg-label-r">Gudeg Manggar — Bunga Kelapa</span>
+        </div>
+      </div>
+
+      <!-- Batik signature strip -->
+      <div class="gudeg-batik-strip reveal" style="margin-top:3rem;">
+        <div class="gudeg-batik-strip__line"></div>
+        <span class="gudeg-batik-strip__tag">Batik Parang Rusak Barong &mdash; Kekuatan &amp; Keteguhan
+          Perjuangan</span>
+        <div class="gudeg-batik-strip__line"></div>
+      </div>
+    </section>
+
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
+    </div>
+
+    <!-- ══ SECTION 4: SATE KLATAK ══ -->
+    <section id="sec-klatak" aria-labelledby="klatak-title">
+      <div class="klatak-truntum-bg" aria-hidden="true"></div>
+      <div class="klatak-ember" aria-hidden="true"></div>
+
+      <div class="klatak-inner">
+        <!-- LEFT: Narasi + Accordion -->
+        <div class="klatak-text">
+          <p class="klatak-chapter-label reveal">Chapter IV &middot; Pasar Jejeran Bantul</p>
+          <h2 class="klatak-title reveal reveal--delay-1" id="klatak-title">Sate Klatak</h2>
+          <p class="klatak-subtitle reveal reveal--delay-1">Suara Klatak-Klatak di Bara Arang Kayu</p>
+          <p class="klatak-body reveal reveal--delay-2">
+            Di tepi Jalan Imogiri, ketika malam menebal dan pasar Jejeran mulai bising, suara
+            <em>klatak-klatak</em> besi jeruji memukul bara arang menjadi penanda setia:
+            sate kambing muda siap disajikan. Ditusuk dengan <em>jeruji sepeda</em> dari besi baja —
+            bukan bambu biasa — logam penghantar panas itu memastikan daging matang dari dalam ke luar
+            dengan sempurna, tanpa membakar serat terluar.
+          </p>
+
+          <div class="klatak-facts reveal reveal--delay-2">
+            <div class="klatak-fact">
+              <span class="klatak-fact__num">4-5 Tusuk</span><br>
+              <span class="klatak-fact__label">Tusuk per porsi, dari kambing berumur &lt;1 tahun</span>
+            </div>
+            <div class="klatak-fact">
+              <span class="klatak-fact__num">2 Bumbu</span><br>
+              <span class="klatak-fact__label">Bumbu: garam &amp; merica hitam. Kesederhanaan adalah inti</span>
+            </div>
+            <div class="klatak-fact">
+              <span class="klatak-fact__num">1950-an</span><br>
+              <span class="klatak-fact__label">Era awal legenda Sate Klatak Pasar Jejeran</span>
+            </div>
+          </div>
+
+          <!-- Accordion: Rahasia di Balik Jeruji Besi -->
+          <div class="klatak-accord reveal reveal--delay-3">
+            <p class="klatak-accord-title">Rahasia Jeruji Besi &mdash; Buka untuk Tahu</p>
+
+            <div class="klatak-accord-item">
+              <button class="klatak-accord-btn" data-acc="klatak1" onclick="toggleAcc('klatak1',this)">
+                <span>Mengapa Jeruji Sepeda, Bukan Bambu?</span>
+                <span class="ico">+</span>
+              </button>
+              <div class="klatak-accord-body" id="klatak1">
+                <p>Besi baja menghantarkan panas jauh lebih baik daripada bambu. Efek konduksi ini memanggang
+                  daging kambing dari <strong style="color:#ff8c00">dalam ke luar</strong>, mengunci cairan alami
+                  daging (jus) sehingga teksturnya tetap moist dan tidak alot. Bambu akan gosong sebelum
+                  daging matang sempurna.</p>
+              </div>
+            </div>
+
+            <div class="klatak-accord-item">
+              <button class="klatak-accord-btn" data-acc="klatak2" onclick="toggleAcc('klatak2',this)">
+                <span>Filosofi Pemilihan Kambing Muda</span>
+                <span class="ico">+</span>
+              </button>
+              <div class="klatak-accord-body" id="klatak2">
+                <p>Hanya kambing berumur <strong style="color:#ff8c00">di bawah satu tahun</strong> yang dipilih.
+                  Ototnya belum keras, lemaknya belum pekat bau. Garam dan merica hitam kasar sudah cukup
+                  untuk berbicara kepada lidah yang peka — karena kualitas bahan adalah bumbu utamanya.</p>
+              </div>
+            </div>
+
+            <div class="klatak-accord-item">
+              <button class="klatak-accord-btn" data-acc="klatak3" onclick="toggleAcc('klatak3',this)">
+                <span>Arang Kayu vs Arang Brikir</span>
+                <span class="ico">+</span>
+              </button>
+              <div class="klatak-accord-body" id="klatak3">
+                <p>Para maestro Sate Klatak bersikeras menggunakan <strong style="color:#ff8c00">arang kayu</strong>,
+                  bukan brikir. Arang kayu memiliki suhu yang tidak konsisten — dan justru itulah kuncinya:
+                  fluktuasi panas menciptakan <em>char marks</em> alami yang kompleks, jauh lebih kaya rasa
+                  dibanding panas merata brikir yang monoton.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Mosaic foto + Jeruji badge -->
+        <div class="klatak-mosaic reveal reveal--delay-1">
+          <div class="klatak-mosaic__img klatak-mosaic__img--tall">
+            <img src="assets/media/yogya/sate klatak 1.jpg" alt="Sate Klatak di atas bara arang" loading="lazy" />
+          </div>
+          <div class="klatak-mosaic__img">
+            <img src="assets/media/yogya/sate klatak 2.jpg" alt="Jeruji besi sate klatak" loading="lazy" />
+          </div>
+          <div class="klatak-mosaic__img">
+            <img src="assets/media/yogya/sate klatak 3.jpg" alt="Pasar Jejeran malam hari" loading="lazy" />
+          </div>
+          <div class="klatak-jeruji-badge">
+            <div class="klatak-jeruji-text">
+              <strong>Jeruji Sepeda Onthel</strong> &mdash; media tusuk sate satu-satunya yang terbuat dari
+              besi baja karbon, mewarisi tradisi pandai besi Mataram sejak abad ke-19.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batik Truntum signature strip -->
+      <div class="klatak-batik-row reveal" style="margin-bottom:3rem;">
+        <div class="klatak-batik-row__line"></div>
+        <span class="klatak-batik-row__tag">Batik Truntum &mdash; Bintang Harapan di Kegelapan Malam</span>
+        <div class="klatak-batik-row__line"></div>
+      </div>
+    </section>
+
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
+    </div>
+
+    <!-- ══ SECTION 5: SEGO ABANG GUNUNGKIDUL ══ -->
+    <section id="sec-segoabang" aria-labelledby="sego-title">
+      <div class="sego-gringsing-bg" aria-hidden="true"></div>
+
+      <!-- Panorama Banner -->
+      <div class="sego-banner">
+        <div class="sego-banner__img">
+          <img src="assets/media/yogya/sego abang jirak 1.webp" alt="Pemandangan perbukitan Gunungkidul" loading="lazy"
+            onload="this.classList.add('loaded')" />
+        </div>
+        <div class="sego-banner__grad"></div>
+        <div class="sego-banner__text">
+          <p class="sego-chapter-label">Chapter V &middot; Gunungkidul</p>
+          <h2 class="sego-htitle" id="sego-title">Sego Abang</h2>
+          <p class="sego-hsubtitle">Nasi Merah dari Bebatuan Purba &mdash; Ketahanan di Tanah Kapur</p>
+        </div>
+      </div>
+
+      <!-- Body Grid: Narasi + Nutrisi -->
+      <div class="sego-body-grid">
+        <!-- LEFT: Narasi -->
+        <div>
+          <p class="sego-narasi reveal">
+            Di atas tanah kapur karst Gunungkidul yang sulit ditanami padi putih biasa,
+            leluhur orang Wonosari menemukan cara bertahan: menanam <strong>padi lokal abang</strong>
+            — varietas beras merah kuno yang tahan kekeringan dan miskin hara.
+            Bukan pilihan, melainkan kecerdasan ekologi yang disebut masyarakat setempat sebagai
+            <em style="color:#c8602a">nandur karo kahanan</em> &mdash; bertanam sesuai keadaan alam.
+          </p>
+
+          <div class="sego-pullquote reveal reveal--delay-1">
+            <p>"Tanah kapur bukan kutukan. Ia adalah guru yang mengajarkan bahwa rasa
+              terbaik lahir dari perjuangan paling sunyi."
+            </p>
+          </div>
+
+          <p class="sego-narasi reveal reveal--delay-2">
+            Disajikan dengan <strong>sayur lombok ijo</strong>, <strong>tempe bacem</strong>, dan
+            <strong>ikan asin</strong> — kesederhanaan Sego Abang adalah deklarasi ketahanan pangan
+            lokal yang jauh lebih modern dari yang kita kira. Kini para peneliti gizi
+            menetapkan beras merah sebagai <em style="color:#c8602a">superfood</em> dengan indeks
+            glikemik rendah dan serat tinggi.
+          </p>
+
+          <!-- Image mosaic -->
+          <div class="sego-img-grid reveal reveal--delay-2">
+            <div class="sego-img-cell">
+              <img src="assets/media/yogya/sayur lombok ijo 1.jpg" alt="Sayur Lombok Ijo" loading="lazy" />
+            </div>
+            <div class="sego-img-cell">
+              <img src="assets/media/yogya/tempe bacem.jpg" alt="Tempe Bacem" loading="lazy" />
+            </div>
+            <div class="sego-img-cell">
+              <img src="assets/media/yogya/ikan asin.jpg" alt="Ikan Asin" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Nutrisi + Compare -->
+        <div>
+          <!-- Nutrisi bar chart -->
+          <div class="sego-radar-wrap reveal reveal--delay-1">
+            <p class="sego-radar-title">Profil Gizi Beras Merah per 100g — vs Beras Putih</p>
+
+            <div class="sego-radar-bar-row">
+              <span class="sego-radar-label">Serat Pangan</span>
+              <div class="sego-radar-track">
+                <div class="sego-radar-fill" data-width="82"></div>
+              </div>
+              <span class="sego-radar-val">3.5g</span>
+            </div>
+            <div class="sego-radar-bar-row">
+              <span class="sego-radar-label">Indeks Glikemik</span>
+              <div class="sego-radar-track">
+                <div class="sego-radar-fill" data-width="55"
+                  style="background:linear-gradient(to right,#2a8c60,#3dbf7a)"></div>
+              </div>
+              <span class="sego-radar-val" style="color:#2a8c60">55 GI</span>
+            </div>
+            <div class="sego-radar-bar-row">
+              <span class="sego-radar-label">Antioksidan</span>
+              <div class="sego-radar-track">
+                <div class="sego-radar-fill" data-width="90"></div>
+              </div>
+              <span class="sego-radar-val">Tinggi</span>
+            </div>
+            <div class="sego-radar-bar-row">
+              <span class="sego-radar-label">Magnesium</span>
+              <div class="sego-radar-track">
+                <div class="sego-radar-fill" data-width="70"></div>
+              </div>
+              <span class="sego-radar-val">43mg</span>
+            </div>
+            <div class="sego-radar-bar-row">
+              <span class="sego-radar-label">Protein</span>
+              <div class="sego-radar-track">
+                <div class="sego-radar-fill" data-width="60"></div>
+              </div>
+              <span class="sego-radar-val">2.9g</span>
+            </div>
+          </div>
+
+          <!-- Compare table -->
+          <div class="sego-compare reveal reveal--delay-2">
+            <p class="sego-compare-title">Sego Abang vs Beras Putih Biasa</p>
+            <table class="sego-compare-table">
+              <thead>
+                <tr>
+                  <th>Indikator</th>
+                  <th>Beras Merah</th>
+                  <th>Beras Putih</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Indeks Glikemik</td>
+                  <td class="better">55 ✔ Rendah</td>
+                  <td>72 Tinggi</td>
+                </tr>
+                <tr>
+                  <td>Serat</td>
+                  <td class="better">3.5g ✔</td>
+                  <td>0.4g</td>
+                </tr>
+                <tr>
+                  <td>Antioksidan</td>
+                  <td class="better">Antosianin ✔</td>
+                  <td>Minimal</td>
+                </tr>
+                <tr>
+                  <td>Tahan Kering</td>
+                  <td class="better">Ya ✔</td>
+                  <td>Perlu irigasi</td>
+                </tr>
+                <tr>
+                  <td>Kelestarian</td>
+                  <td class="better">Varietas lokal ✔</td>
+                  <td>Hybrid modern</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Fact callouts -->
+          <div class="kipo-fact-row reveal reveal--delay-3" style="margin-top:1.5rem;">
+            <div class="kipo-fact" style="border-color:rgba(200,96,42,.25);background:rgba(20,12,4,.6);">
+              <span class="kipo-fact__num" style="color:#c8602a">300 m</span><br>
+              <span class="kipo-fact__label">Ketinggian rata-rata lahan beras merah Gunungkidul</span>
+            </div>
+            <div class="kipo-fact" style="border-color:rgba(200,96,42,.25);background:rgba(20,12,4,.6);">
+              <span class="kipo-fact__num" style="color:#c8602a">5 Rasa</span><br>
+              <span class="kipo-fact__label">Lauk pendamping khas: lombok ijo, tempe, ikan asin, sayur, sambal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batik Gringsing strip -->
+      <div class="sego-batik-strip reveal" style="margin-top:3.5rem;margin-bottom:3rem;">
+        <div class="sego-batik-strip__line"></div>
+        <span class="sego-batik-strip__tag">Batik Gringsing &mdash; Dua Jiwa Saling Menguatkan di Tanah Gersang</span>
+        <div class="sego-batik-strip__line"></div>
+      </div>
+    </section>
+
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
+    </div>
+
+    <!-- ══ SECTION 6: GEPLAK BANTUL ══ -->
+    <section id="sec-geplak" aria-labelledby="geplak-title">
+      <div class="geplak-nitik-bg" aria-hidden="true"></div>
+
+      <div class="geplak-container">
+        <!-- LEFT: Sticky Typography -->
+        <div class="geplak-sticky">
+          <p class="geplak-chapter-label reveal">Chapter VI &middot; Bantul</p>
+          <h2 class="geplak-title reveal reveal--delay-1" id="geplak-title">Geplak</h2>
+          <p class="geplak-subtitle reveal reveal--delay-1">Simfoni Manis Parutan Kelapa &amp; Gula Pesisir</p>
+
+          <p class="geplak-narasi reveal reveal--delay-2">
+            Di Bantul, di mana perkebunan kelapa melambai menantang angin selatan, lahirlah <strong>Geplak</strong>.
+            Camilan berbentuk kepalan tak beraturan ini dulunya adalah makanan pengganti beras di musim paceklik.
+            Terbuat dari parutan kelapa kasar dan gula tebu atau gula kelapa, geplak menyimpan energi tinggi
+            untuk para pekerja keras.
+          </p>
+          <p class="geplak-narasi reveal reveal--delay-2">
+            Kini, Geplak mekar dalam berbagai warna pastel yang ceria, mencerminkan akulturasi
+            dan semangat kebersamaan masyarakat pesisir selatan Yogyakarta. Sentuh warna di bawah ini
+            untuk melihat harmoni rasanya.
+          </p>
+
+          <div class="geplak-palette reveal reveal--delay-3">
+            <div class="geplak-color" style="--c:#f9d2d9" data-flavor="Stroberi"></div>
+            <div class="geplak-color" style="--c:#d4edda" data-flavor="Pandan"></div>
+            <div class="geplak-color" style="--c:#fff3cd" data-flavor="Nangka"></div>
+            <div class="geplak-color" style="--c:#e2d9f3" data-flavor="Taro"></div>
+            <div class="geplak-color" style="--c:#f8f9fa" data-flavor="Gula Kelapa (Original)"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Scrolling Process Cards -->
+        <div class="geplak-scroll-area">
+          <div class="geplak-card reveal">
+            <div class="geplak-card__img">
+              <img src="assets/media/yogya/parutan kelapa.jpg" alt="Proses parut kelapa" loading="lazy" />
+            </div>
+            <div class="geplak-card__body">
+              <h3 class="geplak-card__title">Tekstur dari Serat <span style="--c:#f8f9fa"></span></h3>
+              <p class="geplak-card__desc">Parutan kelapa setengah tua memberikan tekstur <em>chewy</em> yang khas.
+                Tidak terlalu muda agar tak lembek, dan tidak terlalu tua agar tetap menghasilkan santan alami saat
+                dimasak.</p>
+            </div>
+          </div>
+
+          <div class="geplak-card reveal">
+            <div class="geplak-card__img">
+              <img src="assets/media/yogya/kristal gula.jpg" alt="Memasak adonan geplak" loading="lazy" />
+            </div>
+            <div class="geplak-card__body">
+              <h3 class="geplak-card__title">Pengkristalan Gula <span style="--c:#f9d2d9"></span></h3>
+              <p class="geplak-card__desc">Gula dicairkan lalu dicampur parutan kelapa di atas kuali panas. Proses
+                pengadukan berlangsung konstan hingga gula kembali mengkristal menyelimuti setiap untaian kelapa.</p>
+            </div>
+          </div>
+
+          <div class="geplak-card reveal">
+            <div class="geplak-card__img">
+              <img src="assets/media/yogya/kepalan geplak.jpg" alt="Geplak warna-warni" loading="lazy" />
+            </div>
+            <div class="geplak-card__body">
+              <h3 class="geplak-card__title">Kepalan Cinta <span style="--c:#d4edda"></span></h3>
+              <p class="geplak-card__desc">Selagi hangat, adonan dikepal cepat dengan tangan. Bentuknya yang tidak
+                beraturan justru menandakan otentisitas buatan tangan yang penuh dengan kerja keras pengrajin Bantul.
+              </p>
+            </div>
+          </div>
+
+          <div class="geplak-card reveal">
+            <div class="geplak-card__img">
+              <img src="assets/media/yogya/geplak besek 1.jpg" alt="Geplak dalam besek" loading="lazy" />
+            </div>
+            <div class="geplak-card__body">
+              <h3 class="geplak-card__title">Manisnya Kebersamaan <span style="--c:#e2d9f3"></span></h3>
+              <p class="geplak-card__desc">Setelah dingin, geplak mengeras di luar namun tetap lembut di dalam.
+                Disajikan dalam besek anyaman bambu, ia menjadi simbol manisnya kebersamaan masyarakat Yogyakarta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batik Nitik strip -->
+      <div class="geplak-batik-strip reveal">
+        <div class="geplak-batik-strip__line"></div>
+        <span class="geplak-batik-strip__tag">Batik Nitik &mdash; Titik Kesabaran &amp; Kelembutan</span>
+        <div class="geplak-batik-strip__line"></div>
+      </div>
+    </section>
+
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
+    </div>
+
+    <!-- ══ SECTION 7: BIR JAWA ══ -->
+    <section id="sec-birjawa" aria-labelledby="bir-title">
+      <div class="bir-ciptoning-bg" aria-hidden="true"></div>
+
+      <div class="bir-container">
+        <p class="bir-chapter-label reveal">Chapter VII &middot; Keraton</p>
+        <h2 class="bir-title reveal reveal--delay-1" id="bir-title">Bir Jawa</h2>
+        <p class="bir-subtitle reveal reveal--delay-1">Diplomasi dalam Cangkir Emas</p>
+
+        <p class="bir-narasi reveal reveal--delay-2">
+          Di dalam ruang-ruang kaca perundingan Keraton, diplomasi dimainkan dengan anggun.
+          Sri Sultan Hamengkubuwana VII dan VIII menolak tunduk pada tradisi meminum alkohol kolonial Belanda
+          tanpa merusak hubungan politik. Berwarna kuning keemasan bening dan berbuih perak layaknya bir Eropa,
+          minuman hangat ini disajikan dari wadah kristal bertutup emas 28 karat menuju gelas emas 18 karat.
+        </p>
+
+        <!-- Interactive Game -->
+        <div class="bir-interactive reveal reveal--delay-3">
+          <p class="bir-interactive-title">Racik 10 Rempah Bir Jawa</p>
+
+          <div class="bir-glass-wrapper">
+            <div class="bir-glass" id="birGlass">
+              <div class="bir-liquid" id="birLiquid"></div>
+              <div class="bir-foam" id="birFoam"></div>
+            </div>
+          </div>
+
+          <div class="bir-spices">
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Kayu Secang</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Cengkih</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Kayu Manis</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Mesoyi</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Kemukus</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Lada</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Pala</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Jahe</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Serai</button>
+            <button class="bir-spice-btn" onclick="addBirSpice(this)">Jeruk Nipis</button>
+          </div>
+
+          <div class="bir-success" id="birSuccessMsg">
+            Bersulang dalam kesetaraan derajat, Bir Jawa adalah simbol kecerdasan taktis yang menjaga kedaulatan bangsa.
+          </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="bir-photo-grid reveal">
+          <div class="bir-photo">
+            <img src="assets/media/yogya/bir jawa 1.avif" alt="Penyajian Bir Jawa" loading="lazy" />
+          </div>
+          <div class="bir-photo">
+            <img src="assets/media/yogya/bir jawa 2.webp" alt="Gelas Bir Jawa" loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="sdiv" aria-hidden="true">
+      <div class="sdiv-line"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-diamond"></div>
+      <div class="sdiv-line"></div>
+    </div>
+
+    <!-- ══ SECTION 8: PENUTUP (Wedang Uwuh & Kopi Joss) ══ -->
+    <section id="sec-penutup">
+      <div class="penutup-panels">
+        <!-- Wedang Uwuh Side -->
+        <div class="penutup-panel penutup-uwuh">
+          <div class="penutup-uwuh-bg" aria-hidden="true"></div>
+
+          <div class="penutup-content reveal">
+            <p class="penutup-subtitle">Peningkat Imun</p>
+            <h2 class="penutup-title">Wedang Uwuh</h2>
+            <div class="penutup-photo">
+              <img src="assets/media/yogya/wedang uwuh 1.jpg" alt="Wedang Uwuh" loading="lazy" />
+            </div>
+            <p class="penutup-narasi">
+              'Minuman sampah' dari daun-daun rempah kering di makam raja Imogiri yang dipercaya sebagai peningkat
+              kekebalan tubuh alami.
+            </p>
+          </div>
+        </div>
+
+        <!-- Kopi Joss Side -->
+        <div class="penutup-panel penutup-kopi">
+          <div class="penutup-kopi-bg" aria-hidden="true"></div>
+
+          <div class="penutup-content reveal reveal--delay-1">
+            <p class="penutup-subtitle">Arang Membara</p>
+            <h2 class="penutup-title">Kopi Joss</h2>
+            <div class="penutup-photo">
+              <img src="assets/media/yogya/kopi joss 1.jpg" alt="Kopi Joss" loading="lazy" />
+            </div>
+            <p class="penutup-narasi">
+              Sebongkah arang membara dicelupkan ke dalam kopi, mengikat racun dan menurunkan kadar kafein. Pereda lelah
+              yang menghangatkan jiwa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final Narration -->
+      <div class="penutup-final reveal">
+        <p>
+          Kedua minuman ini, lahir dari kesederhanaan dan ketidaksengajaan, merangkum perjalanan kita: bahwa mahakarya
+          rasa tidak harus mahal, melainkan ia yang mampu menjaga keseimbangan alam, kesehatan tubuh, dan kekayaan
+          budaya. Sebuah akhir yang menghangatkan.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-yog">
+      <div class="footer-yog__inner">
+        <div class="footer-logo">Culinary Journey</div>
+        <nav class="footer-nav">
+          <a href="yogyakarta.html">Yogyakarta</a>
+          <a href="sumatera-selatan.html">Sumatera Selatan</a>
+          <a href="nusa-tenggara-barat.html">NTB</a>
+          <a href="insight.html">Data &amp; Insight</a>
+        </nav>
+        <p class="footer-copy">© 2024 Culinary Journey &middot; PARADOKS 26</p>
+      </div>
+    </footer>
   </div>
 
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__logo">Culinary Journey</div>
-      <nav class="footer__links">
-        <a href="yogyakarta.html">Yogyakarta</a>
-        <a href="sumatera-selatan.html">Sumatera Selatan</a>
-        <a href="nusa-tenggara-barat.html">NTB</a>
-        <a href="insight.html">Data &amp; Insight</a>
-      </nav>
-      <p class="footer__copy">© 2024 Culinary Journey · PARADOKS 26</p>
-    </div>
-  </footer>
+  <script>
+    /* ══ SCROLL-EXPAND HERO (Reversible) ══ */
+    (function () {
+      var hero = document.getElementById('hero');
+      var heroBg = document.getElementById('heroBg');
+      var frame = document.getElementById('heroFrame');
+      var frameInner = document.getElementById('heroFrameInner');
+      var frameOv = document.getElementById('heroFrameOverlay');
+      var wordL = document.getElementById('heroWordL');
+      var wordR = document.getElementById('heroWordR');
+      var eyebrow = document.getElementById('heroEyebrow');
+      var hint = document.getElementById('heroHint');
+      var postHero = document.getElementById('post-hero');
 
-  <!-- Chart.js CDN (needed for radar in modal) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/region.js"></script>
+      var progress = 0;          // 0–1
+      var isExpanded = false;
+      var isMobile = window.innerWidth < 768;
+      window.addEventListener('resize', function () { isMobile = window.innerWidth < 768; });
+
+      function clamp(v, mn, mx) { return Math.min(Math.max(v, mn), mx); }
+
+      function render() {
+        var p = progress;
+
+        /* Frame size */
+        var baseW = isMobile ? 260 : 300;
+        var baseH = isMobile ? 340 : 400;
+        var extraW = isMobile ? (window.innerWidth - baseW - 20) : 1250;
+        var extraH = isMobile ? 260 : 420;
+        var w = baseW + p * extraW;
+        var h = baseH + p * extraH;
+        frame.style.width = Math.min(w, window.innerWidth * 0.97) + 'px';
+        frame.style.height = Math.min(h, window.innerHeight * 0.94) + 'px';
+        frameInner.style.borderRadius = (14 * (1 - p)) + 'px';
+
+        /* Frame overlay */
+        frameOv.style.opacity = Math.max(0, 0.35 - p * 0.35);
+
+        /* BG fades out as frame expands */
+        heroBg.style.opacity = Math.max(0, 1 - p * 1.4);
+
+        /* Words split */
+        var shift = (isMobile ? 22 : 16) * p;
+        wordL.style.transform = 'translateX(-' + shift + 'vw)';
+        wordR.style.transform = 'translateX(' + shift + 'vw)';
+        var textOp = Math.max(0, 1 - p * 2.2);
+        wordL.style.opacity = textOp;
+        wordR.style.opacity = textOp;
+        eyebrow.style.opacity = Math.max(0, 1 - p * 3);
+        hint.style.opacity = Math.max(0, 1 - p * 4);
+      }
+
+      function setProgress(newP) {
+        var prev = progress;
+        progress = clamp(newP, 0, 1);
+        render();
+
+        if (progress >= 1 && !isExpanded) {
+          isExpanded = true;
+          hero.style.display = 'none';
+          postHero.style.display = 'block';
+          document.body.style.overflowY = 'auto';
+          window.scrollTo(0, 0);
+        }
+        if (progress < 1 && isExpanded && window.scrollY <= 0) {
+          isExpanded = false;
+          hero.style.display = '';
+          postHero.style.display = 'none';
+          document.body.style.overflowY = 'hidden';
+        }
+      }
+
+      /* Init */
+      document.body.style.overflowY = 'hidden';
+      postHero.style.display = 'none';
+      render();
+
+      /* Wheel */
+      window.addEventListener('wheel', function (e) {
+        if (isExpanded && window.scrollY > 10) return;
+        if (isExpanded && e.deltaY < 0) {
+          /* Scroll back up into hero from post-hero top */
+          e.preventDefault();
+          setProgress(progress - e.deltaY * -0.001);
+          return;
+        }
+        if (!isExpanded) {
+          e.preventDefault();
+          setProgress(progress + e.deltaY * 0.001);
+        }
+      }, { passive: false });
+
+      /* Touch */
+      var ty0 = 0;
+      window.addEventListener('touchstart', function (e) {
+        ty0 = e.touches[0].clientY;
+      }, { passive: true });
+      window.addEventListener('touchmove', function (e) {
+        var dy = ty0 - e.touches[0].clientY;
+        if (isExpanded && window.scrollY > 10) { ty0 = e.touches[0].clientY; return; }
+        if (isExpanded && dy < -10) {
+          e.preventDefault();
+          setProgress(progress + dy * 0.006);
+        } else if (!isExpanded) {
+          e.preventDefault();
+          setProgress(progress + dy * 0.005);
+        }
+        ty0 = e.touches[0].clientY;
+      }, { passive: false });
+
+      /* Prevent normal scroll when at top of post-hero (enable re-entry) */
+      window.addEventListener('scroll', function () {
+        if (!isExpanded) return;
+        var rp = document.getElementById('rp');
+        if (rp) {
+          var d = document.documentElement;
+          var top = d.scrollTop || document.body.scrollTop;
+          var h = d.scrollHeight - d.clientHeight;
+          rp.style.width = h > 0 ? ((top / h) * 100) + '%' : '0%';
+        }
+        if (window.scrollY <= 0) {
+          /* User scrolled to very top — allow re-entering hero */
+          setProgress(0.99);
+        }
+      }, { passive: true });
+    })();
+
+    /* ══ SCROLL REVEAL ══ */
+    (function () {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    })();
+
+    /* ══ MOBILE MENU ══ */
+    document.getElementById('hamburger').addEventListener('click', function () {
+      /* simple alert for now — will be replaced by full mobile menu */
+    });
+
+    /* ══ SATE KLATAK ACCORDION ══ */
+    function toggleAcc(id, btn) {
+      var body = document.getElementById(id);
+      if (!body) return;
+      var isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+      /* close all */
+      document.querySelectorAll('.klatak-accord-body').forEach(function (el) {
+        el.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.klatak-accord-btn').forEach(function (el) {
+        el.classList.remove('open');
+      });
+      if (!isOpen) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        btn.classList.add('open');
+      }
+    }
+
+    /* ══ GUDEG COMPARISON SLIDER ══ */
+    (function () {
+      var slider = document.getElementById('gudegSlider');
+      if (!slider) return;
+      var imgRight = document.getElementById('gudegImgRight');
+      var divider = document.getElementById('gudegDivider');
+      var handle = document.getElementById('gudegHandle');
+      var dragging = false;
+
+      function setSlider(pct) {
+        pct = Math.min(Math.max(pct, 2), 98);
+        imgRight.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+        divider.style.left = pct + '%';
+        handle.style.left = pct + '%';
+      }
+
+      function onMove(clientX) {
+        var rect = slider.getBoundingClientRect();
+        var pct = ((clientX - rect.left) / rect.width) * 100;
+        setSlider(pct);
+      }
+
+      slider.addEventListener('mousedown', function (e) { dragging = true; onMove(e.clientX); });
+      window.addEventListener('mousemove', function (e) { if (dragging) onMove(e.clientX); });
+      window.addEventListener('mouseup', function () { dragging = false; });
+
+      slider.addEventListener('touchstart', function (e) { dragging = true; onMove(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener('touchmove', function (e) { if (dragging) onMove(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener('touchend', function () { dragging = false; });
+    })();
+
+    /* ══ GUDEG PARALLAX HEADER ══ */
+    (function () {
+      var parallax = document.getElementById('gudegParallax');
+      if (!parallax) return;
+      window.addEventListener('scroll', function () {
+        var rect = parallax.getBoundingClientRect();
+        var mid = rect.top + rect.height / 2;
+        var offset = (window.innerHeight / 2 - mid) * 0.25;
+        var img = parallax.querySelector('.gudeg-parallax__img img');
+        if (img) img.style.transform = 'translateY(' + offset + 'px)';
+      }, { passive: true });
+    })();
+
+    /* ══ SEGO ABANG NUTRITION BARS ══ */
+    (function () {
+      var bars = document.querySelectorAll('.sego-radar-fill');
+      if (!bars.length) return;
+      var triggered = false;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !triggered) {
+            triggered = true;
+            bars.forEach(function (bar) {
+              var w = bar.getAttribute('data-width') || '0';
+              bar.style.width = w + '%';
+            });
+            obs.disconnect();
+          }
+        });
+      }, { threshold: .2 });
+      var wrap = document.querySelector('.sego-radar-wrap');
+      if (wrap) obs.observe(wrap);
+    })();
+
+    /* ══ BIR JAWA INTERACTIVE ══ */
+    function addBirSpice(btn) {
+      if (btn.classList.contains('added')) return;
+      btn.classList.add('added');
+
+      var total = 10;
+      var added = document.querySelectorAll('.bir-spice-btn.added').length;
+      var percent = (added / total) * 85; // Fill up to 85%
+
+      var liquid = document.getElementById('birLiquid');
+      var foam = document.getElementById('birFoam');
+      var msg = document.getElementById('birSuccessMsg');
+
+      liquid.style.height = percent + '%';
+      foam.style.bottom = percent + '%';
+
+      if (added > 0) {
+        foam.style.opacity = 1;
+      }
+
+      if (added === total) {
+        msg.classList.add('show');
+        foam.style.height = '20px';
+      }
+    }
+
+    /* ══ PENUTUP PARALLAX ══ */
+    (function () {
+      var sec = document.getElementById('sec-penutup');
+      if (!sec) return;
+      var leaves = document.getElementById('leavesGroup');
+      var charcoals = document.getElementById('charcoalGroup');
+
+      window.addEventListener('scroll', function () {
+        var rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          var offset = (window.innerHeight - rect.top) * 0.25;
+          if (leaves) leaves.style.transform = 'translateY(' + (-offset) + 'px)';
+          if (charcoals) charcoals.style.transform = 'translateY(' + (offset) + 'px)';
+        }
+      }, { passive: true });
+    })();
+  </script>
 </body>
+
 </html>
