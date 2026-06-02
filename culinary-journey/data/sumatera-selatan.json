@@ -10,7 +10,6 @@
       "id": "pempek-palembang",
       "nama": "Pempek",
       "kategori": "makanan-berat",
-<<<<<<< HEAD
       "deskripsi": "Makanan berbasis fishcake tradisional yang terbuat dari daging ikan lumat, air, garam, dan tepung tapioka/sagu. Disajikan wajib bersama cuko, saus cair berwarna cokelat kehitaman yang pekat, asam, manis, dan pedas. Simbol demokratisasi kuliner Palembang yang dikonsumsi dari semua kalangan.",
       "bahan": [
         "Daging ikan tenggiri / gabus / kakap super",
@@ -52,51 +51,12 @@
         "TasteAtlas",
         "Wisata Gastronomi"
       ],
-      "img": ""
-=======
-      "deskripsi": "Raja kuliner Palembang berbasis fishcake tradisional. Dahulu bernama 'Kelesan' sebagai panganan alternatif di lingkungan Kesultanan, kemudian mengalami pribumisasi total dan komersialisasi oleh pedagang paruh baya Tionghoa yang akrab disapa 'Apek'. Disajikan bersama cuko hitam kental yang melambangkan karakter Wong Palembang yang tegas dan terbuka.",
-      "bahan": [
-        "Ikan Belida/Tenggiri/Gabus",
-        "Tepung sagu/tapioka",
-        "Air",
-        "Garam",
-        "Gula Batok Lubuklinggau",
-        "Cabai rawit",
-        "Bawang putih",
-        "Asam jawa"
-      ],
-      "resep": [
-        "Giling daging ikan lumat hingga membentuk emulsi protein (gel).",
-        "Campurkan air dan garam, lalu uleni bersama tepung sagu perlahan agar adonan tidak keras.",
-        "Bentuk adonan menjadi kapal selam, lenjer, atau keriting menggunakan pirikan.",
-        "Rebus dalam air mendidih hingga mengapung, tiriskan, lalu goreng sebelum disajikan bersama cuko."
-      ],
-      "flavor": {
-        "pedas": 65,
-        "manis": 60,
-        "gurih": 85,
-        "asam": 90,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 280,
-        "protein": 14,
-        "lemak": 8,
-        "karbohidrat": 38
-      },
-      "tags": [
-        "Kenyal",
-        "Gurih-Asam-Pedas",
-        "Ikonik"
-      ],
-      "img": "assets/media/pempek-palembang.jpg"
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
+      "img": "assets/media/sumsel/Pempek2.jpg"
     },
     {
       "id": "tekwan-palembang",
       "nama": "Tekwan",
       "kategori": "makanan-berat",
-<<<<<<< HEAD
       "deskripsi": "Sup ikan khas Palembang berisi butiran adonan ikan berukuran kecil yang dicubit, disajikan dalam kuah kaldu udang bening yang kaya rasa, dilengkapi jamur kuping, sedap malam (kimlo), bengkuang, dan soun. Namanya merupakan akronim dari 'BerkoTeK samo KaWan' (mengobrol bersama teman).",
       "bahan": [
         "Ikan giling",
@@ -122,119 +82,10 @@
         "pedas": 15,
         "manis": 20,
         "gurih": 80,
-=======
-      "deskripsi": "Sup ikan khas Palembang berupa butiran adonan ikan cubit yang disajikan dalam kuah kaldu udang sungai yang bening namun gurih pekat. Nama Tekwan lahir dari folk etymology bahasa Palembang 'BerkoTeK samo KaWan' (mengobrol bersama teman) yang merepresentasikan nilai kehangatan komunal dan kebersamaan.",
-      "bahan": [
-        "Daging ikan gabus/tenggiri",
-        "Tepung sagu",
-        "Kepala/kulit udang (kaldu)",
-        "Jamur kuping hitam",
-        "Bunga sedap malam (kimlo)",
-        "Bengkuang",
-        "Soun",
-        "Bawang putih",
-        "Merica"
-      ],
-      "resep": [
-        "Campurkan gilingan ikan dan sagu dengan rasio ikan lebih tinggi agar bertekstur lembut.",
-        "Cubit kecil-kecil adonan lalu masukkan langsung ke air mendidih hingga mengapung.",
-        "Tumis bawang putih dan merica, masukkan ke dalam rebusan air kaldu kepala udang.",
-        "Tambahkan bengkuang, jamur kuping, dan bunga sedap malam, lalu sajikan bersama butiran tekwan dan soun."
-      ],
-      "flavor": {
-        "pedas": 20,
-        "manis": 30,
-        "gurih": 90,
-        "asam": 15,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 160,
-        "protein": 12,
-        "lemak": 3,
-        "karbohidrat": 22
-      },
-      "tags": [
-        "Sup Hangat",
-        "Kaldu Udang",
-        "Lembut"
-      ],
-      "img": "assets/media/tekwan.jpg"
-    },
-    {
-      "id": "model-tahu",
-      "nama": "Model Tahu",
-      "kategori": "makanan-berat",
-      "deskripsi": "Hidangan fusi adaptif yang memadukan unsur perairan (ikan) dan daratan (tahu kedelai). Menggunakan basis adonan pempek yang membungkus tahu putih padat, digoreng hingga berkulit cokelat keemasan, lalu dipotong-potong dan disiram kuah sup kaldu udang panas yang kaya rempah.",
-      "bahan": [
-        "Ikan giling",
-        "Tepung sagu",
-        "Tahu putih padat",
-        "Udang segar/rebon",
-        "Bawang putih",
-        "Merica",
-        "Bengkuang",
-        "Jamur kuping"
-      ],
-      "resep": [
-        "Bungkus tahu putih padat dengan adonan ikan secara menyeluruh hingga membentuk bulatan besar.",
-        "Goreng adonan tersebut dalam minyak banyak hingga matang dan berkulit cokelat keemasan.",
-        "Buat kuah sup menggunakan tumisan bawang putih, merica, dan saripati kaldu udang.",
-        "Potong atau gunting model goreng, lalu siram dengan kuah sup kaldu udang yang panas mendidih."
-      ],
-      "flavor": {
-        "pedas": 25,
-        "manis": 35,
-        "gurih": 85,
-        "asam": 20,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 210,
-        "protein": 15,
-        "lemak": 7,
-        "karbohidrat": 24
-      },
-      "tags": [
-        "Goreng-Sup",
-        "Fusi Protein",
-        "Rempah Pelet"
-      ],
-      "img": "assets/media/model-tahu.jpg"
-    },
-    {
-      "id": "laksan",
-      "nama": "Laksan",
-      "kategori": "makanan-berat",
-      "deskripsi": "Bentuk 'Melayuisasi' adonan pempek, di mana irisan pempek lenjer tebal disiram kuah santan kemerahan yang kaya bumbu gulai dan kari Melayu-Islam. Berkerabat dekat dengan rumpun 'Laksa' maritim Asia Tenggara, namun komponen mienya diganti total menggunakan elastisitas adonan ikan.",
-      "bahan": [
-        "Pempek lenjer rebus",
-        "Santan kelapa pekat & encer",
-        "Bawang merah",
-        "Bawang putih",
-        "Cabai merah keriting",
-        "Ketumbar",
-        "Jinten",
-        "Jahe",
-        "Kunyit",
-        "Ebi bubuk"
-      ],
-      "resep": [
-        "Iris melintang pempek lenjer rebus dengan ketebalan 1-2 cm.",
-        "Tumis bumbu halus (bawang, cabai, ketumbar, jinten, kunyit, jahe, ebi) hingga harum.",
-        "Tuangkan santan encer ke tumisan bumbu, lalu masukkan irisan pempek lenjer setelah mendidih.",
-        "Tambahkan santan kental, aduk perlahan agar santan tidak pecah, masak hingga meresap."
-      ],
-      "flavor": {
-        "pedas": 55,
-        "manis": 40,
-        "gurih": 90,
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
         "asam": 10,
         "pahit": 5
       },
       "nutrisi": {
-<<<<<<< HEAD
         "kalori": 150,
         "protein": 14,
         "lemak": 4,
@@ -247,153 +98,7 @@
         "Kebersamaan",
         "Comfort Food"
       ],
-      "img": ""
-=======
-        "kalori": 340,
-        "protein": 13,
-        "lemak": 16,
-        "karbohidrat": 32
-      },
-      "tags": [
-        "Santan Merah",
-        "Gulai Melayu",
-        "Sarapan Utama"
-      ],
-      "img": "assets/media/laksan.jpg"
-    },
-    {
-      "id": "celimpungan",
-      "nama": "Celimpungan",
-      "kategori": "makanan-berat",
-      "deskripsi": "Varian hidangan sarapan tradisional Palembang non-pedas. Adonan ikan dibentuk bulat pipih, disajikan dalam kuah gulai santan kuning kunyit beraroma sereh yang kuat. Warna kuningnya melambangkan kejayaan dan kegembiraan dalam kultur Melayu.",
-      "bahan": [
-        "Ikan giling",
-        "Tepung sagu",
-        "Santan kelapa",
-        "Kunyit bakar",
-        "Bawang merah",
-        "Bawang putih",
-        "Kemiri",
-        "Ketumbar",
-        "Lengkuas",
-        "Serai",
-        "Daun salam"
-      ],
-      "resep": [
-        "Bentuk adonan ikan dan sagu menjadi bulat pipih dengan diameter 5-7 cm.",
-        "Tumis bumbu halus bersama kunyit bakar, lengkuas, serai, dan daun salam, lalu tuang santan encer.",
-        "Masukkan adonan celimpungan mentah secara langsung ke dalam kuah santan yang mendidih hingga mengembang.",
-        "Tambahkan santan kental, masak hingga kuah mengental matang."
-      ],
-      "flavor": {
-        "pedas": 10,
-        "manis": 30,
-        "gurih": 85,
-        "asam": 15,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 310,
-        "protein": 12,
-        "lemak": 14,
-        "karbohidrat": 30
-      },
-      "tags": [
-        "Santan Kuning",
-        "Hari Raya",
-        "Aroma Serai"
-      ],
-      "img": "assets/media/celimpungan.jpg"
-    },
-    {
-      "id": "burgo",
-      "nama": "Burgo",
-      "kategori": "makanan-berat",
-      "deskripsi": "Siasat ketahanan pangan kuno masyarakat Palembang saat paceklik atau pasokan ikan sedang menyusut. Mengadopsi teknik mengukus lembaran tepung tipis ala Chee Cheong Fun Tionghoa, dadar beras gulung ini diiris tipis lalu diguyur kuah santan putih gurih beraroma ebi dan suwiran ikan gabus.",
-      "bahan": [
-        "Tepung beras",
-        "Tepung sagu/tapioka",
-        "Air",
-        "Santan kelapa",
-        "Ebi bubuk",
-        "Daging ikan gabus rebus",
-        "Bawang merah",
-        "Bawang putih",
-        "Kemiri",
-        "Ketumbar",
-        "Lengkuas",
-        "Serai"
-      ],
-      "resep": [
-        "Kukus adonan tepung beras, sagu, air, dan garam secara tipis di atas loyang bulat.",
-        "Gulung erat lembaran dadar saat kondisi masih panas, lalu iris melintang setebal 1 cm.",
-        "Buat kuah santan putih dengan menghaluskan bumbu, menambahkan ebi, dan menghancurkan suwiran ikan gabus rebus ke dalamnya.",
-        "Sajikan irisan gulungan burgo dingin dengan siraman kuah santan putih yang panas mendidih."
-      ],
-      "flavor": {
-        "pedas": 5,
-        "manis": 25,
-        "gurih": 80,
-        "asam": 10,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 220,
-        "protein": 7,
-        "lemak": 9,
-        "karbohidrat": 28
-      },
-      "tags": [
-        "Paceklik Substitusi",
-        "Dadar Beras",
-        "Santan Putih"
-      ],
-      "img": "assets/media/burgo.jpg"
-    },
-    {
-      "id": "mie-celor",
-      "nama": "Mie Celor",
-      "kategori": "makanan-berat",
-      "deskripsi": "Kuliner urban legendaris yang lahir di kawasan Pasar 16 Ilir. Menggabungkan tradisi mi kuning Tionghoa dengan saus kaldu udang galah kental berbasis santan dan susu khas lokal. Nama 'Celor' merujuk pada teknik pengolahan mi yang dicelup-celupkan ke dalam air panas sebelum disajikan.",
-      "bahan": [
-        "Mie kuning basah besar",
-        "Udang galah/jerbung",
-        "Tauge",
-        "Telur rebus",
-        "Santan",
-        "Susu",
-        "Tepung terigu/maizena",
-        "Bawang putih",
-        "Merica",
-        "Pala",
-        "Kucai"
-      ],
-      "resep": [
-        "Rebus kepala dan kulit udang untuk menghasilkan saripati kaldu udang yang pekat.",
-        "Tumis bawang putih, merica, pala, masukkan ke kaldu udang, lalu tambahkan santan, susu, dan tepung terigu sebagai pengental.",
-        "Celup-rebus (celor) mi kuning besar dan tauge menggunakan saringan kawat dalam air mendidih selama beberapa detik.",
-        "Tiriskan mi ke piring, beri tauge, telur rebus, dan suwiran udang, lalu guyur dengan saus kaldu udang kental yang pekat."
-      ],
-      "flavor": {
-        "pedas": 30,
-        "manis": 40,
-        "gurih": 95,
-        "asam": 15,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 420,
-        "protein": 21,
-        "lemak": 18,
-        "karbohidrat": 46
-      },
-      "tags": [
-        "Mie Urban",
-        "Kuah Kental",
-        "Udang Galah"
-      ],
-      "img": "assets/media/mie-celor.jpg"
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
+      "img": "assets/media/sumsel/Tekwan.jpg"
     },
     {
       "id": "model-palembang",
@@ -438,7 +143,7 @@
         "Street Food",
         "Sungai Musi"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Model.jpg"
     },
     {
       "id": "laksan-palembang",
@@ -486,7 +191,7 @@
         "Sarapan",
         "Melayu"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Laksan.jpg"
     },
     {
       "id": "celimpungan-palembang",
@@ -538,7 +243,7 @@
         "Kunyit",
         "Melayu"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Celimpungan.jpg"
     },
     {
       "id": "burgo-palembang",
@@ -591,7 +296,7 @@
         "Panganan Lamo",
         "Melayu"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Burgo.jpg"
     },
     {
       "id": "mie-celor-palembang",
@@ -642,7 +347,7 @@
         "Warisan Kuliner",
         "16 Ilir"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Mie Celor.jpg"
     },
     {
       "id": "tempoyak-sumsel",
@@ -682,13 +387,12 @@
         "Pedalaman",
         "Kearifan Lokal"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Tempoyak.jpg"
     },
     {
       "id": "pindang-patin-sumsel",
       "nama": "Pindang Patin",
       "kategori": "makanan-berat",
-<<<<<<< HEAD
       "deskripsi": "Hidangan sup ikan patin air tawar yang dimasak dalam kuah bening berwarna kecokelatan bercita rasa dominan asam, pedas, manis, dan menyegarkan, diperkaya irisan nanas dan daun kemangi. Setiap sub-suku Sumatera Selatan memiliki variasi pindangnya sendiri, menjadikannya peta identitas geopolitik lokal.",
       "bahan": [
         "Ikan patin segar (patin sungai / liar)",
@@ -735,7 +439,7 @@
         "Sungai Musi",
         "Kuliner Nasional"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Pindang Patin.jpg"
     },
     {
       "id": "bekasam-sumsel",
@@ -763,50 +467,255 @@
       },
       "nutrisi": {
         "kalori": 130,
-=======
-      "deskripsi": "Sup ikan patin asam pedas khas Palembang yang menggunakan campuran tomat, nanas, dan cabai untuk menciptakan kuah bening yang segar dan kompleks. Hidangan yang mencerminkan warisan kuliner tepi Sungai Musi.",
-      "bahan": [
-        "Ikan patin",
-        "Tomat",
-        "Nanas",
-        "Cabai merah",
-        "Belimbing wuluh",
-        "Kemangi"
-      ],
-      "resep": [
-        "Bersihkan ikan patin, potong sesuai selera",
-        "Didihkan air, masukkan bumbu halus",
-        "Tambahkan tomat, nanas, belimbing wuluh",
-        "Masukkan ikan, masak hingga matang, taburi kemangi"
-      ],
-      "flavor": {
-        "pedas": 60,
-        "manis": 20,
-        "gurih": 70,
-        "asam": 85,
-        "pahit": 15
-      },
-      "nutrisi": {
-        "kalori": 120,
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
         "protein": 18,
         "lemak": 5,
         "karbohidrat": 8
       },
       "tags": [
-<<<<<<< HEAD
         "Fermentasi",
         "Tradisional",
         "Pedalaman",
         "Pengawetan Pangan",
         "Lauk"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Bekasam.jpg"
+    },
+    {
+      "id": "pindang-tulang-palembang",
+      "nama": "Pindang Tulang",
+      "kategori": "makanan-berat",
+      "deskripsi": "Sup tulang sapi khas Palembang dengan kuah bening kecokelatan bercita rasa asam, pedas, gurih, dan sedikit manis. Tulang sapi direbus lama hingga daging dan sumsumnya empuk, lalu diperkaya rempah Melayu seperti serai, lengkuas, dan asam jawa. Menjadi hidangan favorit masyarakat Palembang saat makan siang keluarga maupun hajatan.",
+      "bahan": [
+        "Tulang sapi berdaging",
+        "Asam jawa",
+        "Cabai merah",
+        "Bawang merah",
+        "Bawang putih",
+        "Tomat",
+        "Nanas",
+        "Serai",
+        "Lengkuas",
+        "Daun salam",
+        "Kecap manis"
+      ],
+      "resep": [
+        "Rebus tulang sapi hingga empuk dan kaldunya keluar.",
+        "Haluskan bawang merah, bawang putih, dan cabai merah.",
+        "Tumis bumbu hingga harum.",
+        "Masukkan tumisan ke dalam rebusan tulang.",
+        "Tambahkan serai, lengkuas, daun salam, dan asam jawa.",
+        "Masukkan potongan nanas dan tomat.",
+        "Masak hingga kuah meresap dan rasa seimbang.",
+        "Sajikan panas bersama nasi putih."
+      ],
+      "flavor": {
+        "pedas": 55,
+        "manis": 30,
+        "gurih": 85,
+        "asam": 70,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 290,
+        "protein": 24,
+        "lemak": 18,
+        "karbohidrat": 10
+      },
+      "tags": [
+        "Pindang",
+        "Palembang",
+        "Sapi",
+        "Tradisional",
+        "Berempah"
+      ],
+      "img": "assets/media/sumsel/Pindang Tulang.jpg"
+    },
+    {
+      "id": "martabak-har-palembang",
+      "nama": "Martabak HAR",
+      "kategori": "makanan-berat",
+      "deskripsi": "Martabak legendaris Palembang keturunan India-Arab yang disajikan dengan kuah kari kentang kental bercita rasa rempah kuat. Nama HAR berasal dari pendirinya, Haji Abdul Rozak. Menjadi simbol akulturasi budaya Arab, India, dan Melayu di Palembang sejak era kolonial.",
+      "bahan": [
+        "Tepung terigu",
+        "Telur ayam",
+        "Daging cincang",
+        "Daun bawang",
+        "Kentang",
+        "Kari bubuk",
+        "Santan",
+        "Bawang merah",
+        "Bawang putih"
+      ],
+      "resep": [
+        "Buat adonan kulit martabak dari tepung dan air hingga elastis.",
+        "Siapkan isian telur, daging cincang, dan daun bawang.",
+        "Bentangkan kulit martabak tipis lalu isi dan lipat.",
+        "Goreng hingga keemasan dan renyah.",
+        "Masak kuah kari kentang berbumbu rempah dan santan.",
+        "Potong martabak dan sajikan bersama kuah kari."
+      ],
+      "flavor": {
+        "pedas": 40,
+        "manis": 15,
+        "gurih": 90,
+        "asam": 5,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 420,
+        "protein": 18,
+        "lemak": 22,
+        "karbohidrat": 38
+      },
+      "tags": [
+        "Arab",
+        "India",
+        "Palembang",
+        "Legendaris",
+        "Street Food"
+      ],
+      "img": "assets/media/sumsel/Martabak Har.png"
+    },
+    {
+      "id": "lakso-palembang",
+      "nama": "Lakso",
+      "kategori": "makanan-berat",
+      "deskripsi": "Kuliner sarapan khas Palembang berupa mi tebal berbahan tepung beras yang disajikan dengan kuah santan kemerahan berbumbu ebi dan rempah Melayu. Memiliki tekstur kenyal lembut dan aroma santan-rempah yang kuat.",
+      "bahan": [
+        "Tepung beras",
+        "Tepung sagu",
+        "Santan kelapa",
+        "Ebi",
+        "Bawang merah",
+        "Bawang putih",
+        "Cabai merah",
+        "Ketumbar",
+        "Serai"
+      ],
+      "resep": [
+        "Buat mi lakso dari campuran tepung beras dan sagu.",
+        "Rebus mi hingga matang dan kenyal.",
+        "Haluskan bumbu rempah dan ebi.",
+        "Tumis bumbu hingga harum.",
+        "Tambahkan santan dan masak perlahan.",
+        "Siram kuah santan ke atas lakso.",
+        "Sajikan hangat."
+      ],
+      "flavor": {
+        "pedas": 45,
+        "manis": 20,
+        "gurih": 85,
+        "asam": 10,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 260,
+        "protein": 9,
+        "lemak": 14,
+        "karbohidrat": 28
+      },
+      "tags": [
+        "Sarapan",
+        "Palembang",
+        "Melayu",
+        "Bersantan"
+      ],
+      "img": "assets/media/sumsel/Lakso.jpg"
+    },
+    {
+      "id": "malbi-palembang",
+      "nama": "Malbi",
+      "kategori": "makanan-berat",
+      "deskripsi": "Semur daging sapi khas Palembang dengan cita rasa manis-rempah yang kuat dan warna cokelat gelap pekat. Dahulu menjadi sajian bangsawan Kesultanan Palembang dan kini identik dengan hajatan serta perayaan adat.",
+      "bahan": [
+        "Daging sapi",
+        "Kecap manis",
+        "Kayu manis",
+        "Cengkeh",
+        "Pala",
+        "Bawang merah",
+        "Bawang putih",
+        "Ketumbar",
+        "Gula merah"
+      ],
+      "resep": [
+        "Potong daging sapi sesuai ukuran.",
+        "Haluskan bawang merah, bawang putih, dan ketumbar.",
+        "Tumis bumbu bersama kayu manis dan cengkeh.",
+        "Masukkan daging dan aduk hingga berubah warna.",
+        "Tambahkan kecap manis dan gula merah.",
+        "Masak perlahan hingga kuah mengental dan meresap.",
+        "Sajikan bersama nasi minyak atau ketupat."
+      ],
+      "flavor": {
+        "pedas": 20,
+        "manis": 75,
+        "gurih": 80,
+        "asam": 5,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 340,
+        "protein": 25,
+        "lemak": 18,
+        "karbohidrat": 20
+      },
+      "tags": [
+        "Daging",
+        "Palembang",
+        "Adat",
+        "Bangsawan"
+      ],
+      "img": "assets/media/sumsel/Malbi.jpg"
+    },
+    {
+      "id": "nasi-minyak-palembang",
+      "nama": "Nasi Minyak",
+      "kategori": "makanan-berat",
+      "deskripsi": "Nasi berbumbu rempah dan minyak samin khas Palembang yang mendapat pengaruh kuat budaya Arab dan India. Biasanya disajikan saat pernikahan, maulid, dan acara besar bersama malbi atau kari.",
+      "bahan": [
+        "Beras",
+        "Minyak samin",
+        "Susu",
+        "Kayu manis",
+        "Kapulaga",
+        "Cengkeh",
+        "Bawang merah",
+        "Bawang putih"
+      ],
+      "resep": [
+        "Tumis bawang merah dan bawang putih dengan minyak samin.",
+        "Masukkan rempah seperti kayu manis, kapulaga, dan cengkeh.",
+        "Tambahkan beras lalu aduk rata.",
+        "Tuang susu dan air secukupnya.",
+        "Masak hingga nasi matang dan harum.",
+        "Sajikan dengan lauk khas Palembang."
+      ],
+      "flavor": {
+        "pedas": 10,
+        "manis": 15,
+        "gurih": 80,
+        "asam": 0,
+        "pahit": 0
+      },
+      "nutrisi": {
+        "kalori": 320,
+        "protein": 6,
+        "lemak": 12,
+        "karbohidrat": 48
+      },
+      "tags": [
+        "Arab",
+        "Palembang",
+        "Perayaan",
+        "Rempah"
+      ],
+      "img": "assets/media/sumsel/Nasi Minyak.jpg"
     },
     {
       "id": "kemplang-palembang",
       "nama": "Kemplang",
-      "kategori": "camilan",
+      "kategori": "snack",
       "deskripsi": "Kerupuk tradisional khas Sumatera Selatan berbahan dasar ikan giling dan sagu, bertekstur renyah dan padat. Dapat diolah dengan cara digoreng atau dibakar di atas bara api (Kemplang Tunu), disajikan dengan sambal terasi merah manis-pedas cair. Kemplang Tunu adalah varian paling sehat tanpa minyak dengan aroma smoky khas.",
       "bahan": [
         "Ikan giling (tenggiri / kakap)",
@@ -845,31 +754,268 @@
         "Ikonik",
         "Camilan"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Kemplang.jpg"
+    },
+    {
+      "id": "kue-muso-palembang",
+      "nama": "Kue Muso",
+      "kategori": "snack",
+      "deskripsi": "Kue tradisional khas Palembang berwarna hitam kecokelatan dengan tekstur lembut padat dan rasa legit pekat. Terbuat dari telur, cokelat, susu, dan mentega yang dipanggang perlahan hingga menghasilkan aroma karamel-cokelat khas. Dahulu sering hadir dalam acara keluarga bangsawan dan perayaan besar.",
+      "bahan": [
+        "Telur bebek",
+        "Cokelat bubuk",
+        "Susu kental manis",
+        "Mentega",
+        "Gula pasir",
+        "Tepung terigu"
+      ],
+      "resep": [
+        "Kocok telur dan gula hingga mengembang.",
+        "Tambahkan susu, cokelat bubuk, dan mentega cair.",
+        "Masukkan tepung sedikit demi sedikit sambil diaduk rata.",
+        "Tuang adonan ke loyang yang telah dioles mentega.",
+        "Panggang dengan api kecil hingga matang dan padat.",
+        "Dinginkan sebelum dipotong dan disajikan."
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 85,
+        "gurih": 25,
+        "asam": 0,
+        "pahit": 15
+      },
+      "nutrisi": {
+        "kalori": 360,
+        "protein": 8,
+        "lemak": 18,
+        "karbohidrat": 44
+      },
+      "tags": [
+        "Kue Tradisional",
+        "Palembang",
+        "Legit"
+      ],
+      "img": "assets/media/sumsel/Kue Muso.jpeg"
+    },
+    {
+      "id": "kue-srikaya-palembang",
+      "nama": "Kue Srikaya",
+      "kategori": "snack",
+      "deskripsi": "Kue tradisional khas Palembang berbahan telur, santan, dan pandan dengan tekstur lembut menyerupai custard. Biasanya disajikan bersama ketan putih kukus saat Lebaran, pengajian, dan acara adat Melayu.",
+      "bahan": [
+        "Telur ayam",
+        "Santan kelapa",
+        "Gula pasir",
+        "Air pandan",
+        "Daun pandan",
+        "Ketan putih"
+      ],
+      "resep": [
+        "Kocok telur bersama gula hingga larut.",
+        "Tambahkan santan dan air pandan.",
+        "Saring adonan agar tekstur halus.",
+        "Tuang ke loyang atau mangkuk tahan panas.",
+        "Kukus hingga matang dan mengeras lembut.",
+        "Sajikan bersama ketan putih kukus."
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 75,
+        "gurih": 30,
+        "asam": 0,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 240,
+        "protein": 5,
+        "lemak": 10,
+        "karbohidrat": 34
+      },
+      "tags": [
+        "Pandan",
+        "Ketan",
+        "Lebaran",
+        "Palembang"
+      ],
+      "img": "assets/media/sumsel/Kue Srikayo.jpg"
+    },
+    {
+      "id": "kue-dadar-jiwo-palembang",
+      "nama": "Kue Dadar Jiwo",
+      "kategori": "snack",
+      "deskripsi": "Jajanan pasar tradisional khas Palembang berbentuk gulungan dadar tipis berisi unti kelapa manis berbumbu gula merah. Memiliki aroma pandan dan tekstur lembut dengan isian legit gurih.",
+      "bahan": [
+        "Tepung terigu",
+        "Telur",
+        "Air pandan",
+        "Kelapa parut",
+        "Gula merah",
+        "Garam"
+      ],
+      "resep": [
+        "Campur tepung, telur, dan air pandan menjadi adonan cair.",
+        "Buat dadar tipis di atas wajan datar.",
+        "Masak kelapa parut dan gula merah hingga menjadi unti.",
+        "Isi dadar dengan unti kelapa.",
+        "Gulung rapat dan sajikan."
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 70,
+        "gurih": 25,
+        "asam": 0,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 210,
+        "protein": 4,
+        "lemak": 7,
+        "karbohidrat": 34
+      },
+      "tags": [
+        "Jajanan Pasar",
+        "Kelapa",
+        "Tradisional"
+      ],
+      "img": "assets/media/sumsel/Dadar Jiwo.jpg"
+    },
+    {
+      "id": "putu-ayu-palembang",
+      "nama": "Putu Ayu Palembang",
+      "kategori": "snack",
+      "deskripsi": "Versi khas Palembang dari putu ayu dengan aroma pandan dan kelapa yang lebih kuat. Memiliki tekstur lembut mengembang dengan lapisan kelapa parut di bagian atas.",
+      "bahan": [
+        "Tepung terigu",
+        "Telur",
+        "Gula pasir",
+        "Air pandan",
+        "Santan",
+        "Kelapa parut"
+      ],
+      "resep": [
+        "Kocok telur dan gula hingga mengembang.",
+        "Tambahkan tepung, santan, dan air pandan.",
+        "Masukkan adonan ke cetakan yang telah diberi kelapa parut.",
+        "Kukus hingga matang dan mengembang.",
+        "Angkat dan sajikan."
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 70,
+        "gurih": 30,
+        "asam": 0,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 190,
+        "protein": 4,
+        "lemak": 6,
+        "karbohidrat": 30
+      },
+      "tags": [
+        "Pandan",
+        "Kelapa",
+        "Kue Basah"
+      ],
+      "img": "assets/media/sumsel/Putu Ayu.jpg"
+    },
+    {
+      "id": "ragit-palembang",
+      "nama": "Ragit",
+      "kategori": "makanan-berat",
+      "deskripsi": "Roti jala khas Palembang yang dipengaruhi budaya Melayu dan Timur Tengah. Disajikan dengan kuah kari manis gurih berbumbu rempah dan sering hadir saat Lebaran atau jamuan keluarga besar.",
+      "bahan": [
+        "Tepung terigu",
+        "Telur",
+        "Santan",
+        "Kunyit",
+        "Garam",
+        "Daging sapi",
+        "Kentang",
+        "Kari bubuk"
+      ],
+      "resep": [
+        "Campur tepung, telur, santan, dan kunyit menjadi adonan cair.",
+        "Tuang adonan membentuk jala di atas wajan datar.",
+        "Masak hingga matang lalu lipat.",
+        "Siapkan kuah kari berbumbu rempah dan kentang.",
+        "Sajikan ragit bersama kuah kari panas."
+      ],
+      "flavor": {
+        "pedas": 35,
+        "manis": 20,
+        "gurih": 85,
+        "asam": 5,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 310,
+        "protein": 10,
+        "lemak": 12,
+        "karbohidrat": 40
+      },
+      "tags": [
+        "Melayu",
+        "Lebaran",
+        "Palembang",
+        "Kari"
+      ],
+      "img": "assets/media/sumsel/Ragit.jpg"
+    },
+    {
+      "id": "brengkes-tempoyak-sumsel",
+      "nama": "Brengkes Tempoyak",
+      "kategori": "makanan-berat",
+      "deskripsi": "Olahan ikan khas Sumatera Selatan berbumbu tempoyak dengan rasa asam pedas kuat. Ikan dibungkus daun pisang lalu dikukus atau dibakar sehingga aroma daun dan fermentasi durian menyatu khas.",
+      "bahan": [
+        "Ikan patin atau baung",
+        "Tempoyak",
+        "Cabai rawit",
+        "Bawang merah",
+        "Bawang putih",
+        "Kunyit",
+        "Daun kemangi",
+        "Daun pisang"
+      ],
+      "resep": [
+        "Haluskan bawang, cabai, dan kunyit.",
+        "Campur bumbu dengan tempoyak.",
+        "Lumuri ikan dengan campuran bumbu tempoyak.",
+        "Tambahkan daun kemangi.",
+        "Bungkus ikan menggunakan daun pisang.",
+        "Kukus atau bakar hingga matang dan harum.",
+        "Sajikan hangat bersama nasi."
+      ],
+      "flavor": {
+        "pedas": 75,
+        "manis": 15,
+        "gurih": 70,
+        "asam": 90,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 230,
+        "protein": 22,
+        "lemak": 11,
+        "karbohidrat": 10
+      },
+      "tags": [
+        "Tempoyak",
+        "Ikan",
+        "Fermentasi",
+        "Pedalaman"
+      ],
+      "img": "assets/media/sumsel/Brengkes Tempoyak.jpg"
     },
     {
       "id": "engkak-ketan-palembang",
       "nama": "Engkak Ketan",
-      "kategori": "kue-tradisional",
-      "deskripsi": "Kue lapis tradisional khas Palembang dengan tekstur lembut dan rasa manis legit berbahan tepung ketan, telur bebek, mentega, dan susu. Dahulu menjadi sajian khusus bangsawan Kesultanan Palembang. Semakin banyak lapisan, semakin tinggi nilai prestise kue.",
-=======
-        "Segar",
-        "Asam-Pedas",
-        "Sungai Musi"
-      ],
-      "img": "assets/media/pindang-patin.jpg"
-    },
-    {
-      "id": "engkak-ketan",
-      "nama": "Engkak Ketan",
       "kategori": "snack",
-      "deskripsi": "Kue lapis tradisional legendaris khas Palembang dengan tekstur yang sangat lembut dan cita rasa manis legit yang pekat. Dahulu, kue lapis berbasis tepung ketan ini merupakan sajian khusus bangsawan Kesultanan Palembang pada hari-hari besar.",
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
+      "deskripsi": "Kue lapis tradisional khas Palembang dengan tekstur lembut dan rasa manis legit berbahan tepung ketan, telur bebek, mentega, dan susu. Dahulu menjadi sajian khusus bangsawan Kesultanan Palembang. Semakin banyak lapisan, semakin tinggi nilai prestise kue.",
       "bahan": [
         "Tepung ketan",
         "Telur bebek",
         "Mentega",
-<<<<<<< HEAD
         "Susu"
       ],
       "resep": [
@@ -899,12 +1045,12 @@
         "Oleh-oleh",
         "Bangsawan"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Engkak Ketan.webp"
     },
     {
       "id": "maksuba-palembang",
       "nama": "Maksuba",
-      "kategori": "kue-tradisional",
+      "kategori": "snack",
       "deskripsi": "Kue khas Palembang berbahan dominan telur bebek dengan tekstur lembut dan rasa legit. Dahulu hanya disajikan untuk keluarga bangsawan dan tamu kehormatan. Dibutuhkan puluhan telur bebek untuk satu loyang besar. Simbol kemewahan kuliner Palembang.",
       "bahan": [
         "Telur bebek",
@@ -941,12 +1087,12 @@
         "Bangsawan",
         "Oleh-oleh"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Maksuba.jpg"
     },
     {
       "id": "kue-delapan-jam-palembang",
       "nama": "Kue Delapan Jam",
-      "kategori": "kue-tradisional",
+      "kategori": "snack",
       "deskripsi": "Kue tradisional Palembang dengan tekstur padat lembut dan rasa legit berbahan telur bebek, gula, susu, dan mentega yang dipanggang perlahan hingga delapan jam. Semakin lama dipanggang, aroma karamelnya semakin kuat. Simbol kesabaran dan kemewahan dalam tradisi kuliner Palembang.",
       "bahan": [
         "Telur bebek",
@@ -981,12 +1127,12 @@
         "Bangsawan",
         "Oleh-oleh"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Kue 8 Jam.jpg"
     },
     {
       "id": "gandus-palembang",
       "nama": "Gandus",
-      "kategori": "camilan",
+      "kategori": "snack",
       "deskripsi": "Kue tradisional gurih khas Palembang dengan tekstur lembut mirip puding padat, terbuat dari tepung beras, santan, dan ebi. Dikenal sebagai 'srikaya gurih' karena teksturnya. Identik dengan pasar tradisional Palembang dan merupakan kudapan pagi masyarakat Melayu.",
       "bahan": [
         "Tepung beras",
@@ -1023,52 +1169,12 @@
         "Gurih",
         "Melayu"
       ],
-      "img": ""
-    },
-    {
-      "id": "kue-kojo-palembang",
-      "nama": "Kue Kojo",
-      "kategori": "kue-tradisional",
-      "deskripsi": "Kue hijau khas Palembang berbentuk bunga dengan rasa manis legit. Nama 'Kojo' berasal dari bentuk cetakannya yang menyerupai bunga kamboja. Warna hijaunya berasal dari daun pandan asli. Sering hadir saat Idul Fitri dan acara adat, kini banyak dijadikan hampers khas Palembang.",
-      "bahan": [
-        "Tepung terigu",
-        "Santan kelapa",
-        "Daun pandan (ekstrak / air pandan)",
-        "Telur"
-      ],
-      "resep": [
-        "Campur tepung terigu, santan, air pandan, dan telur hingga menjadi adonan halus.",
-        "Panaskan cetakan khusus berbentuk bunga kamboja.",
-        "Tuang adonan ke dalam cetakan.",
-        "Panggang atau kukus hingga matang dan berwarna hijau cerah.",
-        "Angkat dan sajikan."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 75,
-        "gurih": 20,
-        "asam": 0,
-        "pahit": 5
-      },
-      "nutrisi": {
-        "kalori": 200,
-        "protein": 4,
-        "lemak": 8,
-        "karbohidrat": 30
-      },
-      "tags": [
-        "Kue Tradisional",
-        "Palembang",
-        "Pandan",
-        "Lebaran",
-        "Hampers"
-      ],
-      "img": ""
+      "img": "assets/media/sumsel/Gandus.jpeg"
     },
     {
       "id": "bolu-kojo-palembang",
       "nama": "Bolu Kojo",
-      "kategori": "kue-tradisional",
+      "kategori": "snack",
       "deskripsi": "Pengembangan modern dari Kue Kojo dengan tekstur lebih lembut seperti bolu. Terbuat dari tepung terigu, santan, telur, dan pandan. Aroma pandan dan santan menjadi ciri khas utama. Populer sebagai sajian arisan, frozen cake, dan oleh-oleh kekinian khas Sumatera Selatan.",
       "bahan": [
         "Tepung terigu",
@@ -1104,180 +1210,12 @@
         "Oleh-oleh",
         "Frozen Cake"
       ],
-      "img": ""
-    },
-    {
-      "id": "kerupuk-amplang-sumsel",
-      "nama": "Kerupuk Amplang",
-      "kategori": "camilan",
-      "deskripsi": "Kerupuk ikan berbentuk memanjang dengan rasa gurih dan renyah, terbuat dari ikan tenggiri dan tepung tapioka. Dibuat oleh masyarakat pesisir sebagai cara mengawetkan ikan. Semakin tinggi kandungan ikan, semakin mahal kualitasnya. Menjadi salah satu oleh-oleh favorit wisatawan.",
-      "bahan": [
-        "Ikan tenggiri",
-        "Tepung tapioka",
-        "Garam"
-      ],
-      "resep": [
-        "Giling ikan tenggiri hingga halus.",
-        "Campur ikan giling dengan tepung tapioka dan garam, uleni hingga kalis.",
-        "Bentuk adonan kecil-kecil memanjang.",
-        "Goreng dalam minyak panas hingga renyah dan berwarna keemasan.",
-        "Tiriskan dan sajikan."
-      ],
-      "flavor": {
-        "pedas": 10,
-=======
-        "Susu kental manis",
-        "Santan"
-      ],
-      "resep": [
-        "Kocok telur bebek dan gula hingga larut, masukkan mentega cair dan susu kental manis.",
-        "Masukkan tepung ketan dan santan kental secara bergantian, aduk rata hingga membentuk adonan cair halus.",
-        "Siapkan loyang yang sudah dialasi, tuang satu lapis adonan tipis (sekirit 1-2 sendok sayur).",
-        "Panggang menggunakan api atas hingga kecokelatan, tuang lapisan berikutnya, ulangi proses hingga adonan habis."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 95,
-        "gurih": 80,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 390,
-        "protein": 6,
-        "lemak": 18,
-        "karbohidrat": 52
-      },
-      "tags": [
-        "Kue Lapis",
-        "Bangsawan Istana",
-        "Manis Legit"
-      ],
-      "img": "assets/media/engkak-ketan.jpg"
-    },
-    {
-      "id": "maksuba",
-      "nama": "Maksuba",
-      "kategori": "snack",
-      "deskripsi": "Simbol kemewahan sejati dari jagat kue basah Palembang. Maksuba adalah kue lapis yang didominasi oleh penggunaan telur bebek dalam jumlah masif tanpa ampas tepung yang berarti. Menghasilkan karakteristik kue yang basah (moist), padat-lembut, dengan garis-garis lapisan karamel yang kontras.",
-      "bahan": [
-        "Telur bebek",
-        "Susu kental manis",
-        "Mentega berkualitas tinggi",
-        "Gula pasir",
-        "Vanili"
-      ],
-      "resep": [
-        "Kocok telur bebek dan gula pasir secara perlahan agar tidak terlalu mengembang atau berbuih besar.",
-        "Masukkan susu kental manis dan mentega cair yang telah didinginkan, aduk hingga emulsi menyatu sempurna.",
-        "Tuang lapisan pertama ke dalam loyang, panggang dengan api atas hingga muncul bercak karamel kecokelatan.",
-        "Ulangi penuangan adonan lapis demi lapis dengan sabar hingga seluruh adonan telur bebek matang merata."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 98,
-        "gurih": 85,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 440,
-        "protein": 9,
-        "lemak": 22,
-        "karbohidrat": 54
-      },
-      "tags": [
-        "Simbol Kemewahan",
-        "Puluhan Telur Bebek",
-        "Karamel Alami"
-      ],
-      "img": "assets/media/maksuba.jpg"
-    },
-    {
-      "id": "kue-delapan-jam",
-      "nama": "Kue Delapan Jam",
-      "kategori": "snack",
-      "deskripsi": "Karya seni kuliner yang menguji batas kesabaran. Sesuai namanya, kue tradisional warisan bangsawan Kesultanan Palembang ini harus melalui proses pengukusan konstan selama delapan jam penuh untuk mengubah emulsi telur, susu, dan gula menjadi padatan kue bertekstur kenyal-lembut menyerupai spons basah.",
-      "bahan": [
-        "Telur bebek",
-        "Gula pasir",
-        "Susu kental manis",
-        "Mentega"
-      ],
-      "resep": [
-        "Kocok telur bebek dan gula pasir hingga gula benar-benar larut tanpa membuat adonan mengembang kaku.",
-        "Campurkan susu kental manis dan mentega cair ke dalam adonan, aduk rata lalu saring ke dalam loyang.",
-        "Tutup loyang rapat-rapat dengan aluminium foil agar air kukusan tidak masuk.",
-        "Kukus di atas api konstan selama 8 jam penuh. Pastikan air kukusan selalu ditambah secara berkala agar tidak mengering."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 95,
-        "gurih": 75,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 410,
-        "protein": 8,
-        "lemak": 19,
-        "karbohidrat": 50
-      },
-      "tags": [
-        "Simbol Kesabaran",
-        "Kukus 8 Jam",
-        "Spons Maillard"
-      ],
-      "img": "assets/media/kue-delapan-jam.jpg"
-    },
-    {
-      "id": "gandus",
-      "nama": "Gandus",
-      "kategori": "snack",
-      "deskripsi": "Antitesis dari kue talam Nusantara yang umumnya manis. Gandus adalah kue basah gurih putih khas masyarakat Melayu Palembang yang sering dikonsumsi sebagai sarapan ringan. Memiliki tekstur super lembut mirip puding gurih padat berbahan dasar tepung beras dan santan.",
-      "bahan": [
-        "Tepung beras",
-        "Santan kelapa pekat",
-        "Garam",
-        "Ebi kering (sangrai & haluskan)",
-        "Bawang merah goreng",
-        "Cabai merah iris",
-        "Daun seledri"
-      ],
-      "resep": [
-        "Larutkan tepung beras, santan kelapa, dan garam hingga halus dan encer.",
-        "Tuang ke dalam cetakan mangkuk kecil atau loyang datar, kukus selama 15-20 menit hingga memadat.",
-        "Selagi permukaan kue masih panas dan lengket setelah dikukus, taburkan ebi sangrai halus, bawang goreng, irisan cabai merah, dan seledri.",
-        "Potong dan keluarkan dari cetakan setelah dingin."
-      ],
-      "flavor": {
-        "pedas": 15,
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
-        "manis": 10,
-        "gurih": 85,
-        "asam": 5,
-        "pahit": 0
-      },
-      "nutrisi": {
-<<<<<<< HEAD
-        "kalori": 400,
-        "protein": 16,
-        "lemak": 18,
-        "karbohidrat": 50
-      },
-      "tags": [
-        "Kerupuk",
-        "Pesisir",
-        "Oleh-oleh",
-        "Camilan",
-        "Ikan"
-      ],
-      "img": ""
+      "img": "assets/media/sumsel/Kue Kojo.jpg"
     },
     {
       "id": "kue-pare-palembang",
       "nama": "Kue Pare",
-      "kategori": "kue-tradisional",
+      "kategori": "snack",
       "deskripsi": "Kue tradisional berbentuk menyerupai buah pare dengan rasa manis gurih. Terbuat dari tepung ketan dengan isian kelapa parut dan gula merah. Bentuk bergerigi dibuat menyerupai buah pare asli. Merupakan jajanan pasar tradisional khas Palembang.",
       "bahan": [
         "Tepung ketan",
@@ -1312,12 +1250,12 @@
         "Ketan",
         "Kelapa"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Kue Pare.png"
     },
     {
       "id": "kue-lumpang-sumsel",
       "nama": "Kue Lumpang",
-      "kategori": "kue-tradisional",
+      "kategori": "snack",
       "deskripsi": "Kue basah tradisional bertekstur kenyal dengan bagian tengah cekung menyerupai lumpang (alat penumbuk padi). Terbuat dari tepung beras, air pandan, gula, dan kelapa parut. Merupakan bagian penting jajanan pasar tradisional Sumatera Selatan.",
       "bahan": [
         "Tepung beras",
@@ -1352,12 +1290,12 @@
         "Kue Basah",
         "Sumsel"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Kue lumpang.jpg"
     },
     {
       "id": "dodol-durian-palembang",
       "nama": "Dodol Durian Palembang",
-      "kategori": "camilan",
+      "kategori": "snack",
       "deskripsi": "Dodol khas berbahan durian dengan tekstur legit dan aroma kuat. Terbuat dari durian matang, santan, gula merah, dan tepung ketan yang dimasak lama sambil diaduk hingga mengental. Aroma semakin kuat seiring lamanya penyimpanan. Simbol kekayaan hasil buah tropis Sumatera Selatan.",
       "bahan": [
         "Durian matang",
@@ -1394,12 +1332,12 @@
         "Palembang",
         "Legit"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Dodol durian.jpg"
     },
     {
       "id": "gulo-puan-oki",
       "nama": "Gulo Puan",
-      "kategori": "dessert",
+      "kategori": "snack",
       "deskripsi": "Makanan tradisional khas Sumatera Selatan berupa olahan susu kerbau rawa yang dimasak perlahan berjam-jam hingga kental menyerupai karamel lembut berwarna kecokelatan. Berasal dari Ogan Komering Ilir. Dahulu menjadi makanan kalangan bangsawan. Produksinya sangat terbatas karena bergantung pada susu kerbau rawa asli.",
       "bahan": [
         "Susu kerbau rawa segar",
@@ -1412,43 +1350,10 @@
         "Lanjutkan memasak berjam-jam hingga cairan mengental dan berubah warna kecokelatan seperti karamel.",
         "Angkat dan simpan dalam wadah tertutup.",
         "Sajikan sebagai olesan atau topping."
-=======
-        "kalori": 140,
-        "protein": 4,
-        "lemak": 5,
-        "karbohidrat": 20
-      },
-      "tags": [
-        "Srikaya Gurih",
-        "Taburan Ebi",
-        "Jajanan Pasar"
-      ],
-      "img": "assets/media/gandus.jpg"
-    },
-    {
-      "id": "kue-kojo",
-      "nama": "Kue Kojo",
-      "kategori": "snack",
-      "deskripsi": "Kue basah tradisional beraroma wangi daun pandan yang sangat pekat. Bertekstur padat, legit, dan basah. Karakter khas kue ini terletak pada penampilannya yang berwarna hijau tua alami dan dicetak menggunakan loyang khusus kuno berbentuk kelopak bunga kamboja.",
-      "bahan": [
-        "Tepung terigu",
-        "Santan kelapa",
-        "Telur ayam/bebek",
-        "Gula pasir",
-        "Mentega",
-        "Air perasan daun pandan asli"
-      ],
-      "resep": [
-        "Rebus santan bersama mentega dan gula pasir hingga larut, dinginkan.",
-        "Kocok telur, masukkan air perasan pandan asli, lalu tuangkan larutan santan bergantian dengan tepung terigu.",
-        "Aduk rata dan saring adonan cair tersebut ke dalam cetakan berbentuk bunga kamboja yang sudah dioles minyak.",
-        "Panggang dalam oven hingga matang, padat, dan bagian pinggirnya agak mengering."
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
       ],
       "flavor": {
         "pedas": 0,
         "manis": 85,
-<<<<<<< HEAD
         "gurih": 30,
         "asam": 5,
         "pahit": 10
@@ -1467,355 +1372,279 @@
         "Susu Kerbau",
         "Karamel"
       ],
-      "img": ""
+      "img": "assets/media/sumsel/Gulo Puan.jpeg"
     },
     {
-      "id": "sambal-tempoyak-sumsel",
-      "nama": "Sambal Tempoyak",
-      "kategori": "sambal",
-      "deskripsi": "Sambal khas Sumatera Selatan berbahan dasar fermentasi durian (tempoyak) dengan rasa asam pedas yang kuat. Berasal dari tradisi masyarakat Melayu yang memanfaatkan tempoyak sebagai bumbu utama. Sering dimakan bersama ikan bakar dan nasi hangat, kini juga dijual dalam bentuk sambal botolan siap saji.",
-      "bahan": [
-        "Tempoyak (durian fermentasi)",
-        "Cabai rawit",
-        "Bawang merah",
-        "Terasi"
-      ],
-      "resep": [
-        "Haluskan bawang merah dan terasi.",
-        "Tumis bawang merah dan terasi hingga harum.",
-        "Masukkan cabai rawit, tumis sebentar.",
-        "Tambahkan tempoyak ke dalam tumisan.",
-        "Masak sambil diaduk hingga semua bahan matang sempurna dan menyatu.",
-        "Sajikan bersama ikan bakar dan nasi hangat."
-      ],
-      "flavor": {
-        "pedas": 80,
-        "manis": 15,
-        "gurih": 40,
-        "asam": 85,
-        "pahit": 10
-      },
-      "nutrisi": {
-        "kalori": 120,
-        "protein": 2,
-        "lemak": 5,
-        "karbohidrat": 18
-      },
-      "tags": [
-        "Sambal",
-        "Durian",
-        "Fermentasi",
-        "Tradisional",
-        "Melayu",
-        "Pedas"
-      ],
-      "img": ""
-=======
-        "gurih": 80,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 290,
-        "protein": 5,
-        "lemak": 11,
-        "karbohidrat": 44
-      },
-      "tags": [
-        "Kelopak Kamboja",
-        "Pandan Alami",
-        "Acara Adat"
-      ],
-      "img": "assets/media/kue-kojo.jpg"
-    },
-    {
-      "id": "bolu-kojo",
-      "nama": "Bolu Kojo",
+      "id": "kue-muso-palembang",
+      "nama": "Kue Muso",
       "kategori": "snack",
-      "deskripsi": "Inovasi teknik modern dari Kue Kojo tradisional. Menggunakan basis bahan esensial yang sama (santan dan sari daun pandan), namun komposisi pengocokan telur dan tepung disesuaikan agar adonan dapat menangkap udara sehingga menghasilkan tekstur yang lebih empuk, ringan, dan mengembang layaknya kue bolu barat.",
+      "deskripsi": "Kue tradisional khas Palembang berwarna hitam kecokelatan dengan tekstur lembut padat dan rasa legit pekat. Terbuat dari telur, cokelat, susu, dan mentega yang dipanggang perlahan hingga menghasilkan aroma karamel-cokelat khas. Dahulu sering hadir dalam acara keluarga bangsawan dan perayaan besar.",
       "bahan": [
-        "Tepung terigu",
-        "Santan kelapa",
-        "Telur ayam",
+        "Telur bebek",
+        "Cokelat bubuk",
+        "Susu kental manis",
+        "Mentega",
         "Gula pasir",
-        "Margarin",
-        "Daun pandan & suji"
+        "Tepung terigu"
       ],
       "resep": [
-        "Kocok telur dan gula pasir hingga mengembang, putih, dan berjejak (metode foam cake).",
-        "Masukkan tepung terigu secara bertahap dengan teknik aduk balik (folding).",
-        "Tuangkan campuran santan, margarin cair, dan jus pandan pekat, aduk perlahan hingga rata.",
-        "Tuang ke loyang bolu, panggang hingga mengembang sempurna dan mengeluarkan aroma pandan panggang."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 80,
-        "gurih": 75,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 270,
-        "protein": 5,
-        "lemak": 9,
-        "karbohidrat": 42
-      },
-      "tags": [
-        "Bolu Kekinian",
-        "Aroma Lembut",
-        "Arisan Komunal"
-      ],
-      "img": "assets/media/bolu-kojo.jpg"
-    },
-    {
-      "id": "kerupuk-amplang",
-      "nama": "Kerupuk Amplang",
-      "kategori": "snack",
-      "deskripsi": "Camilan renyah hasil adaptasi kreatif masyarakat pesisir perairan Sumatera Selatan. Memanfaatkan kelimpahan tangkapan ikan tenggiri harian, daging ikan diolah bersama tapioka membentuk kerupuk berbentuk silinder memanjang atau bulatan kecil yang digoreng hingga merekah garing.",
-      "bahan": [
-        "Daging ikan tenggiri segar",
-        "Tepung tapioka/sagu",
-        "Bawang putih",
-        "Garam",
-        "Minyak goreng"
-      ],
-      "resep": [
-        "Haluskan daging ikan tenggiri bersama bawang putih dan garam hingga kalis.",
-        "Campurkan tepung tapioka sedikit demi sedikit hingga adonan bisa dipulung dan dibentuk.",
-        "Gilas adonan membentuk silinder panjang kecil, lalu potong-potong sepanjang 2-3 cm.",
-        "Goreng dalam minyak dengan suhu yang diatur bertahap agar kerupuk amplang matang garing hingga ke dalam rongganya."
-      ],
-      "flavor": {
-        "pedas": 10,
-        "manis": 15,
-        "gurih": 95,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 460,
-        "protein": 16,
-        "lemak": 15,
-        "karbohidrat": 65
-      },
-      "tags": [
-        "Hasil Pesisir",
-        "Renyah Rapuh",
-        "Ikan Tenggiri"
-      ],
-      "img": "assets/media/kerupuk-amplang.jpg"
-    },
-    {
-      "id": "kue-pare",
-      "nama": "Kue Pare",
-      "kategori": "snack",
-      "deskripsi": "Jajanan pasar tradisional Palembang yang menampilkan ilusi visual yang jenaka. Kue basah berbahan tepung ketan ini dibentuk menyerupai sayur pare yang guratan kulitnya bergerigi. Di balik tampilannya yang meniru buah pahit, kue ini justru menawarkan rasa manis legit dari isian unti kelapa gula merah.",
-      "bahan": [
-        "Tepung ketan",
-        "Santan hangat",
-        "Air daun pandan",
-        "Kelapa parut setengah tua",
-        "Gula merah/aren",
-        "Daun pandan"
-      ],
-      "resep": [
-        "Masak kelapa parut bersama gula merah cair dan daun pandan hingga mengering membentuk isian unti kelapa.",
-        "Uleni tepung ketan dengan santan hangat dan air pandan hingga kalis dan bisa dibentuk.",
-        "Ambil adonan kulit, beri isian unti kelapa, bentuk lonjong menyerupai buah pare.",
-        "Jepit permukaan kulit menggunakan jepitan kue untuk membuat pola gerigi pare, lalu kukus."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 90,
-        "gurih": 70,
-        "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 180,
-        "protein": 3,
-        "lemak": 4,
-        "karbohidrat": 33
-      },
-      "tags": [
-        "Kamuflase Visual",
-        "Unti Kelapa",
-        "Ketan Hijau"
-      ],
-      "img": "assets/media/kue-pare.jpg"
-    },
-    {
-      "id": "kue-lumpang",
-      "nama": "Kue Lumpang",
-      "kategori": "snack",
-      "deskripsi": "Kue basah kukus bertekstur sangat kenyal (chewy) yang sangat populer di pasar tradisional Sumatera Selatan. Penamaan kue ini didasarkan pada bentuk fisik cetakannya yang menghasilkan cekungan kosong tepat di bagian tengah kue, menyerupai lumpang (lesung batu penumbuk padi tradisional).",
-      "bahan": [
-        "Tepung beras",
-        "Tepung sagu",
-        "Gula pasir/Gula merah",
-        "Air daun pandan-suji",
-        "Kelapa parut setengah tua"
-      ],
-      "resep": [
-        "Campurkan tepung beras, tepung sagu, gula, dan air pandan hingga mengalir encer.",
-        "Panaskan cetakan kue lumpang yang telah diolesi minyak tipis di dalam kukusan.",
-        "Tuang adonan ke dalam cetakan panas, kukus dengan api besar selama 15 menit hingga bagian tengahnya mengempis membentuk cekungan.",
-        "Sajikan dingin dengan taburan kelapa parut gurih tepat di atas cekungan lumpangnya."
+        "Kocok telur dan gula hingga mengembang.",
+        "Tambahkan susu, cokelat bubuk, dan mentega cair.",
+        "Masukkan tepung sedikit demi sedikit sambil diaduk rata.",
+        "Tuang adonan ke loyang yang telah dioles mentega.",
+        "Panggang dengan api kecil hingga matang dan padat.",
+        "Dinginkan sebelum dipotong dan disajikan."
       ],
       "flavor": {
         "pedas": 0,
         "manis": 85,
-        "gurih": 70,
+        "gurih": 25,
         "asam": 0,
-        "pahit": 0
-      },
-      "nutrisi": {
-        "kalori": 150,
-        "protein": 2,
-        "lemak": 3,
-        "karbohidrat": 29
-      },
-      "tags": [
-        "Cekungan Alami",
-        "Tekstur Kenyal",
-        "Taburan Kelapa"
-      ],
-      "img": "assets/media/kue-lumpang.jpg"
-    },
-    {
-      "id": "dodol-durian-palembang",
-      "nama": "Dodol Durian Palembang",
-      "kategori": "snack",
-      "deskripsi": "Produk hilirisasi buah tropis legendaris. Berbeda dengan lempok yang murni daging durian dan gula, Dodol Durian Palembang mengombinasikan kepekatan aroma daging durian matang lokal dengan kekenyalan tepung ketan dan gurihnya minyak santan kelapa yang dimasak secara reduktif.",
-      "bahan": [
-        "Daging buah durian matang",
-        "Tepung ketan",
-        "Gula merah/aren",
-        "Gula pasir",
-        "Santan kelapa pekat"
-      ],
-      "resep": [
-        "Larutkan tepung ketan dengan sebagian santan kelapa, sisihkan.",
-        "Masak sisa santan, gula merah, dan daging durian di wajan besar hingga larut dan mendidih.",
-        "Masukkan larutan tepung ketan, aduk secara konstan menggunakan dayung kayu di atas api kecil.",
-        "Aduk terus tanpa henti selama 3-4 jam hingga adonan mengental, mengilat, berminyak alami, dan tidak lengket di wajan."
-      ],
-      "flavor": {
-        "pedas": 0,
-        "manis": 95,
-        "gurih": 80,
-        "asam": 10,
-        "pahit": 0
+        "pahit": 15
       },
       "nutrisi": {
         "kalori": 360,
-        "protein": 4,
-        "lemak": 10,
-        "karbohidrat": 64
+        "protein": 8,
+        "lemak": 18,
+        "karbohidrat": 44
       },
       "tags": [
-        "Oleh-oleh Premium",
-        "Aroma Kuat",
-        "Durian Legit"
+        "Kue Tradisional",
+        "Palembang",
+        "Legit"
       ],
-      "img": "assets/media/dodol-durian-palembang.jpg"
+      "img": "assets/media/sumsel/Kue Muso.jpeg"
     },
     {
-      "id": "gulo-puan",
-      "nama": "Gulo Puan",
+      "id": "kue-srikaya-palembang",
+      "nama": "Kue Srikaya",
       "kategori": "snack",
-      "deskripsi": "Kuliner langka pelipur rindu para bangsawan Kesultanan Palembang Darussalam. Gulo Puan (artinya Gula Puan/Susu) dibuat melalui proses karamelisasi lambat dari perpaduan gula pasir dan susu kerbau rawa (puan) segar asli pasokan para peternak di area rawa-lebak Pampangan, Ogan Komering Ilir (OKI). Menghasilkan tekstur berpasir yang lembut dengan rasa manis-legit yang sangat mewah.",
+      "deskripsi": "Kue tradisional khas Palembang berbahan telur, santan, dan pandan dengan tekstur lembut menyerupai custard. Biasanya disajikan bersama ketan putih kukus saat Lebaran, pengajian, dan acara adat Melayu.",
       "bahan": [
-        "Susu kerbau rawa asli Pampangan",
-        "Gula pasir murni"
+        "Telur ayam",
+        "Santan kelapa",
+        "Gula pasir",
+        "Air pandan",
+        "Daun pandan",
+        "Ketan putih"
       ],
       "resep": [
-        "Saring susu kerbau rawa segar untuk memisahkan kotoran.",
-        "Campurkan susu kerbau dengan gula pasir di atas wajan besar.",
-        "Masak di atas api kecil sambil terus diaduk perlahan selama 4-5 jam tanpa henti.",
-        "Angkat setelah adonan mengering, mengkristal, dan berubah warna menjadi cokelat krem keemasan."
+        "Kocok telur bersama gula hingga larut.",
+        "Tambahkan santan dan air pandan.",
+        "Saring adonan agar tekstur halus.",
+        "Tuang ke loyang atau mangkuk tahan panas.",
+        "Kukus hingga matang dan mengeras lembut.",
+        "Sajikan bersama ketan putih kukus."
       ],
       "flavor": {
         "pedas": 0,
-        "manis": 95,
-        "gurih": 85,
+        "manis": 75,
+        "gurih": 30,
         "asam": 0,
-        "pahit": 0
+        "pahit": 5
       },
       "nutrisi": {
-        "kalori": 380,
-        "protein": 8,
-        "lemak": 14,
-        "karbohidrat": 56
+        "kalori": 240,
+        "protein": 5,
+        "lemak": 10,
+        "karbohidrat": 34
       },
       "tags": [
-        "Kuliner Langka",
-        "Kerbau Rawa OKI",
-        "Upeti Sultan"
+        "Pandan",
+        "Ketan",
+        "Lebaran",
+        "Palembang"
       ],
-      "img": "assets/media/gulo-puan.jpg"
+      "img": "assets/media/sumsel/Kue Srikayo.jpg"
     },
     {
-      "id": "sambal-tempoyak-tumis",
-      "nama": "Sambal Tempoyak Tumis",
-      "kategori": "kondimen",
-      "deskripsi": "Sisi lain pemanfaatan produk fermentasi durian indigenous di Sumatera Selatan. Berbeda dengan tempoyak pindang yang berkuah encer, sambal ini memadukan kultur pedas cabai rawit lokal dengan keasaman pekat tempoyak yang ditumis menggunakan minyak kelapa dan terasi bakar, menciptakan pelengkap hidangan penambah nafsu makan yang sangat adiktif.",
+      "id": "kue-dadar-jiwo-palembang",
+      "nama": "Kue Dadar Jiwo",
+      "kategori": "snack",
+      "deskripsi": "Jajanan pasar tradisional khas Palembang berbentuk gulungan dadar tipis berisi unti kelapa manis berbumbu gula merah. Memiliki aroma pandan dan tekstur lembut dengan isian legit gurih.",
       "bahan": [
-        "Tempoyak durian",
-        "Cabai merah keriting",
-        "Cabai rawit",
-        "Bawang merah",
-        "Terasi bakar",
-        "Gula pasir",
-        "Minyak goreng"
+        "Tepung terigu",
+        "Telur",
+        "Air pandan",
+        "Kelapa parut",
+        "Gula merah",
+        "Garam"
       ],
       "resep": [
-        "Haluskan bawang merah, cabai merah, cabai rawit, dan terasi bakar.",
-        "Tumis bumbu halus dalam minyak panas hingga mengeluarkan aroma matang yang harum.",
-        "Masukkan tempoyak durian ke dalam tumisan bumbu, kecilkan api agar tidak gosong.",
-        "Tambahkan sedikit gula untuk menyeimbangkan keasaman, aduk hingga minyak meresap dan warna menggelap."
+        "Campur tepung, telur, dan air pandan menjadi adonan cair.",
+        "Buat dadar tipis di atas wajan datar.",
+        "Masak kelapa parut dan gula merah hingga menjadi unti.",
+        "Isi dadar dengan unti kelapa.",
+        "Gulung rapat dan sajikan."
       ],
       "flavor": {
-        "pedas": 85,
-        "manis": 35,
-        "gurih": 75,
-        "asam": 80,
+        "pedas": 0,
+        "manis": 70,
+        "gurih": 25,
+        "asam": 0,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 210,
+        "protein": 4,
+        "lemak": 7,
+        "karbohidrat": 34
+      },
+      "tags": [
+        "Jajanan Pasar",
+        "Kelapa",
+        "Tradisional"
+      ],
+      "img": "assets/media/sumsel/Dadar Jiwo.jpg"
+    },
+    {
+      "id": "putu-ayu-palembang",
+      "nama": "Putu Ayu Palembang",
+      "kategori": "snack",
+      "deskripsi": "Versi khas Palembang dari putu ayu dengan aroma pandan dan kelapa yang lebih kuat. Memiliki tekstur lembut mengembang dengan lapisan kelapa parut di bagian atas.",
+      "bahan": [
+        "Tepung terigu",
+        "Telur",
+        "Gula pasir",
+        "Air pandan",
+        "Santan",
+        "Kelapa parut"
+      ],
+      "resep": [
+        "Kocok telur dan gula hingga mengembang.",
+        "Tambahkan tepung, santan, dan air pandan.",
+        "Masukkan adonan ke cetakan yang telah diberi kelapa parut.",
+        "Kukus hingga matang dan mengembang.",
+        "Angkat dan sajikan."
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 70,
+        "gurih": 30,
+        "asam": 0,
         "pahit": 5
       },
       "nutrisi": {
         "kalori": 190,
         "protein": 4,
-        "lemak": 11,
-        "karbohidrat": 18
+        "lemak": 6,
+        "karbohidrat": 30
       },
       "tags": [
-        "Pelengkap Hidangan",
-        "Durian Fermentasi",
-        "Asam-Pedas Kuat"
+        "Pandan",
+        "Kelapa",
+        "Kue Basah"
       ],
-      "img": "assets/media/sambal-tempoyak-tumis.jpg"
->>>>>>> c1c22cb968f0b71b714f2db1ee73fb213ef68fc4
+      "img": "assets/media/sumsel/Putu Ayu.jpg"
+    },
+    {
+      "id": "ragit-palembang",
+      "nama": "Ragit",
+      "kategori": "makanan-berat",
+      "deskripsi": "Roti jala khas Palembang yang dipengaruhi budaya Melayu dan Timur Tengah. Disajikan dengan kuah kari manis gurih berbumbu rempah dan sering hadir saat Lebaran atau jamuan keluarga besar.",
+      "bahan": [
+        "Tepung terigu",
+        "Telur",
+        "Santan",
+        "Kunyit",
+        "Garam",
+        "Daging sapi",
+        "Kentang",
+        "Kari bubuk"
+      ],
+      "resep": [
+        "Campur tepung, telur, santan, dan kunyit menjadi adonan cair.",
+        "Tuang adonan membentuk jala di atas wajan datar.",
+        "Masak hingga matang lalu lipat.",
+        "Siapkan kuah kari berbumbu rempah dan kentang.",
+        "Sajikan ragit bersama kuah kari panas."
+      ],
+      "flavor": {
+        "pedas": 35,
+        "manis": 20,
+        "gurih": 85,
+        "asam": 5,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 310,
+        "protein": 10,
+        "lemak": 12,
+        "karbohidrat": 40
+      },
+      "tags": [
+        "Melayu",
+        "Lebaran",
+        "Palembang",
+        "Kari"
+      ],
+      "img": "assets/media/sumsel/Ragit.jpg"
+    },
+    {
+      "id": "brengkes-tempoyak-sumsel",
+      "nama": "Brengkes Tempoyak",
+      "kategori": "makanan-berat",
+      "deskripsi": "Olahan ikan khas Sumatera Selatan berbumbu tempoyak dengan rasa asam pedas kuat. Ikan dibungkus daun pisang lalu dikukus atau dibakar sehingga aroma daun dan fermentasi durian menyatu khas.",
+      "bahan": [
+        "Ikan patin atau baung",
+        "Tempoyak",
+        "Cabai rawit",
+        "Bawang merah",
+        "Bawang putih",
+        "Kunyit",
+        "Daun kemangi",
+        "Daun pisang"
+      ],
+      "resep": [
+        "Haluskan bawang, cabai, dan kunyit.",
+        "Campur bumbu dengan tempoyak.",
+        "Lumuri ikan dengan campuran bumbu tempoyak.",
+        "Tambahkan daun kemangi.",
+        "Bungkus ikan menggunakan daun pisang.",
+        "Kukus atau bakar hingga matang dan harum.",
+        "Sajikan hangat bersama nasi."
+      ],
+      "flavor": {
+        "pedas": 75,
+        "manis": 15,
+        "gurih": 70,
+        "asam": 90,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 230,
+        "protein": 22,
+        "lemak": 11,
+        "karbohidrat": 10
+      },
+      "tags": [
+        "Tempoyak",
+        "Ikan",
+        "Fermentasi",
+        "Pedalaman"
+      ],
+      "img": "assets/media/sumsel/Brengkes Tempoyak.jpg"
     }
   ],
   "hero": [
     {
       "title": "Pempek",
       "desc": "Ikon kuliner Palembang dengan kuah cuko paling kompleks di Nusantara.",
-      "image": "assets/media/pempek.jpg",
+      "image": "assets/media/sumsel/Pempek.jpg",
       "factTitle": "Cuko Legendaris",
       "factText": "Cuko tradisional menggunakan gula aren dan ebi untuk menghasilkan rasa umami kuat."
     },
     {
       "title": "Tekwan",
       "desc": "Sup ikan hangat yang lahir dari budaya berkumpul masyarakat Palembang.",
-      "image": "assets/media/tekwan.jpg",
+      "image": "assets/media/sumsel/Tekwan.jpg",
       "factTitle": "BerkoTek samo KaWan",
       "factText": "Nama Tekwan berasal dari ungkapan lokal yang berarti mengobrol bersama teman."
     },
     {
       "title": "Kemplang",
       "desc": "Snack ikan panggang dengan aroma smoky khas pesisir Sumatera Selatan.",
-      "image": "assets/media/kemplang.jpg",
+      "image": "assets/media/sumsel/Kemplang.jpg",
       "factTitle": "Dipanggang Bukan Digoreng",
       "factText": "Kemplang tradisional dipanggang di atas bara api untuk menghasilkan aroma khas."
     }
