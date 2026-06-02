@@ -134,71 +134,84 @@
       left: 45%;
     }
 
-    /* Region Cards (Landing) */
-    .region-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    /* ── Aurora Background (CTA Insight) ── */
+    .aurora-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 60vh;
+      min-height: 40rem;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-surface);
+      color: var(--color-on-surface);
+      overflow: hidden;
     }
 
-    @media (min-width: 640px) {
-      .region-cards {
-        grid-template-columns: repeat(3, 1fr);
+    .aurora-bg-wrapper {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .aurora-bg {
+      --black: #000;
+      --transparent: transparent;
+      --aurora-1: #3b82f6;
+      --aurora-2: #a5b4fc;
+      --aurora-3: #93c5fd;
+      --aurora-4: #ddd6fe;
+      --aurora-5: #60a5fa;
+
+      --dark-gradient: repeating-linear-gradient(100deg, var(--black) 0%, var(--black) 7%, var(--transparent) 10%, var(--transparent) 12%, var(--black) 16%);
+      --aurora: repeating-linear-gradient(100deg, var(--aurora-1) 10%, var(--aurora-2) 15%, var(--aurora-3) 20%, var(--aurora-4) 25%, var(--aurora-5) 30%);
+
+      position: absolute;
+      inset: -10px;
+      opacity: 0.5;
+      will-change: transform;
+      filter: blur(10px);
+
+      background-image: var(--dark-gradient), var(--aurora);
+      background-size: 300% 200%;
+      background-position: 50% 50%, 50% 50%;
+
+      mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 10%, transparent 70%);
+    }
+
+    .aurora-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--dark-gradient), var(--aurora);
+      background-size: 200% 100%;
+      animation: aurora 60s linear infinite;
+      background-attachment: fixed;
+      mix-blend-mode: difference;
+    }
+
+    @keyframes aurora {
+      from {
+        background-position: 50% 50%, 50% 50%;
+      }
+
+      to {
+        background-position: 350% 50%, 350% 50%;
       }
     }
 
-    .region-card {
-      border: 1px solid var(--color-outline-variant);
-      background-color: var(--color-surface-container-lowest);
-      padding: 2rem 1.5rem;
+    .aurora-content {
+      position: relative;
+      z-index: 10;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      text-decoration: none;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .region-card:hover {
-      border-color: var(--color-primary);
-      background-color: var(--color-surface-container);
-    }
-
-    .region-card__emoji {
-      font-size: 2rem;
-    }
-
-    .region-card__eyebrow {
-      font-size: 0.625rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-outline);
-    }
-
-    .region-card__name {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      font-weight: 600;
-      color: var(--color-on-surface);
-    }
-
-    .region-card__desc {
-      font-size: 0.875rem;
-      line-height: 1.55;
-      color: var(--color-on-surface-variant);
-    }
-
-    .region-card__cta {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: flex;
+      gap: 1.5rem;
       align-items: center;
-      gap: 6px;
-      margin-top: auto;
-      padding-top: 0.5rem;
+      justify-content: center;
+      padding: 0 1rem;
+      text-align: center;
     }
 
     /* Z-pattern landing feature articles */
@@ -312,6 +325,206 @@
       text-transform: uppercase;
       color: var(--color-on-surface-variant);
     }
+
+    /* ── Hero Highlight (Philosophy) ── */
+    .hero-highlight {
+      position: relative;
+      min-height: 40rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      width: 100%;
+      background-color: var(--color-surface);
+    }
+
+    .hero-highlight-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.7;
+      background-image: radial-gradient(circle, rgb(38, 38, 38) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .hero-highlight-mask {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      background-image: radial-gradient(circle, var(--color-primary) 1px, transparent 1px);
+      background-size: 16px 16px;
+      mask-image: radial-gradient(250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), black 0%, transparent 100%);
+      -webkit-mask-image: radial-gradient(250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), black 0%, transparent 100%);
+    }
+
+    .hero-highlight:hover .hero-highlight-mask {
+      opacity: 1;
+    }
+
+    .hero-highlight-content {
+      position: relative;
+      z-index: 20;
+    }
+
+    .highlight-text {
+      background-image: linear-gradient(to right, #c8902a, #c84c22);
+      background-size: 0% 100%;
+      background-repeat: no-repeat;
+      background-position: left center;
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .highlight-text.active {
+      transition: background-size 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background-size: 100% 100%;
+    }
+
+    /* ── Container Scroll Animation (Dev Identity) ── */
+    .scroll-animation-container {
+      height: 60rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .scroll-animation-container {
+        height: 80rem;
+        padding: 5rem;
+      }
+    }
+
+    .scroll-animation-perspective {
+      perspective: 1000px;
+      width: 100%;
+      position: relative;
+      padding-top: 5rem;
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .scroll-animation-perspective {
+        padding-top: 10rem;
+      }
+    }
+
+    .scroll-animation-header {
+      transform: translateY(var(--translate-y, 0));
+      text-align: center;
+      margin-bottom: 2rem;
+      will-change: transform;
+    }
+
+    .scroll-animation-card {
+      transform: rotateX(var(--rotate-x, 20deg)) scale(var(--scale, 0.9));
+      box-shadow: 0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003;
+      border: 4px solid #6C6C6C;
+      padding: 1.5rem;
+      background: #222;
+      border-radius: 30px;
+      height: auto;
+      min-height: 35rem;
+      display: flex;
+      flex-direction: column;
+      will-change: transform;
+      transform-origin: top center;
+    }
+
+    .dev-card-inner {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      background-color: var(--color-surface-container-lowest);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dev-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .dev-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: var(--color-surface-container-high);
+      display: grid;
+      place-items: center;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      border: 3px solid var(--color-outline-variant);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .dev-avatar:hover {
+      transform: scale(1.05) translateY(-5px);
+      border-color: var(--color-primary);
+    }
+
+    .dev-member h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-on-surface);
+      margin: 0;
+    }
+
+    .dev-role {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .dev-member p {
+      font-size: 0.875rem;
+      color: var(--color-on-surface-variant);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .dev-member a {
+      color: var(--color-primary);
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+
+    .dev-member a:hover {
+      text-decoration: underline;
+    }
+
+    .dev-members-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .dev-members-row {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
   </style>
 </head>
 
@@ -400,29 +613,7 @@
       </div>
     </header>
 
-    <!-- ── STATS ROW ── -->
-    <section aria-label="Statistik proyek">
-      <div class="container">
-        <div class="stats-bar reveal">
-          <div class="stats-bar__item">
-            <span class="stats-bar__value">3</span>
-            <span class="stats-bar__label">Daerah Ikonik</span>
-          </div>
-          <div class="stats-bar__item">
-            <span class="stats-bar__value">9</span>
-            <span class="stats-bar__label">Hidangan Dianalisis</span>
-          </div>
-          <div class="stats-bar__item">
-            <span class="stats-bar__value">1.346</span>
-            <span class="stats-bar__label">Data Nutrisi (Kaggle)</span>
-          </div>
-          <div class="stats-bar__item">
-            <span class="stats-bar__value">14rb+</span>
-            <span class="stats-bar__label">Resep (Dataset)</span>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ── SCROLLYTELLING INTRO ── -->
     <section class="section container" aria-label="Narasi pengantar">
@@ -441,51 +632,7 @@
       </div>
     </section>
 
-    <!-- ── REGION CARDS ── -->
-    <section class="section container" aria-label="Pilih daerah eksplorasi">
-      <h2 class="text-headline-lg reveal" style="margin-bottom:0.75rem;">Pilih Daerahmu</h2>
-      <p class="text-body-md text-muted reveal reveal--delay-1" style="margin-bottom:3rem; max-width:520px;">
-        Setiap daerah memiliki halaman eksplorasi tersendiri dengan profil rasa, data nutrisi, dan narasi mendalam.
-      </p>
 
-      <div class="region-cards" data-stagger>
-        <!-- Yogyakarta -->
-        <a class="region-card reveal" href="yogyakarta.html" data-stagger-child>
-          <div class="region-card__emoji">🎋</div>
-          <span class="region-card__eyebrow">The Heart of Java</span>
-          <h3 class="region-card__name" style="color:#c8902a;">Yogyakarta</h3>
-          <p class="region-card__desc">Manis · Gurih · Warisan Keraton. Gudeg, Oseng Mercon, Bakpia — tiga hidangan yang
-            mewakili satu kota.</p>
-          <span class="region-card__cta" style="color:#c8902a;">
-            Jelajahi <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
-          </span>
-        </a>
-
-        <!-- Sumatera Selatan -->
-        <a class="region-card reveal reveal--delay-1" href="sumatera-selatan.html" data-stagger-child>
-          <div class="region-card__emoji">🌶️</div>
-          <span class="region-card__eyebrow">The Rich Waters</span>
-          <h3 class="region-card__name" style="color:#c84c22;">Sumatera Selatan</h3>
-          <p class="region-card__desc">Asam · Gurih · Kompleks. Pempek, Tekwan, Pindang Patin — warisan tepi Sungai
-            Musi.</p>
-          <span class="region-card__cta" style="color:#c84c22;">
-            Jelajahi <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
-          </span>
-        </a>
-
-        <!-- NTB -->
-        <a class="region-card reveal reveal--delay-2" href="nusa-tenggara-barat.html" data-stagger-child>
-          <div class="region-card__emoji">🌊</div>
-          <span class="region-card__eyebrow">The Spice Frontier</span>
-          <h3 class="region-card__name" style="color:#1a5c4a;">Nusa Tenggara Barat</h3>
-          <p class="region-card__desc">Pedas · Segar · Identitas Sasak. Ayam Taliwang, Plecing Kangkung, Beberuk —
-            ekstrem dan autentik.</p>
-          <span class="region-card__cta" style="color:#1a5c4a;">
-            Jelajahi <span class="material-symbols-outlined" style="font-size:1rem;">arrow_forward</span>
-          </span>
-        </a>
-      </div>
-    </section>
 
     <!-- ── Z-PATTERN: YOGYAKARTA FEATURE ── -->
     <section class="section container" aria-label="Feature Yogyakarta">
@@ -497,125 +644,142 @@
         <span class="batik-divider__line"></span>
       </div>
 
-      <article class="landing-feature" style="margin-top:4rem;">
-        <div class="reveal">
-          <div class="landing-feature__slider" data-slider="yogya">
-            <button class="slider-btn slider-btn--prev" type="button" aria-label="Gambar sebelumnya"
-              data-slider-button="prev" data-slider="yogya">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-            <img class="landing-feature__img"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB88D3-UBGzrGDT3xyR_nndVPY7MZljN26JQMZjmJXvGvd_OElK-6tGhFADxOSzrysbYUIrVZNr-iMroyY5RuyqEdR1dG1W-ExHbBFPg3OzaiLTrzpaGkqVIgy3ABd1vIe3IR7zg7zajiG8_JzexxnsVZHzp27AbXt_2om0qnLxLvj3f8Hx0igHqIm60cU5NMkuWxC9zRdMCjkJp6kiUryPASxPJAlXFRmGonxoEHy3MRteeej1v6lLGGmqPt64rw7goR1rU6nONRM"
-              alt="Gudeg Yogyakarta" data-slider="yogya" />
-            <button class="slider-btn slider-btn--next" type="button" aria-label="Gambar berikutnya"
-              data-slider-button="next" data-slider="yogya">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="landing-feature__content reveal reveal--delay-1">
+      <article class="landing-feature" style="margin-top:4rem; display:block; text-align:center;">
+        <div class="landing-feature__content reveal reveal--delay-1" style="align-items:center;">
           <span class="text-label" style="color:#c8902a;">Yogyakarta · The Heart of Java</span>
           <h2 class="text-headline-lg">Di Balik Manisnya Kota Pelajar</h2>
-          <p class="text-body-lg text-muted">
+          <p class="text-body-lg text-muted" style="max-width:800px; margin:0 auto;">
             Gudeg Yogya memiliki skor manis <strong style="color:var(--color-primary);">90/100</strong> — tertinggi dari
             seluruh dataset. Kontras dengan Oseng Mercon yang skor pedasnya 100/100. Keduanya berasal dari kota yang
             sama.
           </p>
-          <a href="yogyakarta.html" class="btn btn--outline" style="align-self:flex-start;">Eksplorasi Yogyakarta</a>
+          <a href="yogyakarta.html" class="btn btn--outline" style="margin-top:1rem;">Eksplorasi Yogyakarta</a>
         </div>
       </article>
 
       <!-- Reversed Z: Sumatera Selatan -->
-      <article class="landing-feature" style="margin-top:5rem;">
-        <div class="landing-feature__content reveal" style="order:2;">
+      <article class="landing-feature" style="margin-top:5rem; display:block; text-align:center;">
+        <div class="landing-feature__content reveal" style="align-items:center;">
           <span class="text-label" style="color:#c84c22;">Sumatera Selatan · The Rich Waters</span>
           <h2 class="text-headline-lg">Warisan Sungai Musi dalam Setiap Gigitan</h2>
-          <p class="text-body-lg text-muted">
+          <p class="text-body-lg text-muted" style="max-width:800px; margin:0 auto;">
             Pempek memiliki skor asam <strong style="color:#c84c22;">90/100</strong> dari seluruh dataset. Kombinasi
             asam + gurih yang unik membedakannya dari semua masakan daerah lain.
           </p>
-          <a href="sumatera-selatan.html" class="btn btn--outline" style="align-self:flex-start;">Eksplorasi Sumsel</a>
-        </div>
-        <div class="reveal reveal--delay-1" style="order:1;">
-          <div class="landing-feature__slider" data-slider="sumsel">
-            <button class="slider-btn slider-btn--prev" type="button" aria-label="Gambar sebelumnya"
-              data-slider-button="prev" data-slider="sumsel">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-            <img class="landing-feature__img"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX0Qw9JzbSRBgLfY8heZVqeK-7OOmEyizvKvjnhLHqKGRKQ_hCqwhMSW5BZAgiZzwRjXEuYZHfWNrRxQs3XbYTRPzgFFQOhyVEUMRraz8gRYePRMpy2XcwAHUElum3RrIB-t2iLjwuWud01csSUINMAalJQcZRDZCjOaHjUQfeSftVNLIcUwdWGeehHXtdZGKOIkG2oHY4-58M85UMAQINNU1lzKdhCoetYKsnRwXPZNkCsLltSugPkRabg-7Q1MLsx12nTBwfvzA"
-              alt="Pempek Palembang" data-slider="sumsel" />
-            <button class="slider-btn slider-btn--next" type="button" aria-label="Gambar berikutnya"
-              data-slider-button="next" data-slider="sumsel">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-          </div>
+          <a href="sumatera-selatan.html" class="btn btn--outline" style="margin-top:1rem;">Eksplorasi Sumsel</a>
         </div>
       </article>
 
       <!-- Reversed Z: Nusa Tenggara Barat -->
-      <article class="landing-feature" style="margin-top:5rem;">
-        <div class="reveal">
-          <div class="landing-feature__slider" data-slider="ntb">
-            <button class="slider-btn slider-btn--prev" type="button" aria-label="Gambar sebelumnya"
-              data-slider-button="prev" data-slider="ntb">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-            <img class="landing-feature__img" src="https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80"
-              alt="Ayam Taliwang" data-slider="ntb" />
-            <button class="slider-btn slider-btn--next" type="button" aria-label="Gambar berikutnya"
-              data-slider-button="next" data-slider="ntb">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="landing-feature__content reveal reveal--delay-1">
+      <article class="landing-feature" style="margin-top:5rem; display:block; text-align:center;">
+        <div class="landing-feature__content reveal reveal--delay-1" style="align-items:center;">
           <span class="text-label" style="color:#1a5c4a;">Nusa Tenggara Barat · The Spice Frontier</span>
           <h2 class="text-headline-lg">Panas Identitas di Ujung Sunda Kecil</h2>
-          <p class="text-body-lg text-muted">
+          <p class="text-body-lg text-muted" style="max-width:800px; margin:0 auto;">
             Ayam Taliwang memiliki skor pedas <strong style="color:#1a5c4a;">90/100</strong> — tertinggi dari Lombok.
             Pedas bukan sekadar bumbu, tapi pernyataan budaya masyarakat Sasak yang tangguh.
           </p>
-          <a href="nusa-tenggara-barat.html" class="btn btn--outline" style="align-self:flex-start;">Eksplorasi NTB</a>
+          <a href="nusa-tenggara-barat.html" class="btn btn--outline" style="margin-top:1rem;">Eksplorasi NTB</a>
         </div>
       </article>
     </section>
 
-    <!-- ── CTA INSIGHT ── -->
-    <section class="section container" style="text-align:center;" aria-label="CTA Data Insight">
-      <div class="batik-divider reveal" aria-hidden="true">
-        <span class="batik-divider__line"></span>
-        <span class="batik-divider__dot"></span>
-        <span class="batik-divider__dot"></span>
-        <span class="batik-divider__dot"></span>
-        <span class="batik-divider__line"></span>
+    <!-- ── CTA INSIGHT (AURORA) ── -->
+    <section class="aurora-container" aria-label="CTA Data Insight">
+      <div class="aurora-bg-wrapper">
+        <div class="aurora-bg"></div>
       </div>
-      <div class="reveal"
-        style="margin-top:4rem; padding:3rem; border:1px solid var(--color-outline-variant); background-color:var(--color-surface-container-lowest);">
-        <span class="text-label text-outline" style="display:block; margin-bottom:1rem;">Data &amp; Visualisasi</span>
-        <h2 class="text-headline-lg" style="margin-bottom:1rem;">Lihat Perbandingan Antar Daerah</h2>
-        <p class="text-body-lg text-muted" style="max-width:500px; margin:0 auto 2rem;">
-          Heatmap profil rasa, bar chart kalori, dan radar overlay tiga daerah — semua dalam satu halaman insight.
+      <div class="aurora-content reveal">
+        <h2 class="text-headline-lg" style="font-size:clamp(2rem, 5vw, 4rem); font-weight:bold; color:#fff;">
+          Jelajahi Insight Data
+        </h2>
+        <p class="text-body-lg"
+          style="color:#e5e7eb; max-width:600px; margin:0 auto; font-size:clamp(1rem, 2vw, 1.5rem); font-weight:300;">
+          Heatmap profil rasa, bar chart kalori, dan radar overlay tiga daerah — semua dalam satu halaman interaktif.
         </p>
-        <a href="insight.html" class="btn btn--primary">Menuju Data &amp; Insight →</a>
+        <a href="insight.html" class="btn"
+          style="margin-top:1.5rem; padding:0.75rem 2rem; border-radius:9999px; background-color:#fff; color:#000; font-weight:600; border:none; transition:opacity 0.2s ease;">
+          Menuju Data &amp; Insight
+        </a>
+      </div>
+    </section>
+
+    <!-- ── FILOSOFI PROJECT (HERO HIGHLIGHT) ── -->
+    <section class="hero-highlight" id="philosophy-section">
+      <div class="hero-highlight-bg"></div>
+      <div class="hero-highlight-mask" id="heroMask"></div>
+      <div class="container hero-highlight-content reveal">
+        <h2 class="text-headline-lg" style="margin-bottom:2rem;">
+          Pusaka Karsa:<br />
+          <span class="highlight-text" id="filosofi-highlight">Menganyam Rasa, Merawat Cerita</span>
+        </h2>
+
+        <div
+          style="display:flex; flex-direction:column; gap:1.5rem; text-align:left; background:rgba(0,0,0,0.5); padding:2rem; border-radius:16px; border:1px solid var(--color-outline-variant);">
+          <p class="text-body-lg">
+            <strong style="color:var(--color-primary);">Pusaka:</strong> Menyimbolkan bahwa kuliner tradisional dan pola
+            kain tradisional adalah warisan leluhur yang tak ternilai dan harus dilestarikan.
+          </p>
+          <p class="text-body-lg">
+            <strong style="color:var(--color-primary);">Karsa:</strong> Berarti kehendak atau daya cipta (kerja keras).
+            Ini merepresentasikan perjuangan manusia yang ada di web Anda—seperti masyarakat Gunungkidul yang menanam
+            Sego Abang di tanah kapur yang gersang, atau inovasi pedagang sate Klatak menggunakan jeruji sepeda.
+          </p>
+          <p class="text-body-lg">
+            <strong style="color:var(--color-primary);">Menganyam Rasa, Merawat Cerita:</strong> Mencerminkan metode
+            <em>scrollytelling</em> di mana kami "menganyam" (menggabungkan) visual makanan dengan tekstur kain, demi
+            "merawat" sejarah agar tidak hilang dimakan zaman.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IDENTITAS DEVELOPER (CONTAINER SCROLL ANIMATION) ── -->
+    <section class="scroll-animation-container" id="developer-section">
+      <div class="scroll-animation-perspective" id="devPerspective">
+        <div class="scroll-animation-header" id="devHeader">
+          <h2 class="text-headline-lg" style="margin-bottom:0.5rem;">Dikembangkan Oleh</h2>
+          <span class="text-display" style="font-weight:700; color:var(--color-primary);">Tim Pria Idaman Wanita</span>
+        </div>
+
+        <div class="scroll-animation-card" id="devCard">
+          <div class="dev-card-inner">
+            <!-- Chairman -->
+            <div class="dev-member dev-ketua">
+              <div class="dev-avatar" style="overflow: hidden;">
+                <img src="assets/media/identitas/wahyu.jpeg" alt="Wahyu Nugraha"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <h3>Wahyu Nugraha Raomi Gading</h3>
+              <span class="dev-role">Ketua Tim</span>
+              <p>NIM: 222313421<br />Kelas: 3SD2<br />D-IV Komputasi Statistik</p>
+              <a href="mailto:222313421@stis.ac.id">222313421@stis.ac.id</a>
+            </div>
+            <!-- Members -->
+            <div class="dev-members-row">
+              <div class="dev-member">
+                <div class="dev-avatar" style="overflow: hidden;">
+                  <img src="assets/media/identitas/gifa.jpeg" alt="Rahman Al Gifary"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>Rahman Al Gifary</h3>
+                <span class="dev-role">Anggota 1</span>
+                <p>NIM: 222313328<br />Kelas: 3SD1<br />D-IV Komputasi Statistik</p>
+                <a href="mailto:222313328@stis.ac.id">222313328@stis.ac.id</a>
+              </div>
+              <div class="dev-member">
+                <div class="dev-avatar" style="overflow: hidden;">
+                  <img src="assets/media/identitas/arkik.jpeg" alt="M. Arkillah Ibnu Asshiddiqie"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3>M. Arkillah Ibnu Asshiddiqie</h3>
+                <span class="dev-role">Anggota 2</span>
+                <p>NIM: 222313191<br />Kelas: 3SD2<br />D-IV Komputasi Statistik</p>
+                <a href="mailto:222313191@stis.ac.id">222313191@stis.ac.id</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -684,6 +848,60 @@
       update('yogya');
       update('sumsel');
       update('ntb');
+
+      // Hero Highlight Mouse Move Effect
+      const heroHighlight = document.getElementById('philosophy-section');
+      if (heroHighlight) {
+        heroHighlight.addEventListener('mousemove', (e) => {
+          const rect = heroHighlight.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          heroHighlight.style.setProperty('--mouse-x', `${x}px`);
+          heroHighlight.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Intersection observer for highlight text animation
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target.querySelector('#filosofi-highlight');
+              if (el) el.classList.add('active');
+            }
+          });
+        }, { threshold: 0.5 });
+        observer.observe(heroHighlight);
+      }
+
+      // Container Scroll Animation for Dev Identity
+      const devSection = document.getElementById('developer-section');
+      const devHeader = document.getElementById('devHeader');
+      const devCard = document.getElementById('devCard');
+
+      if (devSection && devHeader && devCard) {
+        const checkMobile = () => window.innerWidth <= 768;
+
+        const updateScroll = () => {
+          const isMobile = checkMobile();
+          const scaleRange = isMobile ? [0.7, 0.9] : [1.05, 1];
+          const rect = devSection.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+          progress = Math.max(0, Math.min(1, progress));
+
+          const translateY = progress * -100;
+          const rotateX = 20 - (progress * 20);
+          const scale = scaleRange[0] + (progress * (scaleRange[1] - scaleRange[0]));
+
+          devHeader.style.setProperty('--translate-y', `${translateY}px`);
+          devCard.style.setProperty('--rotate-x', `${rotateX}deg`);
+          devCard.style.setProperty('--scale', scale);
+        };
+
+        window.addEventListener('scroll', updateScroll, { passive: true });
+        window.addEventListener('resize', updateScroll, { passive: true });
+        updateScroll(); // initial trigger
+      }
     });
   </script>
 </body>
