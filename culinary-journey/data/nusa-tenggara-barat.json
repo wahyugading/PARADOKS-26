@@ -44,7 +44,7 @@
         "Pedas",
         "Bakar"
       ],
-      "img": "https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80"
+      "img": "assets/media/ntb/ayam_taliwang.png"
     },
     {
       "id": "plecing-kangkung",
@@ -84,7 +84,7 @@
         "Rendah Kalori",
         "Vegan"
       ],
-      "img": "https://images.unsplash.com/photo-1516901408698-e77b86b35f60?w=800&q=80"
+      "img": "assets/media/ntb/plecing_kangkung.png"
     },
     {
       "id": "beberuk-terong",
@@ -124,7 +124,7 @@
         "Segar",
         "Lokal"
       ],
-      "img": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80"
+      "img": "assets/media/ntb/beberuk_terong.png"
     },
     {
       "id": "sate-rembiga",
@@ -164,7 +164,7 @@
         "Olahan Daging",
         "Ikonik"
       ],
-      "img": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80"
+      "img": "assets/media/ntb/sate_rembiga.png"
     },
     {
       "id": "nasi-balap-puyung",
@@ -204,7 +204,7 @@
         "Cepat Saji Lokal",
         "Gurih"
       ],
-      "img": "https://images.unsplash.com/photo-1626079979728-661da3671ce7?w=800&q=80"
+      "img": "assets/media/ntb/nasi_balap_puyung.png"
     },
     {
       "id": "sayur-ares",
@@ -245,7 +245,126 @@
         "Unik",
         "Tradisional"
       ],
-      "img": "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800&q=80"
+      "img": "assets/media/ntb/sayur_ares.png"
+    },
+    {
+      "id": "sate-bulayak",
+      "nama": "Sate Bulayak",
+      "kategori": "makanan-berat",
+      "deskripsi": "Sate daging sapi khas Lombok Barat yang disajikan dengan bumbu kelapa pedas gurih kental. Keunikannya terletak pada Bulayak, lontong beras ketan wangi yang dibungkus spiral melingkar menggunakan daun aren atau enau.",
+      "bahan": [
+        "Daging sapi",
+        "Santan kelapa",
+        "Cabai merah",
+        "Bawang merah",
+        "Ketumbar",
+        "Kemiri",
+        "Bulayak"
+      ],
+      "resep": [
+        "Potong daging sapi ukuran dadu kecil, tusuk dengan tusukan sate",
+        "Masak bumbu halus bersama santan hingga mengental dan berminyak",
+        "Bakar sate di atas bara api sambil diolesi bumbu kelapa",
+        "Sajikan hangat bersama bulayak ketan yang dikupas lilitannya"
+      ],
+      "flavor": {
+        "pedas": 60,
+        "manis": 35,
+        "gurih": 80,
+        "asam": 15,
+        "pahit": 10
+      },
+      "nutrisi": {
+        "kalori": 240,
+        "protein": 18,
+        "lemak": 14,
+        "karbohidrat": 10
+      },
+      "tags": [
+        "Saus Kelapa",
+        "Khas Lombok Barat",
+        "Unik"
+      ],
+      "img": "assets/media/ntb/sate_bulayak.png"
+    },
+    {
+      "id": "sepat-sumbawa",
+      "nama": "Sepat Sumbawa",
+      "kategori": "makanan-berat",
+      "deskripsi": "Hidangan kuah asam segar yang sangat populer di Sumbawa. Menggunakan ikan bakar (biasanya kakap atau bandeng) yang disiram kuah asam dingin dengan potongan terong bakar, mangga muda atau belimbing wuluh, kencur, dan kemangi segar.",
+      "bahan": [
+        "Ikan kakap/bandeng",
+        "Belimbing wuluh",
+        "Terong bulat",
+        "Kencur",
+        "Bawang merah",
+        "Jeruk nipis",
+        "Kemangi"
+      ],
+      "resep": [
+        "Bakar ikan dan terong bulat hingga matang beraroma smoky",
+        "Haluskan kencur, bawang merah, cabai rawit, lalu campur air matang dan perasan jeruk nipis",
+        "Masukkan potongan belimbing wuluh, kemangi, dan terong bakar penyet ke dalam kuah",
+        "Suwir ikan bakar ke dalam mangkuk kuah sepat segar dingin dan sajikan"
+      ],
+      "flavor": {
+        "pedas": 45,
+        "manis": 10,
+        "gurih": 70,
+        "asam": 85,
+        "pahit": 15
+      },
+      "nutrisi": {
+        "kalori": 110,
+        "protein": 15,
+        "lemak": 4,
+        "karbohidrat": 5
+      },
+      "tags": [
+        "Kuah Asam Segar",
+        "Sumbawa Autentik",
+        "Ikan Bakar"
+      ],
+      "img": "assets/media/ntb/sepat_sumbawa.png"
+    },
+    {
+      "id": "kelepon-kecit",
+      "nama": "Kelepon Kecit",
+      "kategori": "snack",
+      "deskripsi": "Jajanan manis legendaris khas Lombok. Klepon berukuran sangat mini (kecit) yang terbuat dari tepung ketan putih atau hitam, berisi gula aren cair pekat, dan dibalut dengan parutan kelapa gurih yang dikukus.",
+      "bahan": [
+        "Tepung ketan",
+        "Gula aren cair",
+        "Kelapa parut",
+        "Daun pandan",
+        "Air kapur sirih",
+        "Garam"
+      ],
+      "resep": [
+        "Campur tepung ketan dengan air pandan dan sedikit air kapur sirih, uleni hingga kalis",
+        "Bentuk adonan menjadi bulatan kecil seukuran kelereng, isi bagian tengahnya dengan gula aren cair",
+        "Rebus bulatan klepon kecit dalam air mendidih hingga mengapung matang",
+        "Gulingkan klepon ke parutan kelapa kukus yang dicampur sedikit garam"
+      ],
+      "flavor": {
+        "pedas": 0,
+        "manis": 90,
+        "gurih": 65,
+        "asam": 0,
+        "pahit": 5
+      },
+      "nutrisi": {
+        "kalori": 180,
+        "protein": 2,
+        "lemak": 5,
+        "karbohidrat": 32
+      },
+      "tags": [
+        "Manis",
+        "Kenyal Melumpuh",
+        "Tradisional Sasak"
+      ],
+      "img": "assets/media/ntb/kelepon_kecit.png"
     }
   ]
   ,
@@ -256,7 +375,7 @@
       "deskripsi_singkat": "Tumbuh di air mengalir deras dari mata air Gunung Rinjani.",
       "fakta_botani": "Memiliki batang yang besar, berongga tebal, dan sangat renyah (crunchy) bahkan setelah direbus. Menyerap bumbu dengan sempurna.",
       "icon": "eco",
-      "img": "https://images.unsplash.com/photo-1599339459521-125f18c64585?w=600&q=80"
+      "img": "assets/media/ntb/kangkung_lombok.png"
     },
     {
       "id": "terasi-lekok",
@@ -264,7 +383,7 @@
       "deskripsi_singkat": "Dibuat dari udang rebon pilihan perairan pesisir Lombok.",
       "fakta_botani": "Memiliki aroma laut yang khas dan rasa gurih umami yang sangat pekat tanpa meninggalkan sisa rasa pahit. Kunci utama sambal plecing.",
       "icon": "set_meal",
-      "img": "https://images.unsplash.com/photo-1623910270638-349f28d8cb53?w=600&q=80"
+      "img": "assets/media/ntb/terasi_lekok.png"
     },
     {
       "id": "terong-gelatik",
@@ -272,7 +391,7 @@
       "deskripsi_singkat": "Terong bulat kecil berwarna hijau-putih yang renyah.",
       "fakta_botani": "Teksturnya padat dan sedikit manis. Dikonsumsi mentah dalam hidangan Beberuk, memberikan sensasi segar yang menetralkan pedas cabai.",
       "icon": "nutrition",
-      "img": "https://images.unsplash.com/photo-1601646870020-00826922cc59?w=600&q=80"
+      "img": "assets/media/ntb/terong_gelatik.png"
     },
     {
       "id": "jeruk-limau",
@@ -280,7 +399,7 @@
       "deskripsi_singkat": "Memberikan keasaman sitrun yang tajam namun sangat segar.",
       "fakta_botani": "Kadar asam sitratnya berfungsi memotong lemak dan meredakan rasa pedas cabai rawit yang membakar di lidah secara instan.",
       "icon": "spa",
-      "img": "https://images.unsplash.com/photo-1590453880407-33d3cfa3e9e1?w=600&q=80"
+      "img": "assets/media/ntb/jeruk_limau.png"
     }
   ]
 }

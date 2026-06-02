@@ -138,7 +138,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform: rotate(90deg);
     }
     .needle-north {
@@ -197,6 +197,7 @@
       height: 320px;
       perspective: 1000px;
       cursor: pointer;
+      transition: transform 0.15s ease;
     }
     .flip-card-inner {
       position: relative;
@@ -381,6 +382,8 @@
       border-top: 1px solid var(--color-outline-variant);
       font-size: 0.7rem;
       color: var(--color-primary);
+    }
+
     /* ── LONTAR DIGITAL SASAK (RECIPE DECK) ── */
     .lontar-deck {
       display: flex;
@@ -675,6 +678,28 @@
       }
     }
     
+    .filter-tabs, .dish-grid {
+      position: relative;
+      z-index: 2;
+    }
+    
+    @keyframes mortarShake {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      10% { transform: translate(-3px, 2px) rotate(-1deg); }
+      20% { transform: translate(2px, -3px) rotate(1deg); }
+      30% { transform: translate(-2px, -2px) rotate(0deg); }
+      40% { transform: translate(3px, 2px) rotate(1deg); }
+      50% { transform: translate(-2px, 3px) rotate(-1deg); }
+      60% { transform: translate(2px, -2px) rotate(0deg); }
+      70% { transform: translate(-3px, -3px) rotate(1deg); }
+      80% { transform: translate(3px, -2px) rotate(-1deg); }
+      90% { transform: translate(-2px, 2px) rotate(0deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    .mortar-body.grinding {
+      animation: mortarShake 0.15s infinite;
+    }
+    
     /* ── COBEK BATU MINI-GAME ── */
     .cobek-grid {
       display: grid;
@@ -874,6 +899,21 @@
       color: var(--color-on-surface-variant);
       line-height: 1.45;
     }
+    .batik-texture {
+      background-image: url('assets/media/ntb/tenun_lombok.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.05;
+      filter: contrast(1.15) brightness(0.85);
+      pointer-events: none;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+      60% { transform: translateY(-4px); }
+    }
   </style>
 </head>
 <body data-region="nusa-tenggara-barat">
@@ -902,32 +942,57 @@
 
   <div class="navbar__mobile-menu" id="mobile-menu">
     <a href="index.html">Beranda</a>
-    <a href="yogyakarta.html">🎋 Yogyakarta</a>
-    <a href="sumatera-selatan.html">🌶️ Sumatera Selatan</a>
-    <a href="nusa-tenggara-barat.html">🌊 Nusa Tenggara Barat</a>
-    <a href="insight.html">📊 Data & Insight</a>
+    <a href="yogyakarta.html">Yogyakarta</a>
+    <a href="sumatera-selatan.html">Sumatera Selatan</a>
+    <a href="nusa-tenggara-barat.html">Nusa Tenggara Barat</a>
+    <a href="insight.html">Data & Insight</a>
   </div>
 
   <main>
-    <section class="region-header container">
-      <span class="region-header__eyebrow text-label reveal" style="color:#1a5c4a;">🌊 The Spice Frontier</span>
-      <h1 class="text-display region-header__title reveal reveal--delay-1">Nusa Tenggara Barat</h1>
-      <p class="region-header__desc reveal reveal--delay-2">
-        Di Lombok, pedas bukan sekadar bumbu — ia adalah identitas. Ayam Taliwang dan Plecing Kangkung bukan hanya makanan, tapi pernyataan budaya masyarakat Sasak yang tangguh dan berani menghadapi rasa terpedas.
-      </p>
-      <div class="reveal reveal--delay-2"
-           style="display:inline-flex; gap:1rem; padding:1rem 1.5rem; border:1px solid #1a5c4a44; background-color:var(--color-surface-container-lowest); margin-bottom:2.5rem;">
-        <span class="material-symbols-outlined" style="color:#1a5c4a;">local_fire_department</span>
-        <p style="font-size:0.875rem; color:var(--color-on-surface-variant); line-height:1.5;">
-          NTB memiliki rata-rata skor pedas <strong style="color:#1a5c4a;">82/100</strong> — tertinggi dari tiga daerah. Namun Plecing Kangkung hanya <strong style="color:#1a5c4a;">45 kcal</strong>/100g — paling ringan di dataset.
-        </p>
+    <!-- STORY PROGRESS INDICATOR -->
+    <div id="story-progress" style="position: fixed; top: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(to right, #ff6e40, var(--color-primary)); z-index: 1000; transition: width 0.1s ease;"></div>
+
+    <!-- IMMERSIVE HERO COVER STORY -->
+    <section id="hero" style="position: relative; width: 100%; height: 100dvh; overflow: hidden; background: #0a0604; display: flex; align-items: center; justify-content: center; z-index: 10;">
+      <div class="hero-bg" style="position: absolute; inset: 0; z-index: 0;">
+        <img src="assets/media/ntb/ntb_hero.png" alt="Gunung Rinjani dan Desa Sasak" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: brightness(0.6) contrast(1.05); transition: transform 0.1s ease-out; transform-origin: center;" />
+        <div class="hero-bg-dim" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 6, 4, 0.45) 0%, rgba(10, 6, 4, 0.8) 100%);"></div>
       </div>
-      <div class="region-header__divider reveal">
-        <div class="region-header__divider-line"></div>
-        <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
-        <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
-        <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
-        <div class="region-header__divider-line"></div>
+      <div class="hero-pattern" style="position: absolute; inset: 0; z-index: 1; background-image: url('assets/media/ntb/tenun_lombok.png'); background-size: cover; opacity: 0.04; pointer-events: none;"></div>
+      
+      <div class="hero-content" style="position: relative; z-index: 5; text-align: center; max-width: 720px; padding: 0 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+        <span class="hero-eyebrow" style="color: #ffb59f; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; border: 1px solid rgba(255, 181, 159, 0.25); padding: 0.35rem 1rem; border-radius: 4px; background: rgba(130, 40, 8, 0.15); font-family: 'Inter', sans-serif;">
+          The Spice Frontier
+        </span>
+        <h1 class="hero-title" style="font-family: 'Playfair Display', serif; font-size: calc(2.2rem + 2.5vw); font-weight: 700; color: #fcdcca; line-height: 1.2; margin: 0; text-shadow: 0 4px 24px rgba(0,0,0,0.7);">
+          Nusa Tenggara Barat
+        </h1>
+        <p class="hero-desc" style="font-size: calc(0.9rem + 0.15vw); color: #d4c4b0; line-height: 1.6; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.6); max-width: 600px; font-family: 'Inter', sans-serif; font-weight: 300;">
+          Di Lombok, pedas bukan sekadar bumbu — ia adalah identitas. Ayam Taliwang dan Plecing Kangkung bukan hanya makanan, tapi pernyataan budaya masyarakat Sasak yang tangguh dan berani menghadapi rasa terpedas.
+        </p>
+        
+        <div class="hero-scroll-indicator" style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: #ffb59f; opacity: 0.8; animation: bounce 2s infinite; cursor: pointer;">
+          <span style="font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-family: 'Inter', sans-serif;">Mulai Cerita</span>
+          <span class="material-symbols-outlined" style="font-size: 1.5rem;">keyboard_double_arrow_down</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY PREFACE -->
+    <section class="story-preface container" style="margin: 5rem auto 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2rem; position: relative; z-index: 2;">
+      <div class="batik-divider" aria-hidden="true" style="opacity: 0.4;">
+        <span class="batik-divider__line" style="background: linear-gradient(to right, transparent, var(--color-outline), transparent);"></span>
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.25rem; margin: 0 6px;">tsunami</span>
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.25rem; margin: 0 6px;">tsunami</span>
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.25rem; margin: 0 6px;">tsunami</span>
+        <span class="batik-divider__line" style="background: linear-gradient(to right, transparent, var(--color-outline), transparent);"></span>
+      </div>
+      
+      <div class="preface-card" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.75rem 2.25rem; border: 1px solid rgba(26, 92, 74, 0.25); background-color: var(--color-surface-container); border-radius: 16px; max-width: 720px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border-left: 4px solid var(--color-ntb);">
+        <span class="material-symbols-outlined" style="color: #ff6e40; font-size: 2.5rem; flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(255, 110, 64, 0.4));">local_fire_department</span>
+        <p style="font-size: 0.95rem; color: var(--color-on-surface-variant); line-height: 1.65; text-align: left; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400;">
+          Nusa Tenggara Barat mencatat rata-rata tingkat kepedasan hidangan tertinggi di Nusantara dengan skor mencapai <strong style="color: #ff6e40;">82/100</strong>. Menariknya, wilayah ini juga menyajikan Plecing Kangkung yang memiliki kalori terendah dalam dataset nasional — hanya <strong style="color: #38b293;">45 kcal</strong> per 100 gram.
+        </p>
       </div>
     </section>
 
@@ -982,6 +1047,13 @@
               <circle cx="130" cy="110" r="10" class="outer" />
               <circle cx="130" cy="110" r="5" class="inner" />
             </g>
+
+            <!-- PIN: Sumbawa Besar (Sepat) -->
+            <g class="map-pin" data-id="sepat" data-island="sumbawa-island">
+              <circle cx="450" cy="170" r="22" class="hit-target" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
+              <circle cx="450" cy="170" r="10" class="outer" />
+              <circle cx="450" cy="170" r="5" class="inner" />
+            </g>
           </svg>
           
           <!-- Tooltip element inside wrapper for absolute positioning -->
@@ -998,8 +1070,11 @@
       </div>
     </section>
 
-    <section class="container" style="margin-top:2.5rem;">
-      <div class="compass-container reveal">
+    <section class="container" style="margin-top:2.5rem; position: relative;">
+      <!-- Canvas for background flavor particles -->
+      <canvas id="flavor-particles" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: 0.85;"></canvas>
+      
+      <div class="compass-container reveal" style="position: relative; z-index: 2;">
         <h3 class="compass-title">Kompas Rasa Sasak</h3>
         <p class="compass-subtitle">Klik arah mata angin atau putar jarum kompas untuk menelusuri rasa kuliner NTB</p>
         
@@ -1087,8 +1162,16 @@
             <div class="mortar-contents" id="mortar-contents"></div>
           </div>
           
+          <div class="spice-level-gauge" id="spice-level-gauge" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0.75rem; opacity: 0; transition: opacity 0.5s ease;">
+            <span class="material-symbols-outlined" style="color: #ff6e40; font-size: 1.15rem;">local_fire_department</span>
+            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; color: #ff6e40;">Proses Ulekan:</span>
+            <div class="spice-track" style="width: 120px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden;">
+              <div class="spice-fill" id="spice-fill" style="width: 0%; height: 100%; background: linear-gradient(to right, #ffb59f, #ff3d00); transition: width 1.8s linear;"></div>
+            </div>
+          </div>
+          
           <div class="cobek-controls">
-            <button class="btn btn--outline-primary" id="btn-grind" disabled>Ulek Sambal! 🌶️</button>
+            <button class="btn btn--outline-primary" id="btn-grind" disabled>Ulek Sambal!</button>
             <button class="btn" id="btn-reset-cobek" style="color: var(--color-on-surface-variant); display: none;">Reset Cobek</button>
           </div>
         </div>
@@ -1168,7 +1251,7 @@
       <div class="lontar-leaf leaf-recipe">
         <div class="lontar-leaf-binder"></div>
         <div class="lontar-leaf-content">
-          <h3 class="lontar-section-title">✍️ Resep &amp; Bahan</h3>
+          <h3 class="lontar-section-title">Resep &amp; Bahan</h3>
           <div class="lontar-scroll-area">
             <p class="lontar-sub-title">Bahan Utama</p>
             <div class="lontar-chips" id="lontar-chips"></div>
@@ -1183,7 +1266,7 @@
       <div class="lontar-leaf leaf-elements">
         <div class="lontar-leaf-binder"></div>
         <div class="lontar-leaf-content">
-          <h3 class="lontar-section-title">📊 Karakter &amp; Nutrisi</h3>
+          <h3 class="lontar-section-title">Karakter &amp; Nutrisi</h3>
           <div class="lontar-scroll-area">
             <p class="lontar-sub-title">Elemen Rasa Alami</p>
             <div class="lontar-element-meters">
@@ -1279,6 +1362,13 @@
           desc: 'Sayur segar dingin berkuah sambal terasi lekok khas Lombok dengan kangkung berongga besar yang renyah.',
           pedas: '85/100',
           kalori: '45-60 kcal'
+        },
+        'sepat': {
+          region: 'Sumbawa Besar',
+          nama: 'Sepat Sumbawa',
+          desc: 'Kuliner ikan bakar khas Sumbawa yang disajikan dalam kuah asam segar beraroma kencur, belimbing wuluh, dan terong bakar.',
+          pedas: '45/100',
+          kalori: '110 kcal'
         }
       };
 
@@ -1332,7 +1422,8 @@
             'taliwang': 'makanan-berat',
             'rembiga': 'makanan-berat',
             'puyung': 'makanan-berat',
-            'lingsar': 'semua'
+            'lingsar': 'semua',
+            'sepat': 'makanan-berat'
           };
           
           const filter = categoryMap[id];
@@ -1350,7 +1441,8 @@
             'taliwang': 'ayam-taliwang',
             'rembiga': 'sate-rembiga',
             'puyung': 'nasi-balap-puyung',
-            'lingsar': 'plecing-kangkung'
+            'lingsar': 'plecing-kangkung',
+            'sepat': 'sepat-sumbawa'
           };
           const cardId = cardIdMap[id];
           setTimeout(() => {
@@ -1394,15 +1486,18 @@
           document.querySelector('.sector-north').classList.add('active');
           compassBody.classList.add('glow-north');
           feedback.style.color = '#c84c22';
+          if (window.updateParticlesMode) window.updateParticlesMode('hot');
         } else if (value < 30) {
           dirText = 'Embun Rinjani 🌿 (Hidangan Segar & Ringan)';
           document.querySelector('.sector-south').classList.add('active');
           compassBody.classList.add('glow-south');
           feedback.style.color = '#1a5c4a';
+          if (window.updateParticlesMode) window.updateParticlesMode('fresh');
         } else {
           document.querySelector('.sector-east').classList.add('active');
           compassBody.classList.add('glow-east');
           feedback.style.color = 'var(--color-primary)';
+          if (window.updateParticlesMode) window.updateParticlesMode('neutral');
         }
         feedback.innerText = dirText;
 
@@ -1451,6 +1546,30 @@
         updateCompassState(value, snappedAngle);
       });
 
+      // Handle custom local filtering for the new dishes since region.js is read-only
+      slider.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value);
+        const sepatCard = document.querySelector('.dish-card[data-id="sepat-sumbawa"]');
+        const bulayakCard = document.querySelector('.dish-card[data-id="sate-bulayak"]');
+        const kleponCard = document.querySelector('.dish-card[data-id="kelepon-kecit"]');
+
+        if (sepatCard) sepatCard.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+        if (bulayakCard) bulayakCard.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+        if (kleponCard) kleponCard.classList.remove('glow-embun', 'glow-bara', 'dimmed');
+
+        if (val < 30) {
+          // Embun (Kiri): Sepat is fresh/embun, others are dimmed
+          if (sepatCard) sepatCard.classList.add('glow-embun');
+          if (bulayakCard) bulayakCard.classList.add('dimmed');
+          if (kleponCard) kleponCard.classList.add('dimmed');
+        } else if (val > 70) {
+          // Bara (Kanan): All new ones are dimmed (not extra spicy like Taliwang/Puyung)
+          if (sepatCard) sepatCard.classList.add('dimmed');
+          if (bulayakCard) bulayakCard.classList.add('dimmed');
+          if (kleponCard) kleponCard.classList.add('dimmed');
+        }
+      });
+
       // Set initial direction to East (Neutral)
       updateCompassState(50, 90);
     })();
@@ -1468,7 +1587,10 @@
         'sayur-ares': 60,
         'ayam-taliwang': 15,
         'sate-rembiga': 10,
-        'nasi-balap-puyung': 15
+        'nasi-balap-puyung': 15,
+        'sate-bulayak': 20,
+        'sepat-sumbawa': 45,
+        'kelepon-kecit': 10
       };
       
       const elementAirMap = {
@@ -1477,7 +1599,10 @@
         'sayur-ares': 85,
         'ayam-taliwang': 90,
         'sate-rembiga': 85,
-        'nasi-balap-puyung': 80
+        'nasi-balap-puyung': 80,
+        'sate-bulayak': 70,
+        'sepat-sumbawa': 75,
+        'kelepon-kecit': 25
       };
 
       // Override global openModal function
@@ -1565,6 +1690,8 @@
       const resultTitle = document.getElementById('result-title');
       const resultDesc = document.getElementById('result-desc');
       const resultPanel = document.getElementById('recipe-result-panel');
+      const spiceGauge = document.getElementById('spice-level-gauge');
+      const spiceFill = document.getElementById('spice-fill');
 
       let addedIngredients = [];
       let isGrinded = false;
@@ -1610,10 +1737,68 @@
         
         mortarBody.classList.add('grinding');
 
+        // Show and animate spice ulekan progress bar
+        if (spiceGauge && spiceFill) {
+          spiceGauge.style.opacity = '1';
+          spiceFill.style.transition = 'width 1.8s linear';
+          spiceFill.style.width = '100%';
+        }
+
+        // Spawn splatter particles
+        function spawnSplatter() {
+          const ingredientColors = {
+            'cabai': ['#ff3d00', '#d84315', '#ff1744'],
+            'terasi': ['#8d6e63', '#5d4037', '#4e342e'],
+            'tomat': ['#ff5722', '#e65100', '#ff3d00'],
+            'limau': ['#2e7d32', '#8bc34a', '#4caf50'],
+            'bawang': ['#8e24aa', '#d81b60', '#ab47bc']
+          };
+          let colors = [];
+          addedIngredients.forEach(ing => {
+            if (ingredientColors[ing]) {
+              colors.push(...ingredientColors[ing]);
+            }
+          });
+          if (colors.length === 0) {
+            colors = ['#e65100', '#2e7d32', '#8d6e63', '#d84315', '#ffeb3b'];
+          }
+          const particle = document.createElement('div');
+          particle.style.position = 'absolute';
+          particle.style.width = '6px';
+          particle.style.height = '6px';
+          particle.style.borderRadius = '50%';
+          particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+          particle.style.left = '50%';
+          particle.style.top = '50%';
+          particle.style.transform = 'translate(-50%, -50%)';
+          particle.style.pointerEvents = 'none';
+          particle.style.zIndex = '15';
+          
+          const angle = Math.random() * Math.PI * 2;
+          const dist = Math.random() * 80 + 30;
+          const tx = Math.cos(angle) * dist;
+          const ty = Math.sin(angle) * dist;
+          
+          mortarBody.appendChild(particle);
+          
+          particle.animate([
+            { transform: 'translate(-50%, -50%) scale(1.2)', opacity: 1 },
+            { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+          ], {
+            duration: 500 + Math.random() * 300,
+            easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
+            fill: 'forwards'
+          });
+          
+          setTimeout(() => particle.remove(), 800);
+        }
+        const splatterInterval = setInterval(spawnSplatter, 40);
+
         resultTitle.textContent = 'Mengulek Bahan...';
         resultDesc.textContent = 'Sedang melumatkan cabai, terasi, dan rempah segar di cobek batu.';
 
         setTimeout(() => {
+          clearInterval(splatterInterval);
           mortarBody.classList.remove('grinding');
           mortarBody.classList.add('has-paste');
           
@@ -1627,26 +1812,56 @@
           let desc = 'Sambal racikan sederhana dengan rasa pedas segar alami.';
           let color = '#c84c22';
 
+          const hasCabai = (counts['cabai'] || 0) > 0;
+          const hasTerasi = (counts['terasi'] || 0) > 0;
+          const hasTomat = (counts['tomat'] || 0) > 0;
+          const hasLimau = (counts['limau'] || 0) > 0;
+          const hasBawang = (counts['bawang'] || 0) > 0;
+
           if (counts['cabai'] >= 4) {
-            name = 'Sambal Rinjani Membakar! 🌋';
-            desc = 'Sambal dengan takaran cabai luar biasa banyak. Hanya untuk pemberani! Rasa pedasnya meledak seperti letusan Rinjani.';
+            name = 'Sambal Rinjani Membakar';
+            desc = 'Sambal dengan takaran cabai luar biasa banyak. Hanya untuk pemberani! Rasa pedasnya meledak seperti letusan Gunung Rinjani.';
             color = '#ff3d00';
-          } else if (counts['cabai'] >= 1 && counts['terasi'] >= 1 && counts['tomat'] >= 1 && counts['limau'] >= 1) {
-            name = 'Sambal Plecing Lombok 🌶️';
-            desc = 'Bumbu otentik Plecing Kangkung! Kombinasi cabai rawit pedas, terasi Lekok yang gurih-laut, dan asam segar perasan jeruk limau segar.';
-            color = '#e65100';
-          } else if (counts['cabai'] >= 1 && counts['tomat'] >= 1 && counts['bawang'] >= 1 && counts['limau'] >= 1) {
-            name = 'Sambal Beberuk Terong 🍆';
-            desc = 'Sambal segar mentah pendamping Beberuk Terong. Paduan rasa pedas cabai, bawang merah harum, asam segar tomat, dan jeruk limau.';
-            color = '#c84c22';
-          } else if (counts['cabai'] >= 1 && counts['bawang'] >= 1 && counts['terasi'] >= 1) {
-            name = 'Sambal Embe Lombok 🧄';
-            desc = 'Sambal khas Sasak yang menonjolkan irisan bawang goreng wangi yang dipadukan dengan cabai tumis dan terasi bakar.';
+          } else if (hasCabai && hasTerasi && hasTomat && hasLimau) {
+            name = 'Sambal Plecing Lombok';
+            desc = 'Bumbu otentik hidangan Plecing! Kombinasi sempurna cabai rawit pedas, terasi Lekok yang gurih-laut, tomat merah berair, dan perasan jeruk limau segar.';
+            color = '#d84315';
+          } else if (hasCabai && hasTomat && hasBawang && hasLimau) {
+            name = 'Sambal Beberuk Autentik';
+            desc = 'Sambal mentah segar pendamping lalap Beberuk Terong. Didominasi irisan bawang merah harum, tomat segar, cabai rawit, dan keasaman limau.';
+            color = '#8e24aa';
+          } else if (hasCabai && hasBawang && hasTerasi) {
+            name = 'Sambal Embe Sasak';
+            desc = 'Sambal khas Sasak dengan irisan bawang merah harum yang ditumis layaknya bawang goreng, dipadukan dengan cabai rawit dan terasi bakar.';
             color = '#ff8f00';
-          } else if (counts['cabai'] >= 1 && counts['terasi'] >= 2) {
-            name = 'Sambal Lekok Terasi Pedas';
-            desc = 'Sambal dengan rasa gurih terasi Lekok yang sangat tebal. Sangat cocok disandingkan dengan hidangan bakar.';
-            color = '#8d6e63';
+          } else if (hasCabai && hasTerasi && hasTomat) {
+            name = 'Sambal Cobek Terasi Tomat';
+            desc = 'Sambal terasi dengan tambahan tomat segar melimpah. Rasa gurih-manis alami tomat menyeimbangkan kepekatan aroma terasi.';
+            color = '#e65100';
+          } else if (hasCabai && hasTerasi && hasLimau) {
+            name = 'Sambal Terasi Jeruk Limau';
+            desc = 'Kombinasi klasik terasi Lekok bakar dan cabai rawit, diberi perasan jeruk limau untuk memberikan aroma segar sitrus yang tajam.';
+            color = '#bf360c';
+          } else if (hasCabai && hasTerasi) {
+            name = 'Sambal Terasi Lekok Kasar';
+            desc = 'Sambal klasik paling populer. Terasi Lekok bakar yang diulek kasar bersama cabai rawit merah. Sangat gurih, asin, dan beraroma laut pekat.';
+            color = '#a13d2d';
+          } else if (hasCabai && hasBawang) {
+            name = 'Sambal Bawang Lombok';
+            desc = 'Kombinasi sederhana namun sangat wangi antara bawang merah mentah diulek kasar dan cabai rawit. Pedas menggigit dan aromatik.';
+            color = '#fb8c00';
+          } else if (hasCabai && hasLimau) {
+            name = 'Sambal Cocol Limau Asam';
+            desc = 'Cabai rawit ulek segar yang diguyur perasan air jeruk limau. Rasanya sangat bersih, asam tajam, dan pedas menggigit.';
+            color = '#afb42b';
+          } else if (hasCabai && hasTomat) {
+            name = 'Sambal Tomat Mentah';
+            desc = 'Sambal tomat segar mentah yang ringan dan berair. Cocok bagi yang menyukai rasa asam-pedas yang segar tanpa aroma laut terasi.';
+            color = '#ff5722';
+          } else if (hasCabai) {
+            name = 'Sambal Ulek Colet';
+            desc = 'Sambal paling dasar masyarakat Sasak: hanya cabai rawit merah dan garam. Sederhana, murni pedas, dan membakar lidah seketika.';
+            color = '#795548';
           }
 
           resultTitle.textContent = name;
@@ -1672,7 +1887,209 @@
         
         btnGrind.setAttribute('disabled', 'true');
         btnReset.style.display = 'none';
+
+        // Reset spice ulekan progress bar
+        if (spiceGauge && spiceFill) {
+          spiceGauge.style.opacity = '0';
+          spiceFill.style.transition = 'none';
+          spiceFill.style.width = '0%';
+        }
       });
+    })();
+  </script>
+
+  <script>
+    /* ── DYNAMIC BACKGROUND PARTICLES ENGINE ── */
+    (function () {
+      const canvas = document.getElementById('flavor-particles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let animationId = null;
+      let particles = [];
+      let mode = 'neutral';
+      
+      function resizeCanvas() {
+        const rect = canvas.parentNode.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.size = Math.random() * 4 + 2;
+          this.speedY = 0;
+          this.speedX = (Math.random() - 0.5) * 0.5;
+          this.alpha = Math.random() * 0.5 + 0.1;
+          this.color = '';
+          this.angle = Math.random() * Math.PI * 2;
+          this.spin = (Math.random() - 0.5) * 0.03;
+          this.type = mode;
+
+          if (mode === 'hot') {
+            this.y = canvas.height + Math.random() * 20;
+            this.speedY = -(Math.random() * 1.5 + 0.8);
+            const r = 200 + Math.floor(Math.random() * 55);
+            const g = 50 + Math.floor(Math.random() * 100);
+            const b = 0;
+            this.color = `rgba(${r}, ${g}, ${b}, `;
+          } else if (mode === 'fresh') {
+            this.y = -Math.random() * 20;
+            this.speedY = Math.random() * 1.0 + 0.5;
+            this.speedX = Math.sin(this.angle) * 0.6;
+            const r = 26 + Math.floor(Math.random() * 20);
+            const g = 120 + Math.floor(Math.random() * 50);
+            const b = 74 + Math.floor(Math.random() * 30);
+            this.color = `rgba(${r}, ${g}, ${b}, `;
+          } else {
+            this.y = Math.random() * canvas.height;
+          }
+        }
+
+        update() {
+          if (this.type !== mode && mode !== 'neutral') {
+            this.reset();
+          }
+
+          if (mode === 'hot') {
+            this.y += this.speedY;
+            this.x += this.speedX;
+            if (this.y < 0) this.reset();
+          } else if (mode === 'fresh') {
+            this.y += this.speedY;
+            this.angle += this.spin;
+            this.x += Math.sin(this.angle) * 0.8;
+            if (this.y > canvas.height) this.reset();
+          } else {
+            this.alpha -= 0.01;
+            if (this.alpha < 0) this.alpha = 0;
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.alpha;
+          
+          if (this.type === 'hot') {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + '1)';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = 'rgba(200, 76, 34, 0.8)';
+            ctx.fill();
+          } else if (this.type === 'fresh') {
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.angle);
+            ctx.beginPath();
+            ctx.moveTo(0, -this.size * 1.5);
+            ctx.quadraticCurveTo(this.size, -this.size / 2, 0, this.size * 1.5);
+            ctx.quadraticCurveTo(-this.size, -this.size / 2, 0, -this.size * 1.5);
+            ctx.fillStyle = this.color + '1)';
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        const count = 40;
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        if (mode !== 'neutral' || particles.some(p => p.alpha > 0)) {
+          particles.forEach(p => {
+            p.update();
+            p.draw();
+          });
+        }
+        animationId = requestAnimationFrame(animate);
+      }
+
+      window.updateParticlesMode = function(newMode) {
+        if (newMode === mode) return;
+        mode = newMode;
+        if (particles.length === 0) {
+          initParticles();
+        } else if (mode !== 'neutral') {
+          // Immediately reset particles to spawn them for the active mode
+          particles.forEach(p => p.reset());
+        }
+      };
+
+      initParticles();
+      animate();
+    })();
+
+    /* ── 3D CARD HOVER TILT SYSTEM (EVENT DELEGATION) ── */
+    (function () {
+      document.addEventListener('mousemove', (e) => {
+        const card = e.target.closest('.flip-card, .dish-card');
+        if (!card) return;
+        
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const rotateX = ((y / rect.height) - 0.5) * -12;
+        const rotateY = ((x / rect.width) - 0.5) * 12;
+        
+        const isDishCard = card.classList.contains('dish-card');
+        const translateStr = isDishCard ? 'translateY(-8px) ' : '';
+        card.style.transform = `perspective(1000px) ${translateStr}rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      document.addEventListener('mouseout', (e) => {
+        const card = e.target.closest('.flip-card, .dish-card');
+        if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+          card.style.transform = '';
+        }
+      });
+    })();
+
+    /* ── WEBSTORY NAVIGATION & PROGRESS SYSTEM ── */
+    (function () {
+      const progress = document.getElementById('story-progress');
+      const heroBg = document.querySelector('.hero-bg img');
+      const scrollIndicator = document.querySelector('.hero-scroll-indicator');
+
+      // Scroll event listeners for progress bar and parallax background
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        
+        // Update reading progress bar width
+        if (progress && totalHeight > 0) {
+          const pct = (scrolled / totalHeight) * 100;
+          progress.style.width = `${pct}%`;
+        }
+
+        // Parallax depth zoom on the Mount Rinjani hero background
+        if (heroBg) {
+          heroBg.style.transform = `scale(${1 + scrolled * 0.0004}) translateY(${scrolled * 0.12}px)`;
+        }
+      });
+
+      // Scroll to preface section when clicking scroll indicator
+      if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+          const preface = document.querySelector('.story-preface');
+          if (preface) {
+            preface.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
     })();
   </script>
 </body>
