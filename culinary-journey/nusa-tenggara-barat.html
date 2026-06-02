@@ -113,6 +113,130 @@
       color: #38b293 !important;
       border-color: #38b293 !important;
     }
+
+    /* ── MAP CONTAINER ── */
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: rgba(26, 92, 74, 0.03);
+      border: 1px solid rgba(26, 92, 74, 0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+      overflow: hidden;
+    }
+    .map-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #38b293;
+      margin-bottom: 0.25rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .map-subtitle {
+      font-size: 0.8rem;
+      color: var(--color-on-surface-variant);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .map-svg-wrapper {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .map-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .island-path {
+      fill: rgba(26, 92, 74, 0.12);
+      stroke: rgba(26, 92, 74, 0.35);
+      stroke-width: 2px;
+      transition: fill 0.3s, stroke 0.3s, filter 0.3s;
+    }
+    .island-path:hover, .island-path.highlighted {
+      fill: rgba(56, 178, 147, 0.22);
+      stroke: rgba(56, 178, 147, 0.85);
+      filter: drop-shadow(0 0 8px rgba(56, 178, 147, 0.3));
+    }
+    .map-pin {
+      cursor: pointer;
+      outline: none;
+    }
+    .map-pin circle.outer {
+      fill: none;
+      stroke: #38b293;
+      stroke-width: 1.5px;
+      animation: pinPulse 2.5s infinite;
+      transform-origin: center;
+    }
+    .map-pin circle.inner {
+      fill: #38b293;
+      stroke: #fff;
+      stroke-width: 1px;
+      transition: transform 0.3s, fill 0.3s;
+    }
+    .map-pin:hover circle.inner {
+      fill: #ff4c22;
+      transform: scale(1.3);
+    }
+    @keyframes pinPulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    
+    /* Tooltip */
+    .map-tooltip {
+      position: absolute;
+      background: rgba(7, 10, 8, 0.96);
+      border: 1px solid #38b293;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translate(-50%, -110%);
+      z-index: 50;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      width: 230px;
+    }
+    .map-tooltip.visible {
+      opacity: 1;
+    }
+    .tooltip-header {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #38b293;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+    }
+    .tooltip-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fcdcca;
+      margin-bottom: 0.35rem;
+    }
+    .tooltip-body {
+      font-size: 0.75rem;
+      color: var(--color-on-surface-variant);
+      line-height: 1.45;
+    }
+    .tooltip-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.7rem;
+      color: #38b293;
+    }
   </style>
 </head>
 <body data-region="nusa-tenggara-barat">
@@ -167,6 +291,61 @@
         <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
         <span class="material-symbols-outlined region-header__divider-icon">tsunami</span>
         <div class="region-header__divider-line"></div>
+      </div>
+    </section>
+
+    <!-- SECTION: PETA KULINER INTERAKTIF LOMBOK & SUMBAWA -->
+    <section class="container reveal" style="margin-top: 1rem; margin-bottom: 2rem;">
+      <div class="map-container" id="map-container">
+        <h2 class="map-title">Peta Origin Kuliner Sasak &amp; Samawa</h2>
+        <p class="map-subtitle">Arahkan kursor atau sentuh titik pin untuk melihat daerah asal usul hidangan autentik</p>
+        
+        <div class="map-svg-wrapper">
+          <svg viewBox="0 0 800 400" class="map-svg" aria-label="Peta Interaktif Lombok dan Sumbawa">
+            <!-- Lombok Island -->
+            <path id="lombok-island" class="island-path" 
+                  d="M 170,160 C 190,130 250,110 290,140 C 330,170 340,240 310,270 C 280,300 210,310 180,280 C 150,250 150,190 170,160 Z" />
+            
+            <!-- Sumbawa Island -->
+            <path id="sumbawa-island" class="island-path" 
+                  d="M 350,180 C 370,175 390,170 410,185 C 430,200 420,230 450,240 C 470,245 490,200 520,190 C 530,195 525,215 540,220 C 560,225 580,180 610,170 C 640,160 670,175 700,160 C 730,145 750,180 730,210 C 710,230 680,220 660,235 C 640,250 630,220 610,230 C 590,240 560,260 540,245 C 520,230 490,275 460,270 C 430,265 410,240 380,245 C 360,250 345,230 340,210 C 335,190 340,185 350,180 Z" />
+
+            <!-- PIN: Taliwang (Sumbawa Barat) -->
+            <g class="map-pin" data-id="taliwang" data-island="sumbawa-island">
+              <circle cx="360" cy="205" r="10" class="outer" />
+              <circle cx="360" cy="205" r="5" class="inner" />
+            </g>
+
+            <!-- PIN: Mataram / Rembiga (Lombok Barat/Kota) -->
+            <g class="map-pin" data-id="rembiga" data-island="lombok-island">
+              <circle cx="210" cy="195" r="10" class="outer" />
+              <circle cx="210" cy="195" r="5" class="inner" />
+            </g>
+
+            <!-- PIN: Puyung (Lombok Tengah) -->
+            <g class="map-pin" data-id="puyung" data-island="lombok-island">
+              <circle cx="245" cy="220" r="10" class="outer" />
+              <circle cx="245" cy="220" r="5" class="inner" />
+            </g>
+
+            <!-- PIN: Lingsar / Rinjani (Lombok Barat/Utara) -->
+            <g class="map-pin" data-id="lingsar" data-island="lombok-island">
+              <circle cx="250" cy="165" r="10" class="outer" />
+              <circle cx="250" cy="165" r="5" class="inner" />
+            </g>
+          </svg>
+          
+          <!-- Tooltip element inside wrapper for absolute positioning -->
+          <div class="map-tooltip" id="map-tooltip">
+            <div class="tooltip-header"></div>
+            <div class="tooltip-title"></div>
+            <div class="tooltip-body"></div>
+            <div class="tooltip-meta">
+              <span class="tooltip-pedas"></span>
+              <span class="tooltip-kalori"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -277,5 +456,121 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/region.js"></script>
+  <script>
+    /* ── INTERACTIVE CULINARY MAP SYSTEM ── */
+    (function () {
+      const mapData = {
+        'taliwang': {
+          region: 'Taliwang (Sumbawa Barat)',
+          nama: 'Ayam Taliwang',
+          desc: 'Kuliner ayam kampung bakar/goreng pedas membakar yang mewakili ketahanan sejarah bumbu Sasak-Samawa.',
+          pedas: '90/100',
+          kalori: '280 kcal'
+        },
+        'rembiga': {
+          region: 'Rembiga (Mataram)',
+          nama: 'Sate Rembiga',
+          desc: 'Daging sapi pilihan yang dimarinasi bumbu manis-pedas gurih khas Rembiga hingga meresap ke serat terdalam.',
+          pedas: '75/100',
+          kalori: '250 kcal'
+        },
+        'puyung': {
+          region: 'Puyung (Lombok Tengah)',
+          nama: 'Nasi Balap Puyung',
+          desc: 'Nasi bungkus khas puyung dengan taburan ayam suwir pedas kering, kelapa parut, dan renyahnya kacang kedelai.',
+          pedas: '95/100',
+          kalori: '320 kcal'
+        },
+        'lingsar': {
+          region: 'Lingsar / Suranadi (Lombok Barat)',
+          nama: 'Plecing Kangkung & Beberuk',
+          desc: 'Sayur segar dingin berkuah sambal terasi lekok khas Lombok dengan kangkung berongga besar yang renyah.',
+          pedas: '85/100',
+          kalori: '45-60 kcal'
+        }
+      };
+
+      const pins = document.querySelectorAll('.map-pin');
+      const tooltip = document.getElementById('map-tooltip');
+      const container = document.getElementById('map-container');
+
+      pins.forEach(pin => {
+        const islandId = pin.dataset.island;
+        const islandPath = document.getElementById(islandId);
+
+        pin.addEventListener('mousemove', (e) => {
+          const id = pin.dataset.id;
+          const data = mapData[id];
+          if (!data) return;
+
+          // Highlight island path
+          if (islandPath) islandPath.classList.add('highlighted');
+
+          // Fill tooltip content
+          tooltip.querySelector('.tooltip-header').innerText = data.region;
+          tooltip.querySelector('.tooltip-title').innerText = data.nama;
+          tooltip.querySelector('.tooltip-body').innerText = data.desc;
+          tooltip.querySelector('.tooltip-pedas').innerText = '🔥 Pedas: ' + data.pedas;
+          tooltip.querySelector('.tooltip-kalori').innerText = '⚡ Kalori: ' + data.kalori;
+
+          // Position tooltip
+          const rect = container.getBoundingClientRect();
+          const pinRect = pin.getBoundingClientRect();
+          
+          const x = pinRect.left - rect.left + pinRect.width / 2;
+          const y = pinRect.top - rect.top;
+
+          tooltip.style.left = x + 'px';
+          tooltip.style.top = y + 'px';
+          tooltip.classList.add('visible');
+        });
+
+        pin.addEventListener('mouseleave', () => {
+          if (islandPath) islandPath.classList.remove('highlighted');
+          tooltip.classList.remove('visible');
+        });
+
+        pin.addEventListener('click', () => {
+          const id = pin.dataset.id;
+          const categoryMap = {
+            'taliwang': 'makanan-berat',
+            'rembiga': 'makanan-berat',
+            'puyung': 'makanan-berat',
+            'lingsar': 'semua'
+          };
+          
+          const filter = categoryMap[id];
+          const tab = document.querySelector(`.filter-tab[data-filter="${filter}"]`);
+          if (tab) {
+            tab.click();
+          }
+          
+          const grid = document.getElementById('dish-grid');
+          if (grid) {
+            grid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+
+          const cardIdMap = {
+            'taliwang': 'ayam-taliwang',
+            'rembiga': 'sate-rembiga',
+            'puyung': 'nasi-balap-puyung',
+            'lingsar': 'plecing-kangkung'
+          };
+          const cardId = cardIdMap[id];
+          setTimeout(() => {
+            const targetCard = document.querySelector(`.dish-card[data-id="${cardId}"]`);
+            if (targetCard) {
+              targetCard.style.outline = '3px solid #38b293';
+              targetCard.style.transform = 'translateY(-10px)';
+              setTimeout(() => {
+                targetCard.style.outline = '';
+                targetCard.style.transform = '';
+              }, 2500);
+            }
+          }, 600);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
