@@ -174,12 +174,17 @@
       stroke-width: 1.5px;
       animation: pinPulse 2.5s infinite;
       transform-origin: center;
+      transform-box: fill-box;
+      pointer-events: none;
     }
     .map-pin circle.inner {
       fill: #38b293;
       stroke: #fff;
       stroke-width: 1px;
       transition: transform 0.3s, fill 0.3s;
+      transform-origin: center;
+      transform-box: fill-box;
+      pointer-events: none;
     }
     .map-pin:hover circle.inner {
       fill: #ff4c22;
@@ -312,24 +317,28 @@
 
             <!-- PIN: Taliwang (Sumbawa Barat) -->
             <g class="map-pin" data-id="taliwang" data-island="sumbawa-island">
+              <circle cx="360" cy="205" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="360" cy="205" r="10" class="outer" />
               <circle cx="360" cy="205" r="5" class="inner" />
             </g>
 
             <!-- PIN: Mataram / Rembiga (Lombok Barat/Kota) -->
             <g class="map-pin" data-id="rembiga" data-island="lombok-island">
+              <circle cx="210" cy="195" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="210" cy="195" r="10" class="outer" />
               <circle cx="210" cy="195" r="5" class="inner" />
             </g>
 
             <!-- PIN: Puyung (Lombok Tengah) -->
             <g class="map-pin" data-id="puyung" data-island="lombok-island">
+              <circle cx="245" cy="220" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="245" cy="220" r="10" class="outer" />
               <circle cx="245" cy="220" r="5" class="inner" />
             </g>
 
             <!-- PIN: Lingsar / Rinjani (Lombok Barat/Utara) -->
             <g class="map-pin" data-id="lingsar" data-island="lombok-island">
+              <circle cx="250" cy="165" r="22" style="fill: transparent; stroke: none; pointer-events: all; cursor: pointer;" />
               <circle cx="250" cy="165" r="10" class="outer" />
               <circle cx="250" cy="165" r="5" class="inner" />
             </g>
@@ -513,8 +522,9 @@
           tooltip.querySelector('.tooltip-pedas').innerText = '🔥 Pedas: ' + data.pedas;
           tooltip.querySelector('.tooltip-kalori').innerText = '⚡ Kalori: ' + data.kalori;
 
-          // Position tooltip
-          const rect = container.getBoundingClientRect();
+          // Position tooltip relative to map-svg-wrapper
+          const wrapper = container.querySelector('.map-svg-wrapper') || container;
+          const rect = wrapper.getBoundingClientRect();
           const pinRect = pin.getBoundingClientRect();
           
           const x = pinRect.left - rect.left + pinRect.width / 2;
