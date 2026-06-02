@@ -138,7 +138,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform: rotate(90deg);
     }
     .needle-north {
@@ -197,6 +197,7 @@
       height: 320px;
       perspective: 1000px;
       cursor: pointer;
+      transition: transform 0.15s ease;
     }
     .flip-card-inner {
       position: relative;
@@ -677,6 +678,28 @@
       }
     }
     
+    .filter-tabs, .dish-grid {
+      position: relative;
+      z-index: 2;
+    }
+    
+    @keyframes mortarShake {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      10% { transform: translate(-3px, 2px) rotate(-1deg); }
+      20% { transform: translate(2px, -3px) rotate(1deg); }
+      30% { transform: translate(-2px, -2px) rotate(0deg); }
+      40% { transform: translate(3px, 2px) rotate(1deg); }
+      50% { transform: translate(-2px, 3px) rotate(-1deg); }
+      60% { transform: translate(2px, -2px) rotate(0deg); }
+      70% { transform: translate(-3px, -3px) rotate(1deg); }
+      80% { transform: translate(3px, -2px) rotate(-1deg); }
+      90% { transform: translate(-2px, 2px) rotate(0deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    .mortar-body.grinding {
+      animation: mortarShake 0.15s infinite;
+    }
+    
     /* ── COBEK BATU MINI-GAME ── */
     .cobek-grid {
       display: grid;
@@ -1000,8 +1023,11 @@
       </div>
     </section>
 
-    <section class="container" style="margin-top:2.5rem;">
-      <div class="compass-container reveal">
+    <section class="container" style="margin-top:2.5rem; position: relative;">
+      <!-- Canvas for background flavor particles -->
+      <canvas id="flavor-particles" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; opacity: 0.85;"></canvas>
+      
+      <div class="compass-container reveal" style="position: relative; z-index: 2;">
         <h3 class="compass-title">Kompas Rasa Sasak</h3>
         <p class="compass-subtitle">Klik arah mata angin atau putar jarum kompas untuk menelusuri rasa kuliner NTB</p>
         
@@ -1396,15 +1422,18 @@
           document.querySelector('.sector-north').classList.add('active');
           compassBody.classList.add('glow-north');
           feedback.style.color = '#c84c22';
+          if (window.updateParticlesMode) window.updateParticlesMode('hot');
         } else if (value < 30) {
           dirText = 'Embun Rinjani 🌿 (Hidangan Segar & Ringan)';
           document.querySelector('.sector-south').classList.add('active');
           compassBody.classList.add('glow-south');
           feedback.style.color = '#1a5c4a';
+          if (window.updateParticlesMode) window.updateParticlesMode('fresh');
         } else {
           document.querySelector('.sector-east').classList.add('active');
           compassBody.classList.add('glow-east');
           feedback.style.color = 'var(--color-primary)';
+          if (window.updateParticlesMode) window.updateParticlesMode('neutral');
         }
         feedback.innerText = dirText;
 
@@ -1612,10 +1641,61 @@
         
         mortarBody.classList.add('grinding');
 
+        // Spawn splatter particles
+        function spawnSplatter() {
+          const ingredientColors = {
+            'cabai': ['#ff3d00', '#d84315', '#ff1744'],
+            'terasi': ['#8d6e63', '#5d4037', '#4e342e'],
+            'tomat': ['#ff5722', '#e65100', '#ff3d00'],
+            'limau': ['#2e7d32', '#8bc34a', '#4caf50'],
+            'bawang': ['#8e24aa', '#d81b60', '#ab47bc']
+          };
+          let colors = [];
+          addedIngredients.forEach(ing => {
+            if (ingredientColors[ing]) {
+              colors.push(...ingredientColors[ing]);
+            }
+          });
+          if (colors.length === 0) {
+            colors = ['#e65100', '#2e7d32', '#8d6e63', '#d84315', '#ffeb3b'];
+          }
+          const particle = document.createElement('div');
+          particle.style.position = 'absolute';
+          particle.style.width = '6px';
+          particle.style.height = '6px';
+          particle.style.borderRadius = '50%';
+          particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+          particle.style.left = '50%';
+          particle.style.top = '50%';
+          particle.style.transform = 'translate(-50%, -50%)';
+          particle.style.pointerEvents = 'none';
+          particle.style.zIndex = '15';
+          
+          const angle = Math.random() * Math.PI * 2;
+          const dist = Math.random() * 80 + 30;
+          const tx = Math.cos(angle) * dist;
+          const ty = Math.sin(angle) * dist;
+          
+          mortarBody.appendChild(particle);
+          
+          particle.animate([
+            { transform: 'translate(-50%, -50%) scale(1.2)', opacity: 1 },
+            { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+          ], {
+            duration: 500 + Math.random() * 300,
+            easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
+            fill: 'forwards'
+          });
+          
+          setTimeout(() => particle.remove(), 800);
+        }
+        const splatterInterval = setInterval(spawnSplatter, 40);
+
         resultTitle.textContent = 'Mengulek Bahan...';
         resultDesc.textContent = 'Sedang melumatkan cabai, terasi, dan rempah segar di cobek batu.';
 
         setTimeout(() => {
+          clearInterval(splatterInterval);
           mortarBody.classList.remove('grinding');
           mortarBody.classList.add('has-paste');
           
@@ -1704,6 +1784,163 @@
         
         btnGrind.setAttribute('disabled', 'true');
         btnReset.style.display = 'none';
+      });
+    })();
+  </script>
+
+  <script>
+    /* ── DYNAMIC BACKGROUND PARTICLES ENGINE ── */
+    (function () {
+      const canvas = document.getElementById('flavor-particles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let animationId = null;
+      let particles = [];
+      let mode = 'neutral';
+      
+      function resizeCanvas() {
+        const rect = canvas.parentNode.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.size = Math.random() * 4 + 2;
+          this.speedY = 0;
+          this.speedX = (Math.random() - 0.5) * 0.5;
+          this.alpha = Math.random() * 0.5 + 0.1;
+          this.color = '';
+          this.angle = Math.random() * Math.PI * 2;
+          this.spin = (Math.random() - 0.5) * 0.03;
+          this.type = mode;
+
+          if (mode === 'hot') {
+            this.y = canvas.height + Math.random() * 20;
+            this.speedY = -(Math.random() * 1.5 + 0.8);
+            const r = 200 + Math.floor(Math.random() * 55);
+            const g = 50 + Math.floor(Math.random() * 100);
+            const b = 0;
+            this.color = `rgba(${r}, ${g}, ${b}, `;
+          } else if (mode === 'fresh') {
+            this.y = -Math.random() * 20;
+            this.speedY = Math.random() * 1.0 + 0.5;
+            this.speedX = Math.sin(this.angle) * 0.6;
+            const r = 26 + Math.floor(Math.random() * 20);
+            const g = 120 + Math.floor(Math.random() * 50);
+            const b = 74 + Math.floor(Math.random() * 30);
+            this.color = `rgba(${r}, ${g}, ${b}, `;
+          } else {
+            this.y = Math.random() * canvas.height;
+          }
+        }
+
+        update() {
+          if (this.type !== mode && mode !== 'neutral') {
+            this.reset();
+          }
+
+          if (mode === 'hot') {
+            this.y += this.speedY;
+            this.x += this.speedX;
+            if (this.y < 0) this.reset();
+          } else if (mode === 'fresh') {
+            this.y += this.speedY;
+            this.angle += this.spin;
+            this.x += Math.sin(this.angle) * 0.8;
+            if (this.y > canvas.height) this.reset();
+          } else {
+            this.alpha -= 0.01;
+            if (this.alpha < 0) this.alpha = 0;
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.alpha;
+          
+          if (this.type === 'hot') {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + '1)';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = 'rgba(200, 76, 34, 0.8)';
+            ctx.fill();
+          } else if (this.type === 'fresh') {
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.angle);
+            ctx.beginPath();
+            ctx.moveTo(0, -this.size * 1.5);
+            ctx.quadraticCurveTo(this.size, -this.size / 2, 0, this.size * 1.5);
+            ctx.quadraticCurveTo(-this.size, -this.size / 2, 0, -this.size * 1.5);
+            ctx.fillStyle = this.color + '1)';
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        const count = 40;
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        if (mode !== 'neutral' || particles.some(p => p.alpha > 0)) {
+          particles.forEach(p => {
+            p.update();
+            p.draw();
+          });
+        }
+        animationId = requestAnimationFrame(animate);
+      }
+
+      window.updateParticlesMode = function(newMode) {
+        if (newMode === mode) return;
+        mode = newMode;
+        if (particles.length === 0) {
+          initParticles();
+        } else if (mode !== 'neutral') {
+          // Immediately reset particles to spawn them for the active mode
+          particles.forEach(p => p.reset());
+        }
+      };
+
+      initParticles();
+      animate();
+    })();
+
+    /* ── 3D CARD HOVER TILT SYSTEM ── */
+    (function () {
+      const cards = document.querySelectorAll('.flip-card');
+      
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const rotateX = ((y / rect.height) - 0.5) * -12;
+          const rotateY = ((x / rect.width) - 0.5) * 12;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
       });
     })();
   </script>
