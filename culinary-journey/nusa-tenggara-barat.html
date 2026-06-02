@@ -12,23 +12,178 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <style>
-    /* ── Fire & Freshness Slider ── */
-    .slider-container { margin: 2rem auto 3.5rem; max-width: 600px; text-align: center; }
-    .slider-labels { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
-    .label-embun { color: #1a5c4a; }
-    .label-bara { color: #c84c22; }
+    /* ── COMPASS SYSTEM ── */
+    .compass-container {
+      margin: 2rem auto 3.5rem;
+      max-width: 600px;
+      text-align: center;
+      background: var(--color-surface-container);
+      border: 1px solid var(--color-outline-variant);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .compass-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--color-on-surface);
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+    .compass-subtitle {
+      font-size: 0.8rem;
+      color: var(--color-on-surface-variant);
+      margin-bottom: 2rem;
+    }
+    .compass-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5rem 0;
+    }
+    .compass-body {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #2d1c10 40%, #1f1006 100%);
+      border: 6px solid var(--color-outline);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 25px rgba(0,0,0,0.8);
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+    .compass-body.glow-north {
+      border-color: #c84c22;
+      box-shadow: 0 15px 35px rgba(200, 76, 34, 0.25), inset 0 0 25px rgba(200, 76, 34, 0.4);
+    }
+    .compass-body.glow-south {
+      border-color: #1a5c4a;
+      box-shadow: 0 15px 35px rgba(26, 92, 74, 0.25), inset 0 0 25px rgba(26, 92, 74, 0.4);
+    }
+    .compass-body.glow-east {
+      border-color: var(--color-primary);
+      box-shadow: 0 15px 35px rgba(250, 188, 83, 0.25), inset 0 0 25px rgba(250, 188, 83, 0.4);
+    }
     
-    input[type=range].dialektika-slider {
-      -webkit-appearance: none; width: 100%; background: transparent;
+    .compass-ring {
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1px dashed rgba(157, 143, 124, 0.3);
+      pointer-events: none;
     }
-    input[type=range].dialektika-slider::-webkit-slider-thumb {
-      -webkit-appearance: none; height: 24px; width: 24px; border-radius: 50%;
-      background: var(--color-surface-container-lowest); border: 2px solid var(--color-outline);
-      cursor: pointer; margin-top: -9px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    .compass-ring::before {
+      content: '';
+      position: absolute;
+      inset: 15px;
+      border-radius: 50%;
+      border: 1px solid rgba(157, 143, 124, 0.15);
     }
-    input[type=range].dialektika-slider::-webkit-slider-runnable-track {
-      width: 100%; height: 6px; cursor: pointer; border-radius: 4px;
-      background: linear-gradient(to right, #1a5c4a, #8f8576, #c84c22);
+    
+    .compass-sector {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+    .compass-sector:hover {
+      background: rgba(252, 220, 202, 0.05);
+    }
+    .sector-icon {
+      font-size: 1.25rem;
+      margin-bottom: 2px;
+    }
+    .sector-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .compass-sector.active .sector-label {
+      color: var(--color-on-surface);
+    }
+    
+    .sector-north {
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .sector-north.active .sector-label { color: #ff6e40; text-shadow: 0 0 8px rgba(255, 110, 64, 0.5); }
+    
+    .sector-south {
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .sector-south.active .sector-label { color: #38b293; text-shadow: 0 0 8px rgba(56, 178, 147, 0.5); }
+    
+    .sector-east {
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .sector-east.active .sector-label { color: var(--color-primary); text-shadow: 0 0 8px rgba(250, 188, 83, 0.5); }
+    
+    .compass-needle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      transform: rotate(90deg);
+    }
+    .needle-north {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 80px;
+      background: linear-gradient(to top, #c84c22 70%, #ff6e40 100%);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      filter: drop-shadow(0 0 4px rgba(200, 76, 34, 0.6));
+    }
+    .needle-south {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 80px;
+      background: linear-gradient(to bottom, #1a5c4a 70%, #38b293 100%);
+      clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+      filter: drop-shadow(0 0 4px rgba(26, 92, 74, 0.6));
+    }
+    .needle-pivot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 24px;
+      height: 24px;
+      background: radial-gradient(circle, var(--color-primary) 30%, var(--color-outline) 100%);
+      border: 3px solid #1f1006;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    
+    .compass-feedback {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--color-on-surface-variant);
+    }
+    .compass-feedback strong {
+      color: var(--color-on-surface);
+      transition: color 0.3s ease;
     }
     
     /* Glow effects for cards */
@@ -352,16 +507,42 @@
     </section>
 
     <section class="container" style="margin-top:2.5rem;">
-      <div class="slider-container reveal">
-        <div class="slider-labels">
-          <span class="label-embun">🌿 Normal</span>
-          <span style="color: var(--color-on-surface-variant);">Sedang</span>
-          <span class="label-bara">🔥 Pedas</span>
+      <div class="compass-container reveal">
+        <h3 class="compass-title">Kompas Rasa Sasak</h3>
+        <p class="compass-subtitle">Klik arah mata angin atau putar jarum kompas untuk menelusuri rasa kuliner NTB</p>
+        
+        <div class="compass-wrapper">
+          <div class="compass-body" id="compass-body">
+            <div class="compass-ring"></div>
+            
+            <div class="compass-sector sector-north" data-value="100">
+              <span class="sector-icon">🔥</span>
+              <span class="sector-label">U (Bara Api)</span>
+            </div>
+            
+            <div class="compass-sector sector-south" data-value="0">
+              <span class="sector-icon">🌿</span>
+              <span class="sector-label">S (Embun Rinjani)</span>
+            </div>
+            
+            <div class="compass-sector sector-east" data-value="50">
+              <span class="sector-icon">🍲</span>
+              <span class="sector-label">T (Pesisir)</span>
+            </div>
+            
+            <div class="compass-needle" id="compass-needle">
+              <div class="needle-north"></div>
+              <div class="needle-south"></div>
+              <div class="needle-pivot"></div>
+            </div>
+          </div>
         </div>
-        <input type="range" min="0" max="100" value="50" class="dialektika-slider" id="dialektika-slider" aria-label="Slider kontras rasa">
-        <p style="font-size: 0.85rem; color: var(--color-on-surface-variant); margin-top: 1rem;">
-          Geser slider untuk melihat spektrum ekstrem rasa kuliner Sasak.
-        </p>
+        
+        <input type="range" min="0" max="100" value="50" class="dialektika-slider" id="dialektika-slider" style="display: none;">
+        
+        <div class="compass-feedback">
+          Fokus Arah: <strong id="current-direction">Netral (Semua Hidangan)</strong>
+        </div>
       </div>
       <div class="filter-tabs" role="tablist">
         <button class="filter-tab active" data-filter="semua">Semua</button>
@@ -576,6 +757,93 @@
           }, 600);
         });
       });
+    })();
+  </script>
+
+  <script>
+    /* ── COMPASS CONTROLLER ── */
+    (function () {
+      const compassBody = document.getElementById('compass-body');
+      const needle = document.getElementById('compass-needle');
+      const slider = document.getElementById('dialektika-slider');
+      const feedback = document.getElementById('current-direction');
+      const sectors = document.querySelectorAll('.compass-sector');
+
+      if (!compassBody || !needle || !slider) return;
+
+      function updateCompassState(value, angle) {
+        // Set rotation of needle
+        needle.style.transform = `rotate(${angle}deg)`;
+
+        // Update active classes and styles
+        sectors.forEach(s => s.classList.remove('active'));
+        compassBody.classList.remove('glow-north', 'glow-south', 'glow-east');
+
+        let dirText = 'Netral (Semua Hidangan)';
+        if (value > 70) {
+          dirText = 'Bara Api 🔥 (Hidangan Pedas)';
+          document.querySelector('.sector-north').classList.add('active');
+          compassBody.classList.add('glow-north');
+          feedback.style.color = '#c84c22';
+        } else if (value < 30) {
+          dirText = 'Embun Rinjani 🌿 (Hidangan Segar & Ringan)';
+          document.querySelector('.sector-south').classList.add('active');
+          compassBody.classList.add('glow-south');
+          feedback.style.color = '#1a5c4a';
+        } else {
+          document.querySelector('.sector-east').classList.add('active');
+          compassBody.classList.add('glow-east');
+          feedback.style.color = 'var(--color-primary)';
+        }
+        feedback.innerText = dirText;
+
+        // Propagate values to the original slider and trigger change
+        slider.value = value;
+        slider.dispatchEvent(new Event('input'));
+      }
+
+      // Snap sector clicks
+      sectors.forEach(sector => {
+        sector.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const val = parseInt(sector.dataset.value);
+          let targetAngle = 90;
+          if (val === 100) targetAngle = 0;
+          else if (val === 0) targetAngle = 180;
+          updateCompassState(val, targetAngle);
+        });
+      });
+
+      // Handle clicking anywhere on the compass face
+      compassBody.addEventListener('click', (e) => {
+        const rect = compassBody.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+
+        let angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+        if (angle < 0) angle += 360;
+
+        let snappedAngle = 90;
+        let value = 50;
+
+        if (angle >= 315 || angle < 45) {
+          snappedAngle = 0;
+          value = 100;
+        } else if (angle >= 135 && angle < 225) {
+          snappedAngle = 180;
+          value = 0;
+        } else {
+          snappedAngle = 90;
+          value = 50;
+        }
+
+        updateCompassState(value, snappedAngle);
+      });
+
+      // Set initial direction to East (Neutral)
+      updateCompassState(50, 90);
     })();
   </script>
 </body>
