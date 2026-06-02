@@ -2486,6 +2486,13 @@
       .nav-ham {
         display: none
       }
+      .navbar__mobile-menu {
+        display: none !important;
+      }
+    }
+
+    .navbar__mobile-menu {
+      top: 60px;
     }
 
     /* Reading progress */
@@ -2569,11 +2576,19 @@
         <span class="material-symbols-outlined" style="font-size:1rem">arrow_back</span>
         Kembali
       </a>
-      <button class="nav-ham" id="hamburger" aria-label="Menu">
+      <button class="nav-ham" id="hamburger" aria-label="Buka menu" aria-expanded="false">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
   </nav>
+
+  <div class="navbar__mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Beranda</a>
+    <a href="yogyakarta.html">Yogyakarta</a>
+    <a href="sumatera-selatan.html">Sumatera Selatan</a>
+    <a href="nusa-tenggara-barat.html">Nusa Tenggara Barat</a>
+    <a href="insight.html">Data & Insight</a>
+  </div>
 
   <!-- ══ SECTION 1: SCROLL-EXPAND HERO ══ -->
   <div id="hero" aria-label="Hero Yogyakarta — Gerbang Sumbu Filosofis">
@@ -3548,9 +3563,23 @@
     })();
 
     /* ══ MOBILE MENU ══ */
-    document.getElementById('hamburger').addEventListener('click', function () {
-      /* simple alert for now — will be replaced by full mobile menu */
-    });
+    (function () {
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function () {
+          var isOpen = mobileMenu.classList.toggle('open');
+          hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        var links = mobileMenu.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function () {
+            mobileMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+          });
+        }
+      }
+    })();
 
     /* ══ SATE KLATAK ACCORDION ══ */
     function toggleAcc(id, btn) {
