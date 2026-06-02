@@ -92,6 +92,162 @@
       align-items: center;
       padding: 2rem;
     }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background: #070a08;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      will-change: opacity;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-bg-dim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(7, 10, 8, 0.45) 0%, rgba(7, 10, 8, 0.8) 100%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image: radial-gradient(ellipse 6px 4px at 12px 12px, rgba(26, 92, 74, 0.15) 60%, transparent 60%),
+                        radial-gradient(ellipse 6px 4px at 0 0, rgba(26, 92, 74, 0.15) 60%, transparent 40%);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+    .hero-frame-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      will-change: width, height, border-radius;
+    }
+    .hero-frame {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(0, 0, 0, 0.6);
+      will-change: border-radius;
+    }
+    .hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-frame-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      will-change: opacity;
+    }
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 4;
+      text-align: center;
+      width: 100%;
+      padding: 0 1rem;
+      pointer-events: none;
+      will-change: opacity;
+    }
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #38b293;
+      display: block;
+      margin-bottom: 1.5rem;
+      will-change: opacity, transform;
+    }
+    .hero-word {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      font-weight: 700;
+      color: #fcdcca;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      will-change: transform, opacity;
+    }
+    .hero-word--sub {
+      font-size: clamp(1.15rem, 3vw, 2.25rem);
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(252, 220, 202, .9);
+      margin-top: .5rem;
+    }
+    .hero-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      pointer-events: none;
+      will-change: opacity;
+    }
+    .hero-hint span {
+      font-family: 'Inter', sans-serif;
+      font-size: .625rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(252, 220, 202, .7);
+    }
+    .hint-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, #1a5c4a, transparent);
+      animation: hintPulse 2s ease-in-out infinite;
+    }
+    @keyframes hintPulse {
+      0%, 100% { opacity: .3; transform: scaleY(.8); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* Navbar override to NTB palette */
+    .navbar {
+      background-color: rgba(7, 10, 8, 0.9) !important;
+      border-bottom: 1px solid rgba(26, 92, 74, 0.3) !important;
+    }
+    .navbar__logo {
+      color: #38b293 !important;
+    }
+    .navbar__links a:hover,
+    .navbar__links a.active {
+      color: #38b293 !important;
+      border-bottom-color: #38b293 !important;
+    }
+    .navbar__back:hover {
+      color: #38b293 !important;
+      border-color: #38b293 !important;
+    }
+    body {
+      background-color: #070a08 !important;
+    }
   </style>
 </head>
 <body data-region="nusa-tenggara-barat">
@@ -126,7 +282,40 @@
     <a href="insight.html">📊 Data & Insight</a>
   </div>
 
-  <main>
+  <!-- ══ SECTION 1: SCROLL-EXPAND HERO ══ -->
+  <div id="hero" aria-label="Hero Nusa Tenggara Barat — Gerbang Bara & Ombak">
+    <!-- Background: Mount Rinjani (Bara Theme) -->
+    <div class="hero-bg" id="heroBg">
+      <img src="https://images.unsplash.com/photo-1571738342194-e8654de98a96?w=1600&q=80" alt="Gunung Rinjani Lombok" loading="eager" />
+      <div class="hero-bg-dim"></div>
+    </div>
+
+    <!-- Sasambo pattern -->
+    <div class="hero-pattern" aria-hidden="true"></div>
+
+    <!-- Expanding frame: Lombok Tropical Beach (Ombak Theme) -->
+    <div class="hero-frame-wrap" id="heroFrame" style="width:300px;height:400px;">
+      <div class="hero-frame" id="heroFrameInner" style="border-radius:14px;">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80" alt="Pantai Lombok" loading="eager" />
+        <div class="hero-frame-overlay" id="heroFrameOverlay"></div>
+      </div>
+    </div>
+
+    <!-- Title words -->
+    <div class="hero-title" id="heroTitle">
+      <span class="hero-eyebrow" id="heroEyebrow">🌊 The Spice Frontier &middot; Lombok &amp; Sumbawa</span>
+      <span class="hero-word" id="heroWordL">Nusa Tenggara Barat</span>
+      <span class="hero-word hero-word--sub" id="heroWordR">Bara &amp; Ombak di Ujung Sunda Kecil</span>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-hint" id="heroHint" aria-hidden="true">
+      <span>Gulir untuk Menjelajah</span>
+      <div class="hint-line"></div>
+    </div>
+  </div>
+
+  <main id="post-hero" style="display:none; padding-top:64px;">
     <section class="region-header container">
       <span class="region-header__eyebrow text-label reveal" style="color:#1a5c4a;">🌊 The Spice Frontier</span>
       <h1 class="text-display region-header__title reveal reveal--delay-1">Nusa Tenggara Barat</h1>
@@ -256,5 +445,141 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/region.js"></script>
+  <script>
+    /* ── SCROLL-EXPAND HERO (Reversible) ── */
+    (function () {
+      var hero = document.getElementById('hero');
+      var heroBg = document.getElementById('heroBg');
+      var frame = document.getElementById('heroFrame');
+      var frameInner = document.getElementById('heroFrameInner');
+      var frameOv = document.getElementById('heroFrameOverlay');
+      var wordL = document.getElementById('heroWordL');
+      var wordR = document.getElementById('heroWordR');
+      var eyebrow = document.getElementById('heroEyebrow');
+      var hint = document.getElementById('heroHint');
+      var postHero = document.getElementById('post-hero');
+
+      var progress = 0;          // 0–1
+      var isExpanded = false;
+      var isMobile = window.innerWidth < 768;
+      window.addEventListener('resize', function () { isMobile = window.innerWidth < 768; });
+
+      function clamp(v, mn, mx) { return Math.min(Math.max(v, mn), mx); }
+
+      function render() {
+        var p = progress;
+
+        /* Frame size */
+        var baseW = isMobile ? 260 : 300;
+        var baseH = isMobile ? 340 : 400;
+        var extraW = isMobile ? (window.innerWidth - baseW - 20) : 1250;
+        var extraH = isMobile ? 260 : 420;
+        var w = baseW + p * extraW;
+        var h = baseH + p * extraH;
+        frame.style.width = Math.min(w, window.innerWidth * 0.97) + 'px';
+        frame.style.height = Math.min(h, window.innerHeight * 0.94) + 'px';
+        frameInner.style.borderRadius = (14 * (1 - p)) + 'px';
+
+        /* Frame overlay */
+        frameOv.style.opacity = Math.max(0, 0.35 - p * 0.35);
+
+        /* BG fades out as frame expands */
+        heroBg.style.opacity = Math.max(0, 1 - p * 1.4);
+
+        /* Words split */
+        var shift = (isMobile ? 22 : 16) * p;
+        wordL.style.transform = 'translateX(-' + shift + 'vw)';
+        wordR.style.transform = 'translateX(' + shift + 'vw)';
+        var textOp = Math.max(0, 1 - p * 2.2);
+        wordL.style.opacity = textOp;
+        wordR.style.opacity = textOp;
+        eyebrow.style.opacity = Math.max(0, 1 - p * 3);
+        hint.style.opacity = Math.max(0, 1 - p * 4);
+      }
+
+      function setProgress(newP) {
+        progress = clamp(newP, 0, 1);
+        render();
+
+        if (progress >= 1 && !isExpanded) {
+          isExpanded = true;
+          hero.style.display = 'none';
+          postHero.style.display = 'block';
+          document.body.style.overflowY = 'auto';
+          window.scrollTo(0, 0);
+        }
+        if (progress < 1 && isExpanded && window.scrollY <= 0) {
+          isExpanded = false;
+          hero.style.display = '';
+          postHero.style.display = 'none';
+          document.body.style.overflowY = 'hidden';
+        }
+      }
+
+      /* Init */
+      document.body.style.overflowY = 'hidden';
+      postHero.style.display = 'none';
+      render();
+
+      /* Wheel */
+      window.addEventListener('wheel', function (e) {
+        if (isExpanded && window.scrollY > 10) return;
+        if (isExpanded && e.deltaY < 0) {
+          /* Scroll back up into hero from post-hero top */
+          e.preventDefault();
+          setProgress(progress - e.deltaY * -0.001);
+          return;
+        }
+        if (!isExpanded) {
+          e.preventDefault();
+          setProgress(progress + e.deltaY * 0.001);
+        }
+      }, { passive: false });
+
+      /* Touch */
+      var ty0 = 0;
+      window.addEventListener('touchstart', function (e) {
+        ty0 = e.touches[0].clientY;
+      }, { passive: true });
+      window.addEventListener('touchmove', function (e) {
+        var dy = ty0 - e.touches[0].clientY;
+        if (isExpanded && window.scrollY > 10) { ty0 = e.touches[0].clientY; return; }
+        if (isExpanded && dy < -10) {
+          e.preventDefault();
+          setProgress(progress + dy * 0.006);
+        } else if (!isExpanded) {
+          e.preventDefault();
+          setProgress(progress + dy * 0.005);
+        }
+        ty0 = e.touches[0].clientY;
+      }, { passive: false });
+
+      /* Prevent normal scroll when at top of post-hero (enable re-entry) */
+      window.addEventListener('scroll', function () {
+        if (!isExpanded) return;
+        var rp = document.getElementById('reading-progress');
+        if (rp) {
+          var d = document.documentElement;
+          var top = d.scrollTop || document.body.scrollTop;
+          var h = d.scrollHeight - d.clientHeight;
+          rp.style.width = h > 0 ? ((top / h) * 100) + '%' : '0%';
+        }
+        if (window.scrollY <= 0) {
+          /* User scrolled to very top — allow re-entering hero */
+          setProgress(0.99);
+        }
+      }, { passive: true });
+    })();
+
+    /* ── SCROLL REVEAL ── */
+    (function () {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
 </body>
 </html>
